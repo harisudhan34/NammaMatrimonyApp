@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#c50e2f</color>
+    <color name="colorPrimaryDark">#FF69BC</color>
+    <color name="skyblue">#00BFFF</color>
+    <color name="colorAccent">#C22143</color>
+    <color name="light_gray">#ededed</color>
+    <color name="pale_gray">#f1f1f1</color>
+    <color name="input_text_color">#727272</color>
+    <color name="medium_gray">#a8a8a8</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="light_blue">#e5f8ff</color>
+    <color name="pink">#de3c92</color>
+    <color name="social_login_color">#b7eaff</color>
+    <color name="tab_selected">#cccccc</color>
+    <color name="deepskyblue">#00BFFF</color>
+    <color name="spinnercolor">#16c22143</color>
+    <color name="login_btn_color">#FF0000</color>
+    <color name="royal_blue">#4169E1</color>
+    <color name="transparent_white">#26FFFFFF</color>
+    <color name="black_gradient">#BF252424</color>
+    <color name="red">#ffff0000</color>
+    <color name="hintgray">#808080</color>
+    <color name="gradient_light_start">#30000000</color>
+    <color name="header">#1c5c77</color>
+    <color name="test_editprofile">#2B2828</color>
+
+</resources>

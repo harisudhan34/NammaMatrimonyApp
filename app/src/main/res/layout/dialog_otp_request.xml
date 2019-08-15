@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/medium_padding">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/medium_padding"
+        android:layout_marginRight="@dimen/medium_padding"
+        android:layout_marginTop="@dimen/medium_padding"
+        android:gravity="center"
+        android:padding="@dimen/medium_padding"
+        android:text="Enter your Mobile Number to verify via OTP"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/input_field_text_size" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/tetMobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/input_field_height"
+        android:layout_marginRight="@dimen/input_field_height"
+        android:layout_marginTop="@dimen/medium_padding"
+        android:background="@drawable/rounded_small_edittext_dark_red"
+        android:hint="Enter your Mobile Number.."
+        android:padding="@dimen/medium_padding"
+        android:singleLine="true"
+        android:textSize="@dimen/input_field_text_size" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="@dimen/medium_padding"
+        android:weightSum="2">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="@dimen/medium_padding"
+            android:layout_weight="1"
+            android:background="@color/skyblue"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/input_field_text_size" />
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnSend"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/skyblue"
+            android:singleLine="true"
+            android:text="@string/send_otp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/input_text_size" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

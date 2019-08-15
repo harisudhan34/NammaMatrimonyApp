@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="@dimen/medium_padding">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/nav_menu_size"
+        android:layout_height="@dimen/nav_menu_size"
+        android:src="@drawable/education" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/medium_padding"
+        android:gravity="center_vertical"
+        android:text="@string/education"
+        android:textColor="@color/pink"
+        android:textSize="@dimen/medium_text_size1" />
+
+</LinearLayout>

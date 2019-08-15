@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".matches.ViewAllMatchess">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_collapseMode="none">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/pink"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Matches"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/opensansregular"
+                android:textStyle="bold"/>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:padding="5dp"
+
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/btn_education"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Education"
+                android:layout_margin="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/black"
+                android:background="@drawable/matches_header"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/btn_locality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locality"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/matches_header"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:paddingRight="10dp"/>
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/btn_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Star"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/black"
+                android:background="@drawable/matches_header"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/btn_profession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profession"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/black"
+                android:background="@drawable/matches_header"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <include layout="@layout/content_view_all_matchess" />
+
+
+</LinearLayout>

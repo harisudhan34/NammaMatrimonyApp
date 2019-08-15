@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:paddingBottom="20dp"
+    android:gravity="center_horizontal|center_vertical"
+    android:background="@color/pale_gray"
+    android:orientation="vertical">
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/dashboardicon"
+        app:civ_border_width="5dp"
+        app:civ_border_color="@color/light_gray"/>
+
+    <!--<android.support.v7.widget.AppCompatImageView-->
+        <!--android:id="@+id/ivCover"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:contentDescription="@string/nav_header_desc"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@drawable/dashboard_banner" />-->
+
+    <!--<android.support.v7.widget.AppCompatImageView-->
+        <!--android:id="@+id/ivProfile"-->
+        <!--android:layout_width="@dimen/profile_image_size"-->
+        <!--android:layout_height="@dimen/profile_image_size"-->
+        <!--android:layout_marginTop="-50dp"-->
+        <!--android:contentDescription="@string/nav_header_desc"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/user" />-->
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mr.User"
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_margin" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/medium_text_size1"
+        android:text="NM-123456"
+        android:textColor="@color/black"
+        android:textSize="@dimen/medium_text_size" />
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPGRATE MAMBERSHIP"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:background="@drawable/pink_rounded"
+        />
+
+
+</LinearLayout>

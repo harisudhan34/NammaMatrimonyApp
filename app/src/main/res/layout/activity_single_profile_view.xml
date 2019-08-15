@@ -1,0 +1,1408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activities.SingleProfileView">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="30dp"
+            app:expandedTitleMarginEnd="64dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFF" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/gradient_match_item"
+                    android:layout_alignParentBottom="true"
+                    >
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/intro"
+                        android:layout_width="match_parent"
+                        android:text="Hi i am Vinoth Kumar"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="120dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:id="@+id/center"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_centerHorizontal="true"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+                            <android.support.v7.widget.AppCompatImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/intrest_white"
+                                android:layout_gravity="center"/>
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/opensansregular"
+                                android:layout_marginTop="5dp"
+                                android:text="Interst"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_toLeftOf="@+id/center"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="25dp"
+                            android:orientation="vertical">
+                            <android.support.v7.widget.AppCompatImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/shortlist_white"
+                                android:layout_gravity="center"/>
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/opensansregular"
+                                android:layout_marginTop="5dp"
+                                android:text="Shortlist"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_toRightOf="@+id/center"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:orientation="vertical">
+                            <android.support.v7.widget.AppCompatImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/chat_white"
+                                android:layout_gravity="center"/>
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/opensansregular"
+                                android:text="Chat"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:orientation="vertical">
+                            <android.support.v7.widget.AppCompatImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/reject_white"
+                                android:layout_gravity="center"/>
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/opensansregular"
+                                android:layout_marginTop="5dp"
+                                android:text="Reject"/>
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:background="@android:color/transparent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin" >
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Username"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/opensansregular"
+                    android:textStyle="bold"/>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<android.support.design.widget.AppBarLayout-->
+    <!--android:id="@+id/appbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+    <!--app:layout_collapseMode="none">-->
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="@color/pink"-->
+        <!--app:layout_collapseMode="pin"-->
+        <!--app:layout_scrollFlags="scroll|enterAlways"-->
+        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
+
+        <!--<android.support.v7.widget.AppCompatTextView-->
+            <!--android:id="@+id/username"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Username"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:fontFamily="@font/opensansregular"-->
+            <!--android:textStyle="bold"/>-->
+
+    <!--</android.support.v7.widget.Toolbar>-->
+<!--</android.support.design.widget.AppBarLayout>-->
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:text="Personal Information"
+            android:textColor="@color/pink"
+            android:textSize="@dimen/input_text_size"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/v_abtmyself"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"
+                android:text="Hi this is vinothkumar"
+                android:textColor="@color/black"
+                android:textSize="@dimen/profile_size" />
+
+        </LinearLayout>
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:padding="10dp"
+            android:alpha="0.2"
+            android:background="@color/medium_gray"/>
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:text="Basic Deatils"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/basic_center"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/basic_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NAME"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Name"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/basic_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DOB"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/name"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/basic_center1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/basic_center1"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GENDER"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_gender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Gender"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/basic_center1"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Languages"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_languvage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Tamil"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/basic_center2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/basic_center2"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PROFILE CREATE BY"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_profilecreate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Self"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/basic_center2"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AGE"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_age"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Tamil"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/matches_header"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="20dp"
+                android:text="Personal Details"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/personal_center"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/personal_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HEIGHT"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_height"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Weight"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/personal_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="WEIGHT"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Weight"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/personal_center1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/personal_center1"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="COMPLEXION"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_complexion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Gender"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/personal_center1"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BODYTYPE"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_bodytype"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Tamil"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/personal_center3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/personal_center3"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PAADHAM"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_paadham"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="3 rd Paadham"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/personal_center3"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DHOSAM"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_dhosam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="No"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/personal_center2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/personal_center2"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DISABILITY"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_disability"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="No"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/personal_center2"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MARITAL STATUS"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_maritalstatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Unmarried"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/matches_header"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="20dp"
+                android:text="RELIGION Details"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/religion_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RELIGION"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_religion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="HINDU"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/religion_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CASTE"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_caste"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="HINDU"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/religion_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SUB CASTE"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_ubcaste"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="HINDU"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/matches_header"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="20dp"
+                android:text="Education Details"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/education_center"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/education_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DEGREE"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_degree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="BE"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/education_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="WORKING SECTOR"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_workingsector"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Private"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/education_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Occupation"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_occupation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Software professional"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/education_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Monthly Income"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_monthlyincome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="50000"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/matches_header"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Family Details"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/family_center"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/family_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FAMILY TYPE"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_familytype"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Joint"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/family_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FAMILY STATUS"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_familystatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Poor"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/education_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Father Occupation"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_fatheroccupation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Bussiness"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/education_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MOTHER Occupation"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_motheroccupation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Home"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/education_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Number of sibiling"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_numberofsibiling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/matches_header"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="20dp"
+                android:text="Habits Details"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/habit_center"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/habit_center"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FOOD HABITS"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_foodhabit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Veg"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/habit_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SMOKING HABIT"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/v_somokinghabit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="No"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/education_center"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Father Occupation"
+                        android:textColor="@color/medium_gray"
+                        android:textSize="@dimen/profile_size" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/DRINKING_HABIT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="No"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/profile_size" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/matches_header"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Contact Details"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/contats_details"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/contats_details"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Natiolnality"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_nationality"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Indian"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/contats_details"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="COUNTRY"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_country"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="India"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/contats_details1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/contats_details1"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STATE"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Tamilnadu"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/contats_details1"
+                        android:padding="5dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CITY"
+                            android:textColor="@color/medium_gray"
+                            android:textSize="@dimen/profile_size" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/v_city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Chennai"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/profile_size" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/matches_header"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:text="About Family"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/v_abtfamily"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Hi this is vinothkumar"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/profile_size" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

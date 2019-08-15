@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "363288146844",
+    "firebase_url": "https://namme-87544.firebaseio.com",
+    "project_id": "namme-87544",
+    "storage_bucket": "namme-87544.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363288146844:android:6f89a41f3b32fae4",
+        "android_client_info": {
+          "package_name": "com.skyappz.namma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363288146844-39ibg553k0dld0j9aktqodbsvoj4t74c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo0hO3yODcXwOiEpeHyV4g0CKz9zybqUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363288146844-39ibg553k0dld0j9aktqodbsvoj4t74c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

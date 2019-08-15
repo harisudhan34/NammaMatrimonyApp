@@ -1,0 +1,108 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_top_margin"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/input_field_height"
+            android:paddingRight="@dimen/input_field_height">
+
+            <com.github.silvestrpredko.dotprogressbar.DotProgressBar
+                android:id="@+id/pbDot"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:visibility="gone"
+                custom:amount="5"
+                custom:animationDirection="left"
+                custom:duration="@android:integer/config_mediumAnimTime"
+                custom:endColor="@color/light_blue_A400"
+                custom:startColor="@color/light_blue_A700" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/logo" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/temobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/login_top_margin"
+                android:background="@drawable/bottom_line"
+                android:drawablePadding="@dimen/small_padding"
+                android:drawableStart="@drawable/lock"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="center_vertical"
+                android:hint="@string/mobile_number"
+                android:padding="@dimen/medium_padding"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/input_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvErrorMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_padding"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text_size" />
+
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="@dimen/input_field_height"
+                android:background="@drawable/pink_rounded"
+                android:fontFamily="@font/opensansregular"
+                android:padding="@dimen/small_padding"
+                android:paddingLeft="@dimen/input_field_height"
+                android:paddingRight="@dimen/input_field_height"
+                android:text="@string/next"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/btn_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/login_top_margin"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dont_have_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/input_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/medium_padding"
+                android:text="@string/signup"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/input_text_size" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

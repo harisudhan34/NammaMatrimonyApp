@@ -1,0 +1,2081 @@
+<resources>
+    <string name="app_name">Namma Matrimony</string>
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">288926668416344</string>
+    <string name="fb_login_protocol_scheme">fb288926668416344</string>
+    <!--Sign Up fragment-->
+    <string name="password">Password</string>
+    <string name="lastname">Last Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email ID</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign up</string>
+    <string name="name">Name</string>
+    <!--Sign Up fragment-->
+    <string name="submit">Submit</string>
+    <!--Dialog Strings-->
+    <string name="no_internet">No Internet Connected</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="internal_server_error">Internal server error</string>
+    <string name="logout_confirm_message">Are you sure want to logout?</string>
+    <string name="close_app_message">Are you sure want to exit?</string>
+    <string name="logout">Logout</string>
+    <string name="action_search">Search</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login_with">Login with</string>
+    <string name="not_a_member">Not a member?</string>
+    <string name="username">Username</string>
+    <string name="signup_using">Signup using</string>
+    <string name="title_activity_photos">PhotosActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_add_post">Add Post</string>
+    <string name="description">Description</string>
+    <string name="users">Post</string>
+    <string name="edit">edit</string>
+    <string name="update">Continue</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="save_and_contniue">Save and continue</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="news_feeds">News Feeds</string>
+    <string name="events">Events</string>
+    <string name="search">Search</string>
+    <string name="leader_dashboard">Leader Dashboard</string>
+    <string name="title_activity_admin">AdminActivity</string>
+    <string name="approve">Approve</string>
+    <string name="paytm_transaction_id">PayTM Transaction Number</string>
+    <string name="free">Free</string>
+    <string name="paid">Paid</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="reset">Reset</string>
+    <string name="login_via_otp">Login via OTP</string>
+    <string name="email_hint">E-Mail</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender">Gender</string>
+    <string name="dob_hint">Date of Birth - dd/mm/yyyy</string>
+    <string name="signup_agreement">I have read and agree to the</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="already_a_member">Already a member</string>
+    <string name="profile_select_hint">Profile Created by</string>
+    <string name="religion_select_hint">Select a Religion</string>
+    <string name="dob_insufficient">Please select a DOB before 16 years</string>
+    <string name="about_myself">About Myself</string>
+    <string name="about_myself_hint">About Myself...</string>
+    <string name="no_of_children">No of children</string>
+    <string name="feet">Feet</string>
+    <string name="inches">Inches</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="searching_for">Searching For</string>
+    <string name="groom">Groom</string>
+    <string name="bride">Bride</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="physical_details">Physical Details</string>
+    <string name="location_details">Location Details</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="whatsapp_number">Whatsapp Number</string>
+    <string name="parents_number">Parent\'s Number</string>
+    <string name="parents_whatsapp_number">Parent\'s Whatsapp Number</string>
+    <string name="in_kg">in Kg</string>
+    <string name="sub_caste">Sub Caste</string>
+    <string name="annual_income">Annual Income</string>
+    <string name="name_hint">Bride / Groom\'s Name</string>
+    <string name="religion">Religion</string>
+    <string name="mother_tongue">Mother Tongue</string>
+    <string name="next">Next</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="i_have_password">I have a password</string>
+    <string name="otp_by_sms">OTP by SMS</string>
+    <string name="otp_hint">Enter OTP</string>
+    <string name="changed_success">Changed Successfully!</string>
+    <string name="password_changed_msg">Your Password has been changed successfully! Wait for a while, will redirect to the home page</string>
+    <string name="save">Save</string>
+    <string name="monthly_income">Monthy Income</string>
+    <string name="min_age">Min Age</string>
+    <string name="max_age">Max Age</string>
+    <string name="min_height">Min Height</string>
+    <string name="max_height">Max Height</string>
+    <string name="min_weight">Min Weight</string>
+    <string name="max_weight">Max Weight</string>
+    <string name="min_income">Min Income</string>
+    <string name="max_income">Max Income</string>
+
+    <string-array name="dhosam">
+        <item>Select a Dhosam</item>
+        <item>No</item>
+        <item>Don\'t know</item>
+        <item>Chevvai Dosam</item>
+        <item>Naga Dosam</item>
+        <item>Kaalsarpa Dosam</item>
+        <item>Ragu Dosam</item>
+        <item>ketu Dosam</item>
+        <item>Kalathra Dosam</item>
+    </string-array>
+    <string-array name="paatham">
+        <item>Select a Paadham</item>
+        <item>1st Paadham</item>
+        <item>2nd Paadham</item>
+        <item>3rd Paadham</item>
+        <item>4th Paadham</item>
+        <item>Don\'t wish to Specify</item>
+    </string-array>
+
+    <string-array name="NATCHATRAM">
+        <item>Select Star</item>
+        <item>Anusham</item>
+        <item>Aswini</item>
+        <item>Avittam</item>
+        <item>Ayilyam</item>
+        <item>Bharani</item>
+        <item>Chithirai</item>
+        <item>Hastham</item>
+        <item>Kettai</item>
+        <item>Krithigai</item>
+        <item>Maham</item>
+        <item>Moolam</item>
+        <item>Mrigasirisham</item>
+        <item>Poosam</item>
+        <item>Punarpusam</item>
+        <item>Puradam</item>
+        <item>Puram</item>
+        <item>Puratathi</item>
+        <item>Revathi</item>
+        <item>Rohini</item>
+        <item>Sadayam</item>
+        <item>Swathi</item>
+        <item>Thiruvadirai</item>
+        <item>Uthradam</item>
+        <item>Uthram</item>
+        <item>Uthratadhi</item>
+        <item>Visakam</item>
+    </string-array>
+    <string-array name="weight">
+        <item>Select a Weight</item>
+        <item>40 Kg</item>
+        <item> 41 Kg</item>
+        <item> 42 kg</item>
+        <item> 43 kg </item>
+        <item> 44 kg </item>
+        <item> 45 kg </item>
+        <item> 46 kg </item>
+        <item> 47 kg </item>
+        <item> 48 kg </item>
+        <item> 49 kg </item>
+        <item> 50 kg </item>
+        <item> 51 kg </item>
+        <item> 52 kg </item>
+        <item> 53 kg </item>
+        <item> 54 kg </item>
+        <item> 55 kg </item>
+        <item> 56 kg </item>
+        <item> 57 kg </item>
+        <item>58 kg</item>
+        <item>59 kg </item>
+        <item> 60 kg </item>
+        <item> 61 kg </item>
+        <item> 62 kg </item>
+        <item> 63 kg </item>
+        <item> 64 kg </item>
+        <item> 65 kg </item>
+        <item> 66 kg </item>
+        <item> 67 kg </item>
+        <item> 68 kg </item>
+        <item> 69 kg </item>
+        <item> 70 kg </item>
+        <item> 71 kg </item>
+        <item> 72 kg </item>
+        <item> 73 kg </item>
+        <item> 74 kg </item>
+        <item> 75 kg </item>
+        <item> 76 kg </item>
+        <item> 77 kg </item>
+        <item> 78 kg </item>
+        <item> 79 kg </item>
+        <item> 80 kg </item>
+        <item> 81 kg </item>
+        <item> 82 kg </item>
+        <item> 83 kg </item>
+        <item> 84 kg </item>
+        <item> 85 kg </item>
+        <item> 86 kg </item>
+        <item> 87 kg </item>
+        <item> 88 kg </item>
+        <item> 89 kg </item>
+        <item> 90 kg </item>
+        <item> 91 kg </item>
+        <item> 92 kg </item>
+        <item>93 kg </item>
+        <item> 94 kg </item>
+        <item> 95 kg </item>
+        <item> 96 kg </item>
+        <item> 97 kg  </item>
+        <item> 98 kg </item>
+        <item> 99 kg </item>
+        <item> 100 kg </item>
+        <item> 101 kg </item>
+        <item> 102 kg </item>
+        <item> 103 kg </item>
+        <item>  104 kg </item>
+        <item>  105 kg </item>
+        <item> 106 kg </item>
+        <item> 107 kg </item>
+        <item> 108 kg </item>
+        <item> 109 kg </item>
+        <item> 110 kg </item>
+        <item>111 kg </item>
+        <item> 112 kg </item>
+        <item> 113 kg </item>
+        <item> 114 kg </item>
+        <item> 115 kg </item>
+        <item> 116 kg </item>
+        <item> 117 kg </item>
+        <item> 118 kg </item>
+        <item> 119 kg </item>
+        <item> 120 kg </item>
+        <item> 121 kg </item>
+        <item> 122 kg </item>
+        <item> 123 kg </item>
+        <item> 124 kg </item>
+        <item> 125 kg </item>
+        <item> 126 kg </item>
+        <item> 127 kg </item>
+        <item> 128 kg </item>
+        <item> 129 kg </item>
+        <item> 130 kg </item>
+        <item> 131 kg </item>
+        <item> 132 kg </item>
+        <item> 133 kg </item>
+        <item> 134 kg </item>
+        <item> 135 kg </item>
+        <item> 136 kg </item>
+        <item> 137 kg </item>
+        <item> 138 kg </item>
+        <item>  139 kg </item>
+        <item> 140 kg </item>
+
+    </string-array>
+    <string-array name="height">
+        <item>Select a Height</item>
+        <item>0ft 0in</item>
+        <item>Below 4ft</item>
+        <item>4ft 06in</item>
+        <item>4ft 07in</item>
+        <item>4ft 08in</item>
+        <item>4ft 09in</item>
+        <item>4ft 10in</item>
+        <item>4ft 11in</item>
+        <item>5ft</item>
+        <item>5ft 01in</item>
+        <item>5ft 02in</item>
+        <item>5ft 03in</item>
+        <item>5ft 04in</item>
+        <item>5ft 05in</item>
+        <item>5ft 06in</item>
+        <item>5ft 07in</item>
+        <item>5ft 08in</item>
+        <item>5ft 09in</item>
+        <item>5ft 10in</item>
+        <item>5ft 11in</item>
+        <item>6ft</item>
+        <item>6ft 01in</item>
+        <item>6ft 02in</item>
+        <item>6ft 03in</item>
+        <item>6ft 04in</item>
+        <item>6ft 05in</item>
+        <item>6ft 06in</item>
+        <item>6ft 07in</item>
+        <item>6ft 08in</item>
+        <item>6ft 09in</item>
+        <item>6ft 10in</item>
+        <item>6ft 11in</item>
+        <item>7ft</item>
+        <item>Above 7ft</item>
+    </string-array>
+    <string-array name="religions">
+        <item>Select a Religion</item>
+        <item>Hindu</item>
+        <item>Christian</item>
+        <item>Muslim-Shia</item>
+        <item>Muslim-Sunni</item>
+        <item>Muslim-Others</item>
+        <item>Jain-Digambar</item>
+        <item>Jain-Shwetambar</item>
+        <item>Jain-Others</item>
+        <item>Parsi</item>
+        <item>Buddhist</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>Select your Mother Tongue</item>
+        <item>Tamil</item>
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Telugu</item>
+        <item>Marathi</item>
+        <item>Kannada</item>
+        <item>Gujarati</item>
+        <item>Urdu</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>Select your Country</item>
+        <item>Indian</item>
+        <item>Sri Lankan</item>
+        <item>Russian</item>
+        <item>American</item>
+        <item>Pakistanian</item>
+        <item>British</item>
+        <item>Irish</item>
+        <item>Brazilian</item>
+        <item>Italian</item>
+        <item>Chinese</item>
+        <item>Polish</item>
+        <item>Austrian</item>
+        <item>Canadian</item>
+        <item>Malaysian</item>
+        <item>South Korean</item>
+        <item>North Korean</item>
+        <item>German</item>
+        <item>Swedish</item>
+        <item>French</item>
+        <item>Swiss</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="degrees">
+        <item>Select your Degree</item>
+        <item>B.ARCH</item>
+        <item>BCA</item>
+        <item>B.E</item>
+        <item>B.PLAN</item>
+        <item>B.sc IT/Computer science</item>
+        <item>B.TECH</item>
+        <item>M.ARCH</item>
+        <item>MCA</item>
+        <item>ME</item>
+        <item>M.sc IT/ Computer science</item>
+        <item>M.S (ENGG)</item>
+        <item>M.TECH</item>
+        <item>PGDCA</item>
+        <item>B.A</item>
+        <item>B.Com</item>
+        <item>B.Ed</item>
+        <item>BFA</item>
+        <item>BFT</item>
+        <item>BLIS</item>
+        <item>BMM</item>
+        <item>B.Sc</item>
+        <item>B.S.W</item>
+        <item>BLIS</item>
+        <item>B.M.M</item>
+        <item>B.Sc</item>
+        <item>B.S.W</item>
+        <item>B.PHIL</item>
+        <item>M.A</item>
+        <item>M.Com</item>
+        <item>M.Ed</item>
+        <item>MFA</item>
+        <item>MLIS</item>
+        <item>M.Sc</item>
+        <item>MSW</item>
+        <item>M.Phil</item>
+        <item>BBA</item>
+        <item>BFM</item>
+        <item>BHM</item>
+        <item>MBA</item>
+        <item>MFM</item>
+        <item>MHM</item>
+        <item>MHRM</item>
+        <item>PGDM</item>
+        <item>B.A.M.S</item>
+        <item>BDS</item>
+        <item>BHMS</item>
+        <item>BSMS</item>
+        <item>B.PHARM</item>
+        <item>BPT</item>
+        <item>BUMS</item>
+        <item>BVSC</item>
+        <item>MBBS</item>
+        <item>B.SC (Nursing)</item>
+        <item>MDS</item>
+        <item>MD/MS (MEDICAL)</item>
+        <item>M.Pharm</item>
+        <item>MPT</item>
+        <item>MVSC</item>
+        <item>BGL</item>
+        <item>B.L</item>
+        <item>LLB</item>
+        <item>L.L.M</item>
+        <item>M.L</item>
+        <item>CA</item>
+        <item>CFA</item>
+        <item>CS</item>
+        <item>ICWA</item>
+        <item>IAS</item>
+        <item>Law</item>
+        <item>IES</item>
+        <item>IFS</item>
+        <item>IRS</item>
+        <item>IPS</item>
+        <item>Ph.d</item>
+        <item>Diploma</item>
+        <item>Polytechnic</item>
+        <item>Trade school</item>
+        <item>Higher secondary school/High school</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="mother_oupation">
+        <item>Select your Job</item>
+        <item>Home maker</item>
+        <item>Admin</item>
+        <item>Supervisor</item>
+        <item>Manager</item>
+        <item>Officer</item>
+        <item>Administrative Professional</item>
+        <item>Executive</item>
+        <item>Clerk</item>
+        <item>Human Resources pProfessional</item>
+        <item>Agriculture</item>
+        <item>Agriculture and farming professional</item>
+        <item>Airline</item>
+        <item>Pilot</item>
+        <item>Air Hostess</item>
+        <item>Airline Professionals</item>
+        <item>Architech and Design</item>
+        <item>Architect</item>
+        <item>Interior Designer</item>
+        <item>Banking and finance</item>
+        <item>Chartered accountant</item>
+        <item>Company Secretary</item>
+        <item>Accounts/financial professional</item>
+        <item>Banking service professional</item>
+        <item>Auditor</item>
+        <item>Financial analyst /planning</item>
+        <item>Beauty and Fashion</item>
+        <item>Fashion Designer</item>
+        <item>Beautician</item>
+        <item>Civil service(IAS/IPS/IRS/IES/IFS)</item>
+        <item>Defense</item>
+        <item>Army</item>
+        <item>Navy</item>
+        <item>Air Force</item>
+        <item>Education</item>
+        <item>Professor/Lecturer</item>
+        <item>Education professional</item>
+        <item>Hospitality</item>
+        <item>Hotel/Hospitality Professional</item>
+        <item>IT and Engineering</item>
+        <item>Software professional</item>
+        <item>Hardware professional</item>
+        <item>Engineer Non IT</item>
+        <item>Designer</item>
+        <item>Legal</item>
+        <item>Lawyer and Legal Professional</item>
+        <item>Medical</item>
+        <item>Doctor</item>
+        <item>Health care professional</item>
+        <item>Paramedical professional</item>
+        <item>Nurse</item>
+        <item>Marketing professional</item>
+        <item>Sales professional</item>
+        <item>Journalist</item>
+        <item>Media professional</item>
+        <item>Entertainment professional</item>
+        <item>Event management professional</item>
+        <item>Advertising/PR professional</item>
+        <item>Mariner/merchant navy</item>
+        <item>Scientist</item>
+        <item>Scientist Research</item>
+        <item>CXO\\President,Director,Chairman</item>
+        <item>Business Analyst</item>
+        <item>Consultant</item>
+        <item>Customer care professional</item>
+        <item>Social worker</item>
+        <item>Sportsman</item>
+        <item>Technician</item>
+        <item>Arts and Craftsman</item>
+        <item>Librarian</item>
+        <item>Business  Owner/Entrepreneur.</item>
+        <item>Others</item>
+    </string-array>
+
+
+    <string-array name="jobs">
+        <item>Select your Job</item>
+        <item>Admin</item>
+        <item>Supervisor</item>
+        <item>Manager</item>
+        <item>Officer</item>
+        <item>Administrative Professional</item>
+        <item>Executive</item>
+        <item>Clerk</item>
+        <item>Human Resources pProfessional</item>
+        <item>Agriculture</item>
+        <item>Agriculture and farming professional</item>
+        <item>Airline</item>
+        <item>Pilot</item>
+        <item>Air Hostess</item>
+        <item>Airline Professionals</item>
+        <item>Architech and Design</item>
+        <item>Architect</item>
+        <item>Interior Designer</item>
+        <item>Banking and finance</item>
+        <item>Chartered accountant</item>
+        <item>Company Secretary</item>
+        <item>Accounts/financial professional</item>
+        <item>Banking service professional</item>
+        <item>Auditor</item>
+        <item>Financial analyst /planning</item>
+        <item>Beauty and Fashion</item>
+        <item>Fashion Designer</item>
+        <item>Beautician</item>
+        <item>Civil service(IAS/IPS/IRS/IES/IFS)</item>
+        <item>Defense</item>
+        <item>Army</item>
+        <item>Navy</item>
+        <item>Air Force</item>
+        <item>Education</item>
+        <item>Professor/Lecturer</item>
+        <item>Education professional</item>
+        <item>Hospitality</item>
+        <item>Hotel/Hospitality Professional</item>
+        <item>IT and Engineering</item>
+        <item>Software professional</item>
+        <item>Hardware professional</item>
+        <item>Engineer Non IT</item>
+        <item>Designer</item>
+        <item>Legal</item>
+        <item>Lawyer and Legal Professional</item>
+        <item>Medical</item>
+        <item>Doctor</item>
+        <item>Health care professional</item>
+        <item>Paramedical professional</item>
+        <item>Nurse</item>
+        <item>Marketing professional</item>
+        <item>Sales professional</item>
+        <item>Journalist</item>
+        <item>Media professional</item>
+        <item>Entertainment professional</item>
+        <item>Event management professional</item>
+        <item>Advertising/PR professional</item>
+        <item>Mariner/merchant navy</item>
+        <item>Scientist</item>
+        <item>Scientist Research</item>
+        <item>CXO\\President,Director,Chairman</item>
+        <item>Business Analyst</item>
+        <item>Consultant</item>
+        <item>Customer care professional</item>
+        <item>Social worker</item>
+        <item>Sportsman</item>
+        <item>Technician</item>
+        <item>Arts and Craftsman</item>
+        <item>Librarian</item>
+        <item>Business  Owner/Entrepreneur.</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="castes">
+        <item>Select your Caste</item>
+        <item>24 Manai Telugu Chettiar</item>
+        <item>Aaru Nattu Vellala</item>
+        <item>Achirapakkam Chettiar</item>
+        <item>Adi Dravidar</item>
+        <item>Agamudayar/Arcot/Thuluva Vellala</item>
+        <item>Agaran Vellan Chettiar</item>
+        <item>Ahirwar</item>
+        <item>Arunthathiyar</item>
+        <item>Ayira Vysya</item>
+        <item>Badaga</item>
+        <item>Bairwa</item>
+        <item>Balai</item>
+        <item>Beri Chettiar</item>
+        <item>Boyar</item>
+        <item>Brahmin - Anaviln Desai</item>
+        <item>Brahmin - Baidhiki/Vaidhiki</item>
+        <item>Brahmin - Bardai</item>
+        <item>Brahmin - Bhargav</item>
+        <item>Brahmin - Gurukkal</item>
+        <item>Brahmin - Iyengar</item>
+        <item>Brahmin - Iyer</item>
+        <item>Brahmin - Khadayata</item>
+        <item>Brahmin - Khedaval</item>
+        <item>Brahmin - Mevada</item>
+        <item>Brahmin - Rajgor</item>
+        <item>Brahmin - Rarhi/Radhi</item>
+        <item>Brahmin - Sarua</item>
+        <item>Brahmin - Shri Gaud</item>
+        <item>Brahmin - Tapodhan</item>
+        <item>Brahmin - Valam</item>
+        <item>Brahmin - Zalora</item>
+        <item>Brahmin - Sri Vaishnava</item>
+        <item>Brahmin - Cherakula Vellalar</item>
+        <item>Brahmin - Chettiar</item>
+        <item>Brahmin - Desikar</item>
+        <item>Brahmin - Desikar Tanjavur</item>
+        <item>Brahmin - Devandra Kula Vellalar</item>
+        <item>Brahmin - Devanga Chettiar</item>
+        <item>Brahmin - Devar/Thevar/Mukkulathor</item>
+        <item>Brahmin - Dhanak</item>
+        <item>Elur Chetty</item>
+        <item>Gandla/Ganiga</item>
+        <item>Gounder</item>
+        <item>Gounder - Kongu - Vellala Gounder</item>
+        <item>Gounder - Nattu Gounder</item>
+        <item>Gounder - Others</item>
+        <item>Gounder - Uralii Gounder</item>
+        <item>Gounder - Vanniya Kula Kshatriyar</item>
+        <item>Gounder - Vettuva Gounder</item>
+        <item>Gramani</item>
+        <item>Gurukkal Brahmin</item>
+        <item>Illaththu Pillai</item>
+        <item>Intercaste</item>
+        <item>Isai Vellalar</item>
+        <item>Iyenga Brahmin</item>
+        <item>Iyer Brahmin</item>
+        <item>Julaha</item>
+        <item>Kamma Naidu</item>
+        <item>Kanaka Padanna</item>
+        <item>Kandara</item>
+        <item>Karkathar</item>
+        <item>Karuneegar</item>
+        <item>Kasukara</item>
+        <item>Kerala Mudali</item>
+        <item>Khatik</item>
+        <item>Kodikal Pillai</item>
+        <item>Kongu Chettiar</item>
+        <item>Kongu Nadar</item>
+        <item>Kongu Vellala Gounder</item>
+        <item>Kori/Koli</item>
+        <item>Krishnavaka</item>
+        <item>Kshatriya Raju</item>
+        <item>Kulalar</item>
+        <item>Kuravan</item>
+        <item>Kuruhini Chetty</item>
+        <item>Kurumbar</item>
+        <item>Kuruva</item>
+        <item>Manja Pudhu Chettiar</item>
+        <item>Mannan/Velan/Vannan</item>
+        <item>Maruthuvar</item>
+        <item>Meenavar</item>
+        <item>Meghwal</item>
+        <item>Mudaliyar</item>
+        <item>Mukkulathor</item>
+        <item>Muthuraja</item>
+        <item>Nadar</item>
+        <item>Naicker</item>
+        <item>Naicker - Others</item>
+        <item>Naicker - Vanniya Kula</item>
+        <item>Naicker - Kshatriyar</item>
+        <item>Naidu</item>
+        <item>Nanjil Mudali</item>
+        <item>Nanjil Nattu Vellalar</item>
+        <item>Nanjil Vellalar</item>
+        <item>Nanjil Pillai</item>
+        <item>Nankudi Vellalar</item>
+        <item>Nattu Gounder</item>
+        <item>Nattukudi Chettiar</item>
+        <item>Othuvaar</item>
+        <item>Padanashali</item>
+        <item>Pallan/Devandrakula Vellalar</item>
+        <item>Panan</item>
+        <item>Pandaram</item>
+        <item>Pandiya Vellalar</item>
+        <item>Pannirandam Chettiar</item>
+        <item>Paravan/Bharatar</item>
+        <item>Parkavakulam/Udayar</item>
+        <item>Parkavakulam/Udayar</item>
+        <item>Pattinavar</item>
+        <item>Pattusali</item>
+        <item>Pillai</item>
+        <item>Poundra</item>
+        <item>Pulaya/Cheruman</item>
+        <item>Reddy</item>
+        <item>Rohit/Chamar</item>
+        <item>SC</item>
+        <item>ST</item>
+        <item>Sadhu Chetty</item>
+        <item>Saiva Pillai Thanjavar</item>
+        <item>Saiva Pillai Tirunelveli</item>
+        <item>Saiva Velllan Chettiar</item>
+        <item>Samagar</item>
+        <item>Sambava</item>
+        <item>Satnami</item>
+        <item>Senai Thalaivar</item>
+        <item>Senguntha Mudaliyar</item>
+        <item>Sengunthar/Kaikolar</item>
+        <item>Shilpkar</item>
+        <item>Sonkar</item>
+        <item>Sourashtra</item>
+        <item>Sozhia Chetty</item>
+        <item>Sozhia Vellalar</item>
+        <item>Telugupatti</item>
+        <item>Thandan</item>
+        <item>Thondai Mandala Vellalar</item>
+        <item>Urali Gounder</item>
+        <item>Vadambar</item>
+        <item>Vadugan</item>
+        <item>Vaniya Chettiar</item>
+        <item>Vannar</item>
+        <item>Vannia Kula Kshatriyar</item>
+        <item>Veera Saivm</item>
+        <item>Veerakodi Vellalar</item>
+        <item>Vellalar</item>
+        <item>Vellan Chettiars</item>
+        <item>Vettuva Gounder</item>
+        <item>Vishwakarma</item>
+        <item>Vokkaliga</item>
+        <item>Yadav</item>
+        <item>Yadava Naidu</item>
+        <item>Christan -Anglo - Indian</item>
+        <item>Christan -Born Again</item>
+        <item>Christan -Born Again</item>
+        <item>Christan -Church Of South India</item>
+        <item>Christan -Evangelist</item>
+        <item>Christan -Jacobite</item>
+        <item>Christan -Latin Catholic</item>
+        <item>Christan -Malankara Catholic</item>
+        <item>Christan -Pentecost</item>
+        <item>Christan -Roman - Catholic</item>
+        <item>Christan -Seventh - day - Adventist</item>
+        <item>Christan -Syiran Catholic</item>
+        <item>Christan -Syiran Jacobite</item>
+        <item>Christan -Syro Malabar</item>
+        <item>Christan -Christan - Others</item>
+        <item>Muslim - Ansari</item>
+        <item>Muslim - Arain</item>
+        <item>Muslim - Awan</item>
+        <item>Muslim - Bohra</item>
+        <item>Muslim - Dekkani</item>
+        <item>Muslim - Dudekula</item>
+        <item>Muslim - Hanafi</item>
+        <item>Muslim - Jat</item>
+        <item>Muslim - Khoja</item>
+        <item>Muslim - Lebbai</item>
+        <item>Muslim - Malik</item>
+        <item>Muslim - Mapila</item>
+        <item>Muslim - Maraicar</item>
+        <item>Muslim - Memon</item>
+        <item>Muslim - Mughal</item>
+        <item>Muslim - Pathan</item>
+        <item>Muslim - Qureshi</item>
+        <item>Muslim - Mapila</item>
+        <item>Don\'t Wish to Specify</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="family_types">
+        <item>Select your Family Type</item>
+        <item>Joint</item>
+        <item>Individual</item>
+        <item>Seperated</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="disability">
+        <item>Any Disability</item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>Dont\'t wish to specify</item>
+    </string-array>
+
+    <string-array name="working_sectors">
+        <item>Select your Working Sector</item>
+        <item>Government </item>
+        <item>Defence</item>
+        <item>Private</item>
+        <item>Business</item>
+        <item>Self Employed</item>
+        <item>Not Working</item>
+    </string-array>
+
+    <string-array name="family_values">
+        <item>Select</item>
+        <item>Orthodox</item>
+        <item>Traditional</item>
+        <item>Moderate</item>
+        <item>Liberal</item>
+    </string-array>
+
+    <string-array name="habits">
+        <item>Select your Smoking Habits</item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>Dont\'t wish to specify</item>
+    </string-array>
+
+    <string-array name="eating_habits">
+        <item>Select your Food Habits</item>
+        <item>Vegetarian</item>
+        <item>Non-Vegetarian</item>
+        <item>Eggetarian</item>
+    </string-array>
+
+    <string-array name="smoking_habits">
+        <item>Select your Smoking Habits</item>
+        <item>Non-smoker</item>
+        <item>Light/Social smoker</item>
+        <item>Regular smoker</item>
+    </string-array>
+    <string-array name="Day">
+        <item>DAY</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+
+
+    </string-array>
+
+    <string-array name="Month">
+        <item>MONTH</item>
+        <item>JAN</item>
+        <item>FEB</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>Jun</item>
+        <item>July</item>
+        <item>Aug</item>
+        <item>Sep</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+
+
+    </string-array>
+    <string-array name="age">
+        <item>Select Age</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+
+    </string-array>
+    <string-array name="monthly_income">
+        <item>Select Monthly Income</item>
+        <item>0 - 1 Lakh</item>
+        <item>1 - 2 Lakh</item>
+        <item>2 - 3 Lakh</item>
+        <item>3 - 4 Lakh</item>
+        <item>4 - 5 Lakh</item>
+        <item>5 - 6 Lakh</item>
+        <item>6 - 7 Lakh</item>
+        <item>7 - 8 Lakh</item>
+        <item>8 - 9 Lakh</item>
+        <item>10 - 11 Lakh</item>
+        <item>11 - 12 Lakh</item>
+        <item>12 - 13 Lakh</item>
+        <item>13 - 14 Lakh</item>
+        <item>14 - 15 Lakh</item>
+
+    </string-array>
+
+    <string-array name="year">
+        <item>YEAR</item>
+        <item>1980</item>
+        <item>1981</item>
+        <item>1982</item>
+        <item>1983</item>
+        <item>1984</item>
+        <item>1985</item>
+        <item>1986</item>
+        <item>1987</item>
+        <item>1988</item>
+        <item>1989</item>
+        <item>1990</item>
+        <item>1991</item>
+        <item>1992</item>
+        <item>1993</item>
+        <item>1994</item>
+        <item>1995</item>
+        <item>1996</item>
+        <item>1997</item>
+        <item>1998</item>
+        <item>1999</item>
+        <item>2000</item>
+        <item>2001</item>
+        <item>2002</item>
+        <item>2003</item>
+        <item>2004</item>
+        <item>2005</item>
+        <item>2006</item>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+
+
+    </string-array>
+
+    <string-array name="drinking_habits">
+        <item>Select your Drinking Habits</item>
+        <item>Non-drinker</item>
+        <item>Light/Social drinker</item>
+        <item>Regular drinker</item>
+    </string-array>
+
+    <string-array name="family_statuses">
+        <item>Select your Family Status</item>
+        <item>Poor</item>
+        <item>Middle Class</item>
+        <item>Upper Middle Class</item>
+        <item>Rich </item>
+        <item>Very Rich</item>
+    </string-array>
+
+    <string-array name="profile_created_by">
+        <item>Profile Created By</item>
+        <item>Myself</item>
+        <item>Son</item>
+        <item>Daughter</item>
+        <item>Brother</item>
+        <item>Sister</item>
+        <item>Relative</item>
+        <item>Friend</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="raasis">
+        <item>Select your Raasi</item>
+        <item>Aries</item>
+        <item>Taurus</item>
+        <item>Gemini</item>
+        <item>Cancer</item>
+        <item>Leo</item>
+        <item>Virgo</item>
+        <item>Libra</item>
+        <item>Scorpio</item>
+        <item>Sagittarius</item>
+        <item>Capricorn</item>
+        <item>Aquarius</item>
+        <item>Pisces</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="stars">
+
+    </string-array>
+
+
+    <string-array name="body_types">
+        <item>Select your Body Type</item>
+        <item>Slim</item>
+        <item>Fat</item>
+        <item>Normal</item>
+        <item>Don\'t wish to specify</item>
+    </string-array>
+
+    <string-array name="physical_status">
+        <item>Select physical_status</item>
+        <item>Normal</item>
+        <item>Physically Challenged</item>
+        <item>Others</item>
+        <item>Don\'t wish to Specify</item>
+    </string-array>
+
+    <string-array name="select_status">
+        <item>Select status</item>
+        <item>Married</item>
+        <item>Unmarried</item>
+
+    </string-array>
+
+    <string-array name="complexions">
+        <item>Select your Complexions</item>
+        <item>Fair</item>
+        <item>Very Fair</item>
+        <item>Wheatish</item>
+        <item>Dusky</item>
+        <item>Others</item>
+        <item>Don\'t wish to specify</item>
+    </string-array>
+
+    <string-array name="marital_statuses">
+        <item>Select a Marital Status</item>
+        <item>Unmarried</item>
+        <item>Married</item>
+        <item>Divorced</item>
+        <item>Widowed</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="num_of_child">
+        <item>Select</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>more then 4</item>
+    </string-array>
+
+    <string-array name="codes">
+        <item>Country Code</item>
+        <item>100</item>
+        <item>221</item>
+        <item>222</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>35</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+        <item>60</item>
+        <item>62</item>
+        <item>63</item>
+        <item>64</item>
+        <item>65</item>
+        <item>66</item>
+        <item>67</item>
+        <item>68</item>
+        <item>69</item>
+        <item>70</item>
+        <item>71</item>
+        <item>72</item>
+        <item>73</item>
+        <item>74</item>
+        <item>75</item>
+        <item>76</item>
+        <item>77</item>
+        <item>78</item>
+        <item>79</item>
+        <item>80</item>
+        <item>81</item>
+        <item>82</item>
+        <item>84</item>
+        <item>85</item>
+        <item>86</item>
+        <item>87</item>
+        <item>88</item>
+        <item>89</item>
+        <item>90</item>
+        <item>91</item>
+        <item>92</item>
+        <item>93</item>
+        <item>94</item>
+        <item>95</item>
+        <item>96</item>
+        <item>97</item>
+        <item>98</item>
+        <item>99</item>
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>104</item>
+        <item>105</item>
+        <item>232</item>
+        <item>106</item>
+        <item>107</item>
+        <item>108</item>
+        <item>109</item>
+        <item>110</item>
+        <item>111</item>
+        <item>113</item>
+        <item>114</item>
+        <item>115</item>
+        <item>116</item>
+        <item>112</item>
+        <item>117</item>
+        <item>118</item>
+        <item>119</item>
+        <item>120</item>
+        <item>121</item>
+        <item>122</item>
+        <item>123</item>
+        <item>124</item>
+        <item>125</item>
+        <item>126</item>
+        <item>127</item>
+        <item>128</item>
+        <item>129</item>
+        <item>130</item>
+        <item>131</item>
+        <item>132</item>
+        <item>133</item>
+        <item>134</item>
+        <item>135</item>
+        <item>136</item>
+        <item>137</item>
+        <item>138</item>
+        <item>139</item>
+        <item>140</item>
+        <item>141</item>
+        <item>142</item>
+        <item>143</item>
+        <item>144</item>
+        <item>145</item>
+        <item>146</item>
+        <item>147</item>
+        <item>148</item>
+        <item>150</item>
+        <item>151</item>
+        <item>152</item>
+        <item>153</item>
+        <item>154</item>
+        <item>155</item>
+        <item>156</item>
+        <item>157</item>
+        <item>158</item>
+        <item>159</item>
+        <item>160</item>
+        <item>161</item>
+        <item>162</item>
+        <item>163</item>
+        <item>164</item>
+        <item>165</item>
+        <item>166</item>
+        <item>167</item>
+        <item>168</item>
+        <item>169</item>
+        <item>170</item>
+        <item>171</item>
+        <item>172</item>
+        <item>173</item>
+        <item>174</item>
+        <item>175</item>
+        <item>176</item>
+        <item>177</item>
+        <item>178</item>
+        <item>179</item>
+        <item>180</item>
+        <item>181</item>
+        <item>182</item>
+        <item>183</item>
+        <item>184</item>
+        <item>185</item>
+        <item>186</item>
+        <item>187</item>
+        <item>188</item>
+        <item>189</item>
+        <item>190</item>
+        <item>191</item>
+        <item>192</item>
+        <item>193</item>
+        <item>194</item>
+        <item>195</item>
+        <item>196</item>
+        <item>197</item>
+        <item>198</item>
+        <item>199</item>
+        <item>200</item>
+        <item>201</item>
+        <item>202</item>
+        <item>203</item>
+        <item>204</item>
+        <item>205</item>
+        <item>206</item>
+        <item>207</item>
+        <item>208</item>
+        <item>209</item>
+        <item>210</item>
+        <item>211</item>
+        <item>212</item>
+        <item>213</item>
+        <item>214</item>
+        <item>215</item>
+        <item>216</item>
+        <item>217</item>
+        <item>218</item>
+        <item>219</item>
+        <item>220</item>
+        <item>223</item>
+        <item>224</item>
+        <item>225</item>
+        <item>226</item>
+        <item>227</item>
+        <item>228</item>
+        <item>229</item>
+        <item>230</item>
+        <item>231</item>
+    </string-array>
+
+    <string-array name="code_countries">
+        <item>Country</item>
+        <item>India(+91)</item>
+        <item>United Kingdom(+44)</item>
+        <item>United States(+1)</item>
+        <item>Afghanistan(+93)</item>
+        <item>Albania(+355)</item>
+        <item>Algeria(+213)</item>
+        <item>American Samoa(+684)</item>
+        <item>Andorra(+376)</item>
+        <item>Angola(+244)</item>
+        <item>Anguilla(+1)</item>
+        <item>Antarctica(+672)</item>
+        <item>Antigua and Barbuda(+1)</item>
+        <item>Argentina(+54)</item>
+        <item>Armenia(+374)</item>
+        <item>Aruba(+297)</item>
+        <item>Australia(+61)</item>
+        <item>Austria(+43)</item>
+        <item>Azerbaidjan(+994)</item>
+        <item>Bahamas(+1)</item>
+        <item>Bahrain(+973)</item>
+        <item>Bangladesh(+880)</item>
+        <item>Barbados(+1)</item>
+        <item>Belarus(+375)</item>
+        <item>Belgium(+32)</item>
+        <item>Belize(+501)</item>
+        <item>Benin(+229)</item>
+        <item>Bermuda(+1)</item>
+        <item>Bhutan(+975)</item>
+        <item>Bolivia(+591)</item>
+        <item>Bosnia-Herzegovina(+387)</item>
+        <item>Botswana(+267)</item>
+        <item>Bouvet Island(+47)</item>
+        <item>Brazil(+55)</item>
+        <item>British Indian O. Terr.(+246)</item>
+        <item>Brunei Darussalam(+673)</item>
+        <item>Bulgaria(+359)</item>
+        <item>Burkina Faso(+226)</item>
+        <item>Burundi(+257)</item>
+        <item>Cambodia(+855)</item>
+        <item>Cameroon(+237)</item>
+        <item>Canada(+1)</item>
+        <item>Cape Verde(+238)</item>
+        <item>Cayman Islands(+1)</item>
+        <item>Central African Rep.(+236)</item>
+        <item>Chad(+235)</item>
+        <item>Chile(+56)</item>
+        <item>China(+86)</item>
+        <item>Colombia(+57)</item>
+        <item>Comoros(+269)</item>
+        <item>Congo(+242)</item>
+        <item>Cook Islands(+682)</item>
+        <item>Costa Rica(+506)</item>
+        <item>Croatia(+385)</item>
+        <item>Cuba(+53)</item>
+        <item>Cyprus(+357)</item>
+        <item>Czech Republic(+420)</item>
+        <item>Czechoslovakia()</item>
+        <item>Denmark(+45)</item>
+        <item>Djibouti(+253)</item>
+        <item>Dominica(+1)</item>
+        <item>Dominican Republic(+1)</item>
+        <item>East Timor(+670)</item>
+        <item>Ecuador(+593)</item>
+        <item>Egypt(+20)</item>
+        <item>El Salvador(+503)</item>
+        <item>Equatorial Guinea(+240)</item>
+        <item>Estonia(+372)</item>
+        <item>Ethiopia(+251)</item>
+        <item>Falkland Isl.(Malvinas)(+500)</item>
+        <item>Faroe Islands(+298)</item>
+        <item>Fiji(+679)</item>
+        <item>Finland(+358)</item>
+        <item>France(+33)</item>
+        <item>France (European Ter.),()</item>
+        <item>French Southern Terr.()</item>
+        <item>Gabon(+241)</item>
+        <item>Gambia(+220)</item>
+        <item>Georgia(+995)</item>
+        <item>Germany(+49)</item>
+        <item>Ghana(+233)</item>
+        <item>Gibraltar(+350)</item>
+        <item>Greece(+30)</item>
+        <item>Greenland(+299)</item>
+        <item>Grenada(+1)</item>
+        <item>Guadeloupe (Fr.)(+590)</item>
+        <item>Guam (US)(+1)</item>
+        <item>Guatemala(+502)</item>
+        <item>Guinea(+224)</item>
+        <item>Guinea Bissau(+245)</item>
+        <item>Guyana(+592)</item>
+        <item>Guyana (Fr.)()</item>
+        <item>Haiti(+509)</item>
+        <item>Heard &amp; McDonald Isl.()</item>
+        <item>Honduras(+504)</item>
+        <item>Hong Kong(+852)</item>
+        <item>Hungary(+36)></item>
+        <item>Iceland(+354)</item>
+        <item>Indonesia(+62)</item>
+        <item>Iran(+98)</item>
+        <item>Iraq(+964)</item>
+        <item>Ireland(+353)</item>
+        <item>Israel(+972)</item>
+        <item>Italy(+39)</item>
+        <item>Ivory Coast(+225)</item>
+        <item>Jamaica(+1)</item>
+        <item>Japan(+81)</item>
+        <item>Jordan(+962)</item>
+        <item>Kazakhstan(+7)</item>
+        <item>Kenya(+254)</item>
+        <item>Kiribati(+686)</item>
+        <item>Korea (North)(+850 )</item>
+        <item>Korea (South)(+82)</item>
+        <item>Kuwait(+965)</item>
+        <item>kyrgyzstan(+996)</item>
+        <item>Laos(+856)</item>
+        <item>Latvia(+371)</item>
+        <item>Lebanon(+961)</item>
+        <item>Lesotho(+266)</item>
+        <item>Liberia(+231)</item>
+        <item>Libya(+218)</item>
+        <item>Liechtenstein(+423)</item>
+        <item>Lithuania(+370)</item>
+        <item>Luxembourg(+352)</item>
+        <item>Macau(+853)</item>
+        <item>Madagascar(+261)</item>
+        <item>Malawi(+265)</item>
+        <item>Malaysia(+60)</item>
+        <item>Maldives(+960)</item>
+        <item>Mali(+223)</item>
+        <item>Malta(+356)</item>
+        <item>Marshall Islands(+692 )</item>
+        <item>Martinique (Fr.)(+596)</item>
+        <item>Mauritania(+222)</item>
+        <item>Mauritius(+230)</item>
+        <item>Mexico(+52)</item>
+        <item>Micronesia(+691)</item>
+        <item>Moldova(+373)</item>
+        <item>Monaco(+377)</item>
+        <item>Mongolia(+976)</item>
+        <item>Montserrat(+1)</item>
+        <item>Morocco(+212)</item>
+        <item>Mozambique(+258)</item>
+        <item>Myanmar(+95)</item>
+        <item>Namibia(+264)</item>
+        <item>Nauru(+674)</item>
+        <item>Nepal(+977)</item>
+        <item>Netherland Antilles(+599)</item>
+        <item>Netherlands(+31)</item>
+        <item>Neutral Zone()</item>
+        <item>New Caledonia (Fr.)(+687)</item>
+        <item>New Zealand(+64)</item>
+        <item>Nicaragua(+505)</item>
+        <item>Niger(+227)</item>
+        <item>Nigeria(+234)</item>
+        <item>Niue(+683)</item>
+        <item>Norfolk Island(+672)</item>
+        <item>Northern Mariana Isl.(+1)</item>
+        <item>Norway(+47)</item>
+        <item>Oman(+968)</item>
+        <item>Pakistan(+92)</item>
+        <item>Palau(+680)</item>
+        <item>Panama(+507)</item>
+        <item>Papua New Guinea(+675)</item>
+        <item>Paraguay(+595)</item>
+        <item>Peru(+51)</item>
+        <item>Philippines(+63)</item>
+        <item>Pitcairn Islands(+672)</item>
+        <item>Poland(+48)</item>
+        <item>Polynesia (Fr.)(+689)</item>
+        <item>Portugal(+351)</item>
+        <item>Qatar(+974)</item>
+        <item>Reunion (Fr.)(+262)</item>
+        <item>Romania(+40)</item>
+        <item>Russian Federation(+7)</item>
+        <item>Rwanda(+250)</item>
+        <item>Saint Lucia(+1)</item>
+        <item>Samoa(+685)</item>
+        <item>San Marino(+378)</item>
+        <item>Saudi Arabia(+966)</item>
+        <item>Senegal(+221)</item>
+        <item>Seychelles(+248)</item>
+        <item>Sierra Leone(+232)</item>
+        <item>Singapore(+65)</item>
+        <item>Slovakia(+421)</item>
+        <item>Slovenia(+386)</item>
+        <item>Solomon Islands(+677)</item>
+        <item>Somalia(+252)</item>
+        <item>South Africa(+27)</item>
+        <item>Spain(+34)</item>
+        <item>St. Helena(+290)</item>
+        <item>St. Pierre &amp; Miquelon(+508)</item>
+        <item>St. Tome and Principe(+239)</item>
+        <item>St.Kitts Nevis Anguilla(+1)</item>
+        <item>St.Vincent &amp; Grenadines(+1)</item>
+        <item>Sudan(+249)</item>
+        <item>Suriname(+597)</item>
+        <item>Svalbard(+508)</item>
+        <item>Swaziland(+268)</item>
+        <item>Sweden(+46)</item>
+        <item>Switzerland(+41)</item>
+        <item>Syria(+963)</item>
+        <item>Tadjikistan(+992)</item>
+        <item>Taiwan(+886)</item>
+        <item>Tanzania(+255)</item>
+        <item>Thailand(+66)</item>
+        <item>Togo(+228)</item>
+        <item>Tokelau(+690)</item>
+        <item>Tonga(+676)</item>
+        <item>Trinidad &amp; Tobago(+1)</item>
+        <item>Tunisia(+216)</item>
+        <item>Turkey(+90)</item>
+        <item>Turkmenistan(+993)</item>
+        <item>Turks &amp; Caicos Islands(+1)</item>
+        <item>Tuvalu(+688)</item>
+        <item>Uganda(+256)</item>
+        <item>Ukraine(+380)</item>
+        <item>United Arab Emirates(+971)</item>
+        <item>Uruguay(+598)</item>
+        <item>US Minor outlying Island.()</item>
+        <item>Uzbekistan(+998)</item>
+        <item>Vanuatu(+678)</item>
+        <item>Vatican City State(+39)</item>
+        <item>Venezuela(+58)</item>
+        <item>Vietnam(+84)</item>
+        <item>Virgin Islands (British)(+1 )</item>
+        <item>Zimbabwe(+263)</item>
+    </string-array>
+    <string-array name="country">
+        <item>Country</item>
+        <item>India</item>
+    </string-array>
+    <string-array name="Andhra_Pradesh">
+        <item>Anantapur</item>
+        <item>Chittoor</item>
+        <item>East Godavari</item>
+        <item>Guntur</item>
+        <item>Kadapa</item>
+        <item>Krishna</item>
+        <item>Kurnool</item>
+        <item>Nellore</item>
+        <item>Prakasam</item>
+        <item>Srikakulam</item>
+        <item>Visakhapatnam</item>
+        <item>Vizianagaram</item>
+        <item>West Godavari</item>
+    </string-array>
+    <string-array name="Arunachal_Pradesh">
+        <item>Anjaw</item>
+        <item>Siang</item>
+        <item>Changlang</item>
+        <item>Dibang Valley</item>
+        <item>East Kameng</item>
+        <item>East Siang</item>
+        <item>Kamle</item>
+        <item>Kra Daadi</item>
+        <item>Kurung Kumey</item>
+        <item>Lepa Rada</item>
+        <item>Lohit</item>
+        <item>Longding</item>
+        <item>Lower Dibang Valley</item>
+        <item>Lower Siang</item>
+        <item>Lower Subansiri</item>
+        <item>Namsai</item>
+        <item>Pakke Kessang</item>
+        <item>Papum Pare</item>
+        <item>Shi Yomi</item>
+        <item>Tawang</item>
+        <item>Tirap</item>
+        <item>Upper Siang</item>
+        <item>Upper Subansiri</item>
+        <item>West Kameng</item>
+        <item>West Siang</item>
+    </string-array>
+    <string-array name="Assam">
+        <item>Baksa</item>
+        <item>Barpeta</item>
+        <item>Biswanath</item>
+        <item>Bongaigaon</item>
+        <item>Cachar</item>
+        <item>Charaideo</item>
+        <item>Chirang</item>
+        <item>Darrang</item>
+        <item>Dhemaji</item>
+        <item>Dhubri</item>
+        <item>Dibrugarh</item>
+        <item>Dima Hasao</item>
+        <item>Goalpara</item>
+        <item>Golaghat</item>
+        <item>Hailakandi</item>
+        <item>Hojai</item>
+        <item>Jorhat</item>
+        <item>Kamrup</item>
+        <item>Kamrup Metropolitan</item>
+        <item>Karbi Anglong</item>
+        <item>Karimganj</item>
+        <item>Lakhimpur</item>
+        <item>Majuli</item>
+        <item>Morigaon</item>
+        <item>Nagaon</item>
+        <item>Nalbari</item>
+        <item>Sivasagar</item>
+        <item>Sonitpur</item>
+        <item>South Salmara-Mankachar</item>
+        <item>Tinsukia</item>
+        <item>Udalguri</item>
+        <item>West Karbi Anglong</item>
+    </string-array>
+    <string-array name="Bihar">
+        <item>Araria</item>
+        <item>Arwal</item>
+        <item>Aurangabad</item>
+        <item>Banka</item>
+        <item>Begusarai</item>
+        <item>Bhagalpur</item>
+        <item>Bhojpur</item>
+        <item>Buxar</item>
+        <item>Darbhanga</item>
+        <item>East Champaran</item>
+        <item>Gaya</item>
+        <item>Gopalganj</item>
+        <item>Jamui</item>
+        <item>Jehanabad</item>
+        <item>Kaimur</item>
+        <item>Katihar</item>
+        <item>Khagaria</item>
+        <item>Kishanganj</item>
+        <item>Lakhisarai</item>
+        <item>Madhepura</item>
+        <item>Madhubani</item>
+        <item>Munger</item>
+        <item>Muzaffarpur</item>
+        <item>Nalanda</item>
+        <item>Nawada</item>
+        <item>Patna</item>
+        <item>Purnia</item>
+        <item>Rohtas</item>
+        <item>Saharsa</item>
+        <item>Samastipur</item>
+        <item>Saran</item>
+        <item>Sheikhpura</item>
+        <item>Sheohar</item>
+        <item>Sitamarhi</item>
+        <item>Siwan</item>
+        <item>Supaul</item>
+        <item>Vaishali</item>
+        <item>West Champaran</item>
+    </string-array>
+
+    <string-array name="Chhattisgarh">
+        <item>Balod</item>
+        <item>Baloda Bazar</item>
+        <item>Balrampur</item>
+        <item>Bastar</item>
+        <item>Bemetara</item>
+        <item>Bijapur</item>
+        <item>Bilaspur</item>
+        <item>Dantewada</item>
+        <item>Dhamtari</item>
+        <item>Durg</item>
+        <item>Gariaband</item>
+        <item>Janjgir Champa</item>
+        <item>Jashpur</item>
+        <item>Kabirdham</item>
+        <item>Kanker</item>
+        <item>Kondagaon</item>
+        <item>Korba</item>
+        <item>Koriya</item>
+        <item>Mahasamund</item>
+        <item>Mungeli</item>
+        <item>Narayanpur</item>
+        <item>Raigarh</item>
+        <item>Raipur</item>
+        <item>Rajnandgaon</item>
+        <item>Sukma</item>
+        <item>Surajpur</item>
+        <item>Surguja</item>
+    </string-array>
+
+    <string-array name="Goa">
+        <item>North Goa</item>
+        <item>South Goa</item>
+    </string-array>
+    <string-array name="Gujarat">
+        <item>Ahmedabad</item>
+        <item>Amreli</item>
+        <item>Anand</item>
+        <item>Aravalli</item>
+        <item>Banaskantha</item>
+        <item>Bharuch</item>
+        <item>Bhavnagar</item>
+        <item>Botad</item>
+        <item>Chhota Udaipur</item>
+        <item>Dahod</item>
+        <item>Dang</item>
+        <item>Devbhoomi Dwarka</item>
+        <item>Gandhinagar</item>
+        <item>Gir Somnath</item>
+        <item>Jamnagar</item>
+        <item>Junagadh</item>
+        <item>Kheda</item>
+        <item>Kutch</item>
+        <item>Mahisagar</item>
+        <item>Mehsana</item>
+        <item>Morbi</item>
+        <item>Narmada</item>
+        <item>Navsari</item>
+        <item>Panchmahal</item>
+        <item>Porbandar</item>
+        <item>Rajkot</item>
+        <item>Sabarkantha</item>
+        <item>Surat</item>
+        <item>Surendranagar</item>
+        <item>Tapi</item>
+        <item>Vadodara</item>
+        <item>Valsad</item>
+    </string-array>
+
+    <string-array name="Haryana">
+        <item>Ambala</item>
+        <item>Bhiwani</item>
+        <item>Charkhi Dadri</item>
+        <item>Faridabad</item>
+        <item>Fatehabad</item>
+        <item>Gurugram</item>
+        <item>Hisar</item>
+        <item>Jhajjar</item>
+        <item>Jind</item>
+        <item>Kurukshetra</item>
+        <item>Karnal</item>
+        <item>Mahendragarh</item>
+        <item>Mewat</item>
+        <item>Palwal</item>
+        <item>Panchkula</item>
+        <item>Panipat</item>
+        <item>Rewari</item>
+        <item>Rohtak</item>
+        <item>Sirsa</item>
+        <item>Sonipat</item>
+        <item>Yamunanagar</item>
+    </string-array>
+    <string-array name="Himachal_Pradesh">
+        <item>Bilaspur</item>
+        <item>Chamba</item>
+        <item>Hamirpur</item>
+        <item>Kangra</item>
+        <item>Kinnaur</item>
+        <item>Kullu</item>
+        <item>Lahaul Spiti</item>
+        <item>Mandi</item>
+        <item>Shimla</item>
+        <item>Sirmaur</item>
+        <item>Solan</item>
+        <item>Una</item>
+    </string-array>
+    <string-array name="Jammu_Kashmir">
+        <item>Anantnag</item>
+        <item>Bandipora</item>
+        <item>Baramulla</item>
+        <item>Budgam</item>
+        <item>Doda</item>
+        <item>Ganderbal</item>
+        <item>Jammu</item>
+        <item>Kargil</item>
+        <item>Kathua</item>
+        <item>Kishtwar</item>
+        <item>Kulgam</item>
+        <item>Kupwara</item>
+        <item>Leh</item>
+        <item>Poonch</item>
+        <item>Pulwama</item>
+        <item>Rajouri</item>
+        <item>Ramban</item>
+        <item>Reasi</item>
+        <item>Samba</item>
+        <item>Shopian</item>
+        <item>Srinagar</item>
+        <item>Udhampur</item>
+    </string-array>
+    <string-array name="Jharkhand">
+        <item>Bokaro</item>
+        <item>Chatra</item>
+        <item>Deoghar</item>
+        <item>Dhanbad</item>
+        <item>Dumka</item>
+        <item>East Singhbhum</item>
+        <item>Garhwa</item>
+        <item>Giridih</item>
+        <item>Godda</item>
+        <item>Gumla</item>
+        <item>Hazaribagh</item>
+        <item>Jamtara</item>
+        <item>Khunti</item>
+        <item>Koderma</item>
+        <item>Latehar</item>
+        <item>Lohardaga</item>
+        <item>Pakur</item>
+        <item>Palamu</item>
+        <item>Ramgarh</item>
+        <item>Ranchi</item>
+        <item>Sahebganj</item>
+        <item>Seraikela Kharsawan</item>
+        <item>Simdega</item>
+        <item>West Singhbhum</item>
+    </string-array>
+    <string-array name="Karnataka">
+        <item>Bagalkot</item>
+        <item>Bangalore Rural</item>
+        <item>Bangalore Urban</item>
+        <item>Belgaum</item>
+        <item>Bellary</item>
+        <item>Bidar</item>
+        <item>Chamarajanagar</item>
+        <item>Chikkaballapur</item>
+        <item>Chikkamagaluru</item>
+        <item>Chitradurga</item>
+        <item>Dakshina Kannada</item>
+        <item>Davanagere</item>
+        <item>Dharwad</item>
+        <item>Gadag</item>
+        <item>Gulbarga</item>
+        <item>Hassan</item>
+        <item>Haveri</item>
+        <item>Kodagu</item>
+        <item>Kolar</item>
+        <item>Koppal</item>
+        <item>Mandya</item>
+        <item>Mysore</item>
+        <item>Koppal</item>
+        <item>Raichur</item>
+        <item>Koppal</item>
+        <item>Ramanagara</item>
+        <item>Tumkur</item>
+        <item>Udupi</item>
+        <item>Uttara Kannada</item>
+        <item>Vijayapura</item>
+        <item>Yadgir</item>
+    </string-array>
+    <string-array name="Kerala">
+        <item>Alappuzha</item>
+        <item>Ernakulam</item>
+        <item>Idukki</item>
+        <item>Kannur</item>
+        <item>Kasaragod</item>
+        <item>Kollam</item>
+        <item>Kottayam</item>
+        <item>Kozhikode</item>
+        <item>Malappuram</item>
+        <item>Palakkad</item>
+        <item>Pathanamthitta</item>
+        <item>Thiruvananthapuram</item>
+        <item>Thrissur</item>
+        <item>Wayanad</item>
+    </string-array>
+    <string-array name="Madhya_Pradesh">
+        <item>Agar Malwa</item>
+        <item>Alirajpur</item>
+        <item>Anuppur</item>
+        <item>Ashoknagar</item>
+        <item>Balaghat</item>
+        <item>Barwani</item>
+        <item>Betul</item>
+        <item>Bhind</item>
+        <item>Bhopal</item>
+        <item>Burhanpur</item>
+        <item>Chhatarpur</item>
+        <item>Chhindwara</item>
+        <item>Damoh</item>
+        <item>Datia</item>
+        <item>Dewas</item>
+        <item>Dhar</item>
+        <item>Dindori</item>
+        <item>Guna</item>
+        <item>Gwalior</item>
+        <item>Harda</item>
+        <item>Hoshangabad</item>
+        <item>Indore</item>
+        <item>Jabalpur</item>
+        <item>Jhabua</item>
+        <item>Katni</item>
+        <item>Khandwa</item>
+        <item>Khargone</item>
+        <item>Mandla</item>
+        <item>Mandsaur</item>
+        <item>Morena</item>
+        <item>Narsinghpur</item>
+        <item>Neemuch</item>
+        <item>Niwari</item>
+        <item>Panna</item>
+        <item>Raisen</item>
+        <item>Rajgarh</item>
+        <item>Ratlam</item>
+        <item>Rewa</item>
+        <item>Sagar</item>
+        <item>Satna</item>
+        <item>Sehore</item>
+        <item>Seoni</item>
+        <item>Shahdol</item>
+        <item>Shajapur</item>
+        <item>Sheopur</item>
+        <item>Shivpuri</item>
+        <item>Sidhi</item>
+        <item>Singrauli</item>
+        <item>Tikamgarh</item>
+        <item>Ujjain</item>
+        <item>Umaria</item>
+        <item>Vidisha</item>
+    </string-array>
+    <string-array name="Maharashtra">
+        <item></item>
+        1. Ahmednagar
+        2. Akola
+        3. Amravati
+        4. Aurangabad
+        5. Beed
+        6. Bhandara
+        7. Buldhana
+        8. Chandrapur
+        9. Dhule
+        10. Gadchiroli
+        11. Gondia
+        12. Hingoli
+        13. Jalgaon
+        14. Jalna
+        15. Kolhapur
+        16. Latur
+        17. Mumbai City
+        18. Mumbai Suburban
+        19. Nagpur
+        20. Nanded
+        21. Nandurbar
+        22. Nashik
+        23. Osmanabad
+        24. Palghar
+        25. Parbhani
+        26. Pune
+        27. Raigad
+        28. Ratnagiri
+        29. Sangli
+        30. Satara
+        31. Sindhudurg
+        32. Solapur
+        33. Thane
+        34. Wardha
+        35. Washim
+        36. Yavatmal
+
+    </string-array>
+    <string-array name="state">
+        <item>Andhra Pradesh </item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu Kashmir</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland </item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand </item>
+        <item>West Bengal</item>
+        <item>Puducherry</item>
+    </string-array>
+
+    <string-array name="nationality">
+        <item>Select Nationality</item>
+        <item>Indian</item>
+        <item>Sri Lankan</item>
+        <item>Russian</item>
+        <item>American</item>
+        <item>Pakistanian</item>
+        <item>British</item>
+        <item>Irish</item>
+        <item>Brazilian</item>
+        <item>Italian</item>
+        <item>Chinese</item>
+        <item>Polish</item>
+        <item>Austrian</item>
+        <item>Cannadian</item>
+        <item>Malaysian</item>
+        <item>South Korean</item>
+        <item>North Korean</item>
+        <item>German</item>
+        <item>Swedish</item>
+        <item>French</item>
+        <item>Swiss</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="types">
+        <item>today_matches</item>
+        <item>premium_matches</item>
+        <item>recommendation_matches</item>
+    </string-array>
+    <string-array name="search_age">
+        <item>Select</item>
+        <item>18 - 20</item>
+        <item>20 - 22</item>
+        <item>22 - 24</item>
+        <item>26 - 28</item>
+        <item>30 - 32</item>
+        <item>32 - 34</item>
+        <item>34 - 36</item>
+        <item>above 36</item>
+        <item>recommendation_matches</item>
+    </string-array>
+
+
+    <string name="basic_details">Basic Details</string>
+    <string name="personal_appearance">Personal Appearance</string>
+    <string name="education">Education</string>
+    <string name="habitual">Habitual</string>
+    <string name="family_details">Family Details</string>
+    <string name="about_my_family">About My Family</string>
+    <string name="about_my_partner">About My Partner</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="residing_address">Residing Address</string>
+    <string name="partner_preference">Partner Preference</string>
+    <string name="category">Category</string>
+    <string name="send">Send</string>
+    <string name="unlimited">Unlimited</string>
+    <string name="message_and_chat"><![CDATA[Message & Chat]]></string>
+    <string name="access">Access</string>
+    <string name="verified_mobile_number">Verified Mobile Number</string>
+    <string name="view">View</string>
+    <string name="horoscope">Horoscope</string>
+    <string name="enhanced">Enhanced</string>
+    <string name="profile_visibility">Profile Visibility</string>
+    <string name="profile_highlighter">Profile Highlighter</string>
+    <string name="get">Get</string>
+    <string name="buy">Buy</string>
+    <string name="settings">Settings</string>
+    <string name="today_matches">Today Matches</string>
+    <string name="recommend_matches">Recommend Matches</string>
+    <string name="premium_matches">Premium Matches</string>
+    <string name="see_more">See more >></string>
+    <string name="discover_matches">Discover Matches</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="discover_plan">Discover Plan</string>
+    <string name="inbox">Inbox</string>
+    <string name="buy_plan">Buy Plan</string>
+    <string name="notifications">Notifications</string>
+    <string name="profile">Profile</string>
+    <string name="shortlisted">Shortlisted</string>
+    <string name="connections">Connections</string>
+    <string name="my_offers">My Offers</string>
+    <string name="help_and_support">Help and Support</string>
+    <string name="services">Services</string>
+    <string name="refer_and_earn">Refer and Earn</string>
+    <string name="membership_plan">Membership Plan</string>
+    <string name="title_activity_profile_detail">ProfileDetailActivity</string>
+    <string name="shortlist">Shortlist</string>
+    <string name="title_activity_update_user">UpdateUserActivity</string>
+    <string name="title_activity_main_dashboard">MainDashboard</string>
+    <string name="title_activity_view_all_matchess">ViewAllMatchess</string>
+</resources>

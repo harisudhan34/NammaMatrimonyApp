@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".activities.SearchActivity">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sort By"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/bottom_line"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <TableRow
+                    android:background="@color/white"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/lastlogin_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/discover_icon_size"
+                            android:layout_height="@dimen/discover_icon_size"
+                            android:layout_weight="1"
+                            android:src="@drawable/education" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_padding"
+                            android:text="Last Login"
+                            android:gravity="center"
+                            android:fontFamily="@font/opensansregular"
+                            android:textColor="@color/black_gradient"
+                            android:textSize="@dimen/medium_text_size" />
+
+                        <!--<android.support.v7.widget.AppCompatTextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="@dimen/small_padding"-->
+                        <!--android:fontFamily="@font/opensansregular"-->
+                        <!--android:text="25 Matches"-->
+                        <!--android:textColor="@color/black_gradient"-->
+                        <!--android:textSize="@dimen/small_text_size" />-->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/profile_relavence_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/discover_icon_size"
+                            android:layout_height="@dimen/discover_icon_size"
+                            android:src="@drawable/profession" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_padding"
+                            android:text="Profile Relavency"
+                            android:gravity="center"
+                            android:fontFamily="@font/opensansregular"
+                            android:textColor="@color/black_gradient"
+                            android:textSize="@dimen/medium_text_size" />
+
+                        <!--<android.support.v7.widget.AppCompatTextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="@dimen/small_padding"-->
+                        <!--android:text="25 Matches"-->
+                        <!--android:fontFamily="@font/opensansregular"-->
+                        <!--android:textColor="@color/black_gradient"-->
+                        <!--android:textSize="@dimen/small_text_size" />-->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/Recently_Created_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/discover_icon_size"
+                            android:layout_height="@dimen/discover_icon_size"
+                            android:src="@drawable/star" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_padding"
+                            android:text="Recently         Created"
+                            android:gravity="center"
+                            android:fontFamily="@font/opensansregular"
+                            android:textColor="@color/black_gradient"
+                            android:textSize="@dimen/medium_text_size" />
+
+                        <!--<android.support.v7.widget.AppCompatTextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="@dimen/small_padding"-->
+                        <!--android:text="25 Matches"-->
+                        <!--android:fontFamily="@font/opensansregular"-->
+                        <!--android:textColor="@color/black_gradient"-->
+                        <!--android:textSize="@dimen/small_text_size" />-->
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/lateest_photos_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/discover_icon_size"
+                            android:layout_height="@dimen/discover_icon_size"
+                            android:src="@drawable/star" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_padding"
+                            android:text="Latest Photos"
+                            android:gravity="center"
+                            android:fontFamily="@font/opensansregular"
+                            android:textColor="@color/black_gradient"
+                            android:textSize="@dimen/medium_text_size" />
+
+
+                    </LinearLayout>
+
+
+                </TableRow>
+
+            </TableLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_line">
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Filter"
+                    android:layout_marginTop="20dp"
+                    android:paddingBottom="5dp"
+                    />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reset"
+                    android:textColor="@color/red"
+                    android:padding="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:paddingBottom="5dp"
+                    />
+
+            </RelativeLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0">
+                <TableRow  android:background="@drawable/bottom_line_gray">
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/search_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/opensansregular"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age"
+                        android:textColor="@color/medium_gray"
+                        android:padding="5dp"
+                        android:drawablePadding="10dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:paddingBottom="5dp"
+                        />
+
+                </TableRow>
+                <TableRow  android:background="@drawable/bottom_line_gray">
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/search_height"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/opensansregular"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Height"
+                        android:textColor="@color/medium_gray"
+                        android:padding="5dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:paddingBottom="5dp"
+                        />
+
+                </TableRow>
+                <TableRow  android:background="@drawable/bottom_line_gray">
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/search_marital_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/opensansregular"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marital Status"
+                        android:textColor="@color/medium_gray"
+                        android:padding="5dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:paddingBottom="5dp"
+                        />
+
+                </TableRow>
+                <TableRow  android:background="@drawable/bottom_line_gray">
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/search_religion"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/opensansregular"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Religion"
+                        android:textColor="@color/medium_gray"
+                        android:padding="5dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:paddingBottom="5dp"
+                        />
+
+                </TableRow>
+                <TableRow  android:background="@drawable/bottom_line_gray">
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/search_mother_tongue"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/opensansregular"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mother Tongue"
+                        android:textColor="@color/medium_gray"
+                        android:padding="5dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:paddingBottom="5dp"
+                        />
+
+                </TableRow>
+                <TableRow  android:background="@drawable/bottom_line_gray">
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/search_caste"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/opensansregular"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Caste"
+                        android:textColor="@color/medium_gray"
+                        android:padding="5dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:paddingBottom="5dp"
+                        />
+
+                </TableRow>
+
+            </TableLayout>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/apply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/opensansregular"
+                android:background="@drawable/pink_rounded"
+                android:paddingLeft="@dimen/input_field_height"
+                android:paddingRight="@dimen/input_field_height"
+                android:text="Apply"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

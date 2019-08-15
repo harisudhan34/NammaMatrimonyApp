@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.skyappz.namma.editprofile.EditAboutMyselfDetails" />
+
+        <variable
+            name="user"
+            type="com.skyappz.namma.model.User" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="10dp"
+                tools:context=".editprofile.EditAboutMyselfDetails">
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/skip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skip >>"
+                    android:onClick="@{(v)-> fragment.skip(v)}"
+                    android:textColor="#1d5d77"
+                    android:layout_gravity="right"
+                    android:paddingLeft="15dp"
+                    android:layout_margin="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:drawablePadding="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About Family"
+                    android:visibility="gone"
+                    android:textColor="@color/pink"
+                    android:paddingBottom="5dp"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bottom_line"
+                    android:fontFamily="@font/opensansregular" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/etAboutFamily"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_spinner_red"
+                    android:gravity="top|start"
+                    android:textSize="@dimen/input_text_size"
+                    android:hint="@string/about_my_family"
+                    android:fontFamily="@font/opensansregular"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:minHeight="150dp"
+                    android:padding="@dimen/small_padding"
+                    android:text="@={user.about_myself}" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensansregular"
+                    android:background="@drawable/pink_rounded"
+                    android:paddingLeft="@dimen/input_field_height"
+                    android:paddingRight="@dimen/input_field_height"
+                    android:text="@string/update"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+</layout>

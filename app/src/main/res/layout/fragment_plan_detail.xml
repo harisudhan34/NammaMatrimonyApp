@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:padding="@dimen/large_padding"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragments.PlanDetailFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/large_padding"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingTop="@dimen/input_field_height"
+        android:paddingBottom="@dimen/input_field_height"
+        android:gravity="center_horizontal"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INR 299"
+            android:textColor="@color/pink"
+            android:textSize="@dimen/normal_text_size" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_padding"
+            android:text="Gold"
+            android:textColor="@color/input_text_color"
+            android:textSize="@dimen/normal_text_size" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_padding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/very_small_icon_size"
+                android:layout_height="@dimen/very_small_icon_size"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:src="@drawable/email_pink" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/send"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/unlimited"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/medium_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/message_and_chat"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_padding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/very_small_icon_size"
+                android:layout_height="@dimen/very_small_icon_size"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:src="@drawable/mobile_pink" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/access"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/unlimited"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/medium_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/verified_mobile_number"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="(20/Day)"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_padding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/very_small_icon_size"
+                android:layout_height="@dimen/very_small_icon_size"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:src="@drawable/horoscope_pink" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/view"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/unlimited"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/medium_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/horoscope"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_padding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/very_small_icon_size"
+                android:layout_height="@dimen/very_small_icon_size"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:src="@drawable/eye_pink" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/enhanced"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/medium_text_size" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/profile_visibility"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_padding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/very_small_icon_size"
+                android:layout_height="@dimen/very_small_icon_size"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:src="@drawable/profile_highlight_gray" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/get"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="30 Days"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:text="@string/profile_highlighter"
+                android:textColor="@color/input_text_color"
+                android:textSize="@dimen/medium_text_size" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/large_padding"
+        android:layout_marginTop="@dimen/medium_padding"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:weightSum="4">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnBuy"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/small_btn_height"
+            android:layout_weight="1"
+            android:background="@drawable/pink_rounded"
+            android:paddingLeft="@dimen/large_padding"
+            android:paddingRight="@dimen/large_padding"
+            android:text="@string/buy"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/input_text_size" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/small_btn_height"
+            android:layout_marginLeft="@dimen/medium_padding"
+            android:textAllCaps="false"
+            android:layout_weight="1"
+            android:background="@drawable/pink_border_rounded"
+            android:paddingLeft="@dimen/large_padding"
+            android:paddingRight="@dimen/large_padding"
+            android:text="@string/cancel"
+            android:textColor="@color/pink"
+            android:textSize="@dimen/input_text_size" />
+
+    </LinearLayout>
+
+</LinearLayout>
