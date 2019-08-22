@@ -35,6 +35,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import pl.droidsonroids.gif.GifImageView;
+
 import static com.skyappz.namma.activities.HomeActivity.INDEX_HABITUAL_DETAILS;
 import static com.skyappz.namma.activities.HomeActivity.userid;
 
@@ -51,6 +53,7 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
     private Activity mActivity;
     ProgressDialog dialog;
     AppCompatButton update;
+    GifImageView progress;
     AppCompatTextView skip;
     String s_change_nosibiling,s_change_no_bro,s_change_no_sis,s_change_bro_status,s_change_sis_status;
     AppCompatEditText etNoOfSiblings,etNoOfbrother,etNoOfsister,et_family_location;
@@ -74,9 +77,11 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        super.onAttach(activity);
         mActivity = activity;
     }
     private void initViews(View view) {
+        progress=(GifImageView)view.findViewById(R.id.progress);
         spMotherOccupation=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spMotherOccupation);
         spFatherOccupation=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spFatherOccupation);
         etNoOfSiblings=(AppCompatEditText)view.findViewById(R.id.etNoOfSiblings);
@@ -275,10 +280,7 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
         }
     }
     public void update() {
-        dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("please wait.");
-        dialog.setCancelable(false);
-        dialog.show();
+       progress.setVisibility(View.VISIBLE);
         s_noofsibiling=etNoOfSiblings.getText().toString();
         s_no_of_bro=etNoOfbrother.getText().toString();
         s_no_sis=etNoOfsister.getText().toString();
@@ -302,42 +304,42 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
     }
     private boolean isInputValidated(User user) {
         if (s_familytype.equalsIgnoreCase("Select your Family Type")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Family type is empty!";
             return false;
         }
         if (s_familytype.equalsIgnoreCase("Select your Family Type")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Family type is empty!";
             return false;
         }
         if (s_familystatus.equalsIgnoreCase("Select your Family Status")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "family status is empty!";
             return false;
         }
         if (s_fathername.equalsIgnoreCase("")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Father Name is empty!";
             return false;
         }
         if (Utils.isEmpty(s_fatherocc)) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Father occupation is empty!";
             return false;
         }
         if (s_mothername.equalsIgnoreCase("")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Mother Name is empty!";
             return false;
         }
         if (Utils.isEmpty(s_motherocc)) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Mother occupation is empty!";
             return false;
         }
         if (Utils.isEmpty(s_noofsibiling)) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Num of siblings is empty!";
             return false;
         }
@@ -368,18 +370,18 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
 //        params.put("user_id", "1");
 //        userDetailsViewModel.updateUser(params, this);
         params.put("user_id",userid);
-        params.put("father_name", s_fathername);
-        params.put("mother_name", s_mothername);
-        params.put("family_type", s_familytype);
-        params.put("family_status", s_familystatus);
-        params.put("father_occupation", s_fatherocc);
-        params.put("mother_occupation", s_motherocc);
-        params.put("no_of_siblings", s_noofsibiling);
-        params.put("no_of_brothers", s_no_of_bro);
-        params.put("no_of_sisters", s_no_sis);
-        params.put("brother_status", s_bro_status);
-        params.put("sister_status", s_sis_status);
-        params.put("family_location", s_family_location);
+        params.put("father_name", s_fathername.toLowerCase());
+        params.put("mother_name", s_mothername.toLowerCase());
+        params.put("family_type", s_familytype.toLowerCase());
+        params.put("family_status", s_familystatus.toLowerCase());
+        params.put("father_occupation", s_fatherocc.toLowerCase());
+        params.put("mother_occupation", s_motherocc.toLowerCase());
+        params.put("no_of_siblings", s_noofsibiling.toLowerCase());
+        params.put("no_of_brothers", s_no_of_bro.toLowerCase());
+        params.put("no_of_sisters", s_no_sis.toLowerCase());
+        params.put("brother_status", s_bro_status.toLowerCase());
+        params.put("sister_status", s_sis_status.toLowerCase());
+        params.put("family_location", s_family_location.toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
 
@@ -390,13 +392,14 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
 
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
         ((HomeActivity) mActivity).setFragment(INDEX_HABITUAL_DETAILS, null);
     }
 
     @Override
     public void onFailure(int requestCode, int responseCode, Object response) {
+        progress.setVisibility(View.GONE);
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
     }
 

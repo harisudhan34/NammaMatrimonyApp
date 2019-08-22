@@ -19,6 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.JsonParseException;
 import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.activities.SearchActivity;
 import com.skyappz.namma.adapter.ViewAllMatches;
 import com.skyappz.namma.model.User;
@@ -77,6 +78,7 @@ public class PremiumMatches extends Fragment implements WebServiceListener {
         return v;
     }
     public void get_premium() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getmatches";
         String url = URL_GET_TODAY_MATCHES+ AppController.get_userid(getActivity()) +"&type=premium_matches&parameter=age,gender,height,weight,caste,sub_caste,marital_status,mother_tongue,raasi,star,having_dosham,occupation,physical_status,nationality,country,home_city,monthly_income,paadham,education" ;
         Log.e("url",url);

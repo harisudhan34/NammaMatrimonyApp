@@ -52,7 +52,7 @@ AppCompatImageView profilepic;
     //Bitmap to get image from gallery
     private Bitmap bitmap;
     private Activity mActivity;
-    String uploadurl="https://nammamatrimony.in/api/uploads.php.php";
+    String uploadurl="https://nammamatrimony.in/api/uploads.php";
     //Uri to store the image uri
     private Uri filePath;
 

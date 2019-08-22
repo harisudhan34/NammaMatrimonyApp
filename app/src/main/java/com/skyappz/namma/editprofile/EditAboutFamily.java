@@ -22,6 +22,8 @@ import com.skyappz.namma.webservice.WebServiceListener;
 
 import java.util.HashMap;
 
+import pl.droidsonroids.gif.GifImageView;
+
 import static com.skyappz.namma.activities.HomeActivity.INDEX_PARTNER_PREFERENCE;
 import static com.skyappz.namma.activities.HomeActivity.userid;
 
@@ -37,6 +39,7 @@ public class EditAboutFamily extends Fragment implements View.OnClickListener, W
     AppCompatButton update;
     String s_abtfamily;
     ProgressDialog dialog;
+    GifImageView progress;
     private UserDetailsViewModel userDetailsViewModel;
 
     public static EditAboutFamily newInstance() {
@@ -55,6 +58,7 @@ public class EditAboutFamily extends Fragment implements View.OnClickListener, W
     }
 
     public void intialviews(View view){
+        progress=(GifImageView)view.findViewById(R.id.progress);
         etAboutFamily =(AppCompatEditText)view.findViewById(R.id.etAboutFamily);
         skip=(AppCompatTextView)view.findViewById(R.id.skip);
         update=(AppCompatButton)view.findViewById(R.id.update);
@@ -82,10 +86,7 @@ public class EditAboutFamily extends Fragment implements View.OnClickListener, W
     }
 
     public void update() {
-        dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("please wait.");
-        dialog.setCancelable(false);
-        dialog.show();
+        progress.setVisibility(View.VISIBLE);
         s_abtfamily=etAboutFamily.getText().toString();
         if (Utils.isConnected(mActivity)) {
             if (isInputValidated(user)) {
@@ -105,7 +106,7 @@ public class EditAboutFamily extends Fragment implements View.OnClickListener, W
     private boolean isInputValidated(User user) {
 
         if (Utils.isEmpty(s_abtfamily)) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "About my  is empty!";
             return false;
         }
@@ -130,7 +131,7 @@ public class EditAboutFamily extends Fragment implements View.OnClickListener, W
 //        params.put("user_id", "1");
 //        userDetailsViewModel.updateUser(params, this);
         params.put("user_id",userid);
-        params.put("about_family", s_abtfamily);
+        params.put("about_family", s_abtfamily.toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
     public void skip(){
@@ -139,13 +140,14 @@ public class EditAboutFamily extends Fragment implements View.OnClickListener, W
 
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
         ((HomeActivity) mActivity).setFragment(INDEX_PARTNER_PREFERENCE, null);
     }
 
     @Override
     public void onFailure(int requestCode, int responseCode, Object response) {
+        progress.setVisibility(View.GONE);
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
 
     }

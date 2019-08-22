@@ -32,6 +32,7 @@ import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
 import com.skyappz.namma.ResponseEntities.GetUserDetailsResponse;
 import com.skyappz.namma.activities.HomeActivity;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.adapter.CustomListAdapter;
 import com.skyappz.namma.databinding.EditPersonalDetailsFragmentBinding;
 import com.skyappz.namma.model.User;
@@ -430,26 +431,26 @@ public class EditPersonalDetails extends Fragment implements WebServiceListener,
 
     private  void checkparams(){
         params.put("user_id",userid);
-        params.put("marital_status", s_maritalstatus);
-        params.put("caste", s_caste);
-        params.put("sub_caste", s_subcaste);
-        params.put("having_dosham", s_having_dhosam);
-        params.put("dosham_details",s_dosam );
-        params.put("nationality",s_nationality );
-        params.put("country",s_country );
-        params.put("state",s_sate );
-        params.put("home_city",s_city );
-        params.put("age","22");
-        params.put("no_of_children",child_count);
-        params.put("living_with_me",s_childdren);
-        params.put("star",s_natchathram);
-        params.put("willing_other_community",s_other_community);
-        params.put("raasi",s_raasi);
-        params.put("dob",AppController.get_dob(getActivity()));
-        params.put("gender",AppController.get_gender(getActivity()));
-        params.put("mother_tongue", AppController.get_mothertounge(getActivity()));
-        params.put("religion", AppController.get_religion(getActivity()));
-        params.put("profile_created_for",AppController.get_signupprofilevetae(getActivity()));
+        params.put("marital_status", s_maritalstatus.toLowerCase());
+        params.put("caste", s_caste.toLowerCase());
+        params.put("sub_caste", s_subcaste.toLowerCase());
+        params.put("having_dosham", s_having_dhosam.toLowerCase());
+        params.put("dosham_details",s_dosam.toLowerCase());
+        params.put("nationality",s_nationality.toLowerCase());
+        params.put("country",s_country.toLowerCase());
+        params.put("state",s_sate.toLowerCase());
+        params.put("home_city",s_city.toLowerCase());
+        params.put("age",AppController.get_age(getActivity()));
+        params.put("no_of_children",child_count.toLowerCase());
+        params.put("living_with_me",s_childdren.toLowerCase());
+        params.put("star",s_natchathram.toLowerCase());
+        params.put("willing_other_community",s_other_community.toLowerCase());
+        params.put("raasi",s_raasi.toLowerCase());
+        params.put("dob",AppController.get_dob(getActivity()).toLowerCase());
+        params.put("gender",AppController.get_gender(getActivity()).toLowerCase());
+        params.put("mother_tongue", AppController.get_mothertounge(getActivity()).toLowerCase());
+        params.put("religion", AppController.get_religion(getActivity()).toLowerCase());
+        params.put("profile_created_for",AppController.get_signupprofilevetae(getActivity()).toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
     public void skip(){
@@ -535,6 +536,7 @@ public class EditPersonalDetails extends Fragment implements WebServiceListener,
     }
 
     public void getAllCaste() {
+        HttpsTrustManager.allowAllSSL();
         auto_subcaste.setText("");
         String tag_json_obj = "getAllCaste";
         String url = "https://nammamatrimony.in/api/getcaste.php";
@@ -574,6 +576,7 @@ public class EditPersonalDetails extends Fragment implements WebServiceListener,
     }
 
     public void getsubcaste() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getAllSubCaste";
         String url = "https://nammamatrimony.in/api/getsubcaste.php";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -627,6 +630,7 @@ public class EditPersonalDetails extends Fragment implements WebServiceListener,
     }
 
     public void getstate() {
+        HttpsTrustManager.allowAllSSL();
         auto_subcaste.setText("");
         String tag_json_obj = "getAllCaste";
         String url = "https://nammamatrimony.in/api/getstate.php";

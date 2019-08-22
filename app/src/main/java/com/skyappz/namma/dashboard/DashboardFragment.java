@@ -39,6 +39,7 @@ import com.skyappz.namma.ResponseEntities.BaseResponse;
 import com.skyappz.namma.ResponseEntities.UserListEntity;
 import com.skyappz.namma.activities.DiscoverMatches;
 import com.skyappz.namma.activities.EducationOption;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.activities.ProfessionOption;
 import com.skyappz.namma.activities.SingleProfileView;
 import com.skyappz.namma.adapter.UserPagerAdapter;
@@ -85,7 +86,7 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
     ArrayList<User> recommended = new ArrayList<>();
     UserPagerAdapter todayMatchesAdapter, premiumMatchesAdapter, recommendationsAdapter;
     LinearLayout vpTodayMatches,vpRecommend_matches,vpPreimiusmatches;
-    String s_username,s_userid,s_profileimage,s_coverimage,s_gender;
+    String s_username,s_userid,s_profileimage,s_coverimage,s_gender="";
     LinearLayout education_layout,profession_layout,star_layout;
     String todate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
     final LocalDate date = LocalDate.now();
@@ -162,6 +163,7 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
 
 
     public void get_user() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "get_user";
         String url = URL_GET_USER+ AppController.get_userid(getActivity()) ;
         Log.e("url",url);
@@ -219,6 +221,7 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
 
 
     public void get_todaymatches() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getmatches";
         String url = URL_GET_TODAY_MATCHES+ AppController.get_userid(getActivity()) +"&type=today_matches&parameter=gender,age,height,weight,caste,sub_caste,marital_status,mother_tongue,raasi,star,having_dosham,dosham_details,occupation,physical_status,nationality,country,home_city,paadham,education,state" ;
         Log.e("url",url);
@@ -287,6 +290,7 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
     }
 
     public void dummydata2(){
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "dummy";
         String url = URL_GET_DUMMY_MATCHES;
         StringRequest jsonObjRequest = new StringRequest(Request.Method.POST,
@@ -365,6 +369,7 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
 
 
     public void get_recommended() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getmatches";
         String url = URL_GET_TODAY_MATCHES+ AppController.get_userid(getActivity()) +"&type=recommendation_matches&parameter=age,gender,height,weight,caste,sub_caste,marital_status,mother_tongue,raasi,star,having_dosham,occupation,physical_status,nationality,country,home_city,monthly_income,paadham,education" ;
         Log.e("url",url);
@@ -425,6 +430,7 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
     }
 
     public void get_perimium() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getmatches";
         String url = URL_GET_TODAY_MATCHES+ AppController.get_userid(getActivity()) +"&type=premium_matches&parameter=age,gender,height,weight,caste,sub_caste,marital_status,mother_tongue,raasi,star,having_dosham,occupation,physical_status,nationality,country,home_city,monthly_income,paadham,education" ;
         Log.e("url",url);

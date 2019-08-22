@@ -109,6 +109,7 @@ AppCompatTextView intro;
 
 
     public void get_todaymatches() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getmatches";
         String url = URL_SINGLE_PROFILE+ userid;
         Log.e("url",url);

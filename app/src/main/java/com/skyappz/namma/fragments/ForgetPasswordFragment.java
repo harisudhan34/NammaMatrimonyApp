@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.silvestrpredko.dotprogressbar.DotProgressBar;
+import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
 import com.skyappz.namma.ResponseEntities.BaseResponse;
 import com.skyappz.namma.activities.AuthenticationActivity;
@@ -20,6 +21,9 @@ import com.skyappz.namma.utils.Preferences;
 import com.skyappz.namma.utils.Utils;
 import com.skyappz.namma.webservice.WebServiceListener;
 import com.skyappz.namma.webservice.WebServiceManager;
+
+import pl.droidsonroids.gif.GifImageView;
+import pl.droidsonroids.gif.GifTexImage2D;
 
 
 public class ForgetPasswordFragment extends Fragment implements View.OnClickListener, WebServiceListener {
@@ -30,12 +34,14 @@ public class ForgetPasswordFragment extends Fragment implements View.OnClickList
     AppCompatButton btnUpdate;
     String password, confirmPassword;
     private User user;
+    GifImageView progress;
     private Activity mActivity;
     WebServiceManager webServiceManager;
     Preferences preferences;
     String errorMsg;
     boolean isValidated = true;
     DotProgressBar pbDot;
+    String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     public ForgetPasswordFragment() {
@@ -66,6 +72,7 @@ public class ForgetPasswordFragment extends Fragment implements View.OnClickList
     }
 
     private void initViews(View rootView) {
+        progress=(GifImageView)rootView.findViewById(R.id.progress);
         mSwipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setEnabled(false);
         tetPassword = rootView.findViewById(R.id.tetPassword);
@@ -80,10 +87,12 @@ public class ForgetPasswordFragment extends Fragment implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnUpdate:
+                progress.setVisibility(View.VISIBLE);
                 user = getUserDataFromInput();
                 if (Utils.isConnected(mActivity)) {
                     if (isValidated()) {
-                        webServiceManager.updatePassword(user, this);
+
+                        webServiceManager.updatePassword(AppController.get_userid(getActivity()),user, this);
                     } else {
                         tvErrorMsg.setText(errorMsg);
                     }
@@ -109,6 +118,7 @@ public class ForgetPasswordFragment extends Fragment implements View.OnClickList
 
     private void moveToEmailFragment() {
         ((AuthenticationActivity) mActivity).setFragment(AuthenticationActivity.INDEX_EMAIL_FRAGMENT, null);
+        getActivity().finish();
     }
 
     private void login(User user) {
@@ -125,6 +135,7 @@ public class ForgetPasswordFragment extends Fragment implements View.OnClickList
         password = tetPassword.getText().toString();
         confirmPassword = tetConfirmPassword.getText().toString();
         user.setPassword(password);
+
         user.setDevice_id(preferences.getDeviceId());
         return user;
     }
@@ -141,12 +152,14 @@ public class ForgetPasswordFragment extends Fragment implements View.OnClickList
 
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
+        progress.setVisibility(View.GONE);
         moveToEmailFragment();
         Utils.showToast(mActivity, "Password Updated Successfully!");
     }
 
     @Override
     public void onFailure(int requestCode, int responseCode, Object response) {
+        progress.setVisibility(View.GONE);
         if (requestCode == WebServiceManager.REQUEST_CODE_LOGIN) {
             if (response != null) {
                 BaseResponse forgetPasswordResponse = (BaseResponse) response;
@@ -183,21 +196,36 @@ public class ForgetPasswordFragment extends Fragment implements View.OnClickList
         if (password != null && password.length() > 0) {
 
         } else {
+            progress.setVisibility(View.GONE);
             isValidated = false;
-            errorMsg = "Email ID should not be empty";
+            errorMsg = "Password should not be empty";
             return isValidated;
+        }
+        if (!password.matches(PASSWORD_PATTERN)){
+            errorMsg = "";
+            progress.setVisibility(View.GONE);
+            Utils.showAlert(mActivity,"Password must contain min 6 character, mix of upper and lower case letters as well as digits and one special charecter");
+            return false;
         }
         if (confirmPassword != null && confirmPassword.length() > 0) {
 
         } else {
+            progress.setVisibility(View.GONE);
             isValidated = false;
             errorMsg = "Confirm Password should not be empty";
             return isValidated;
+        }
+        if (!confirmPassword.matches(PASSWORD_PATTERN)){
+            errorMsg = "";
+            progress.setVisibility(View.GONE);
+            Utils.showAlert(mActivity,"Password must contain min 6 character, mix of upper and lower case letters as well as digits and one special charecter");
+            return false;
         }
         if (password.equalsIgnoreCase(confirmPassword)) {
 
         } else {
             isValidated = false;
+            progress.setVisibility(View.GONE);
             errorMsg = "Password and Confirm Password must be same";
             return isValidated;
         }

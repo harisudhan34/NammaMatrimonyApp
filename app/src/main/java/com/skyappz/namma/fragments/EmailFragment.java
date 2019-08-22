@@ -32,6 +32,8 @@ import com.github.silvestrpredko.dotprogressbar.DotProgressBar;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import pl.droidsonroids.gif.GifImageView;
+
 
 public class EmailFragment extends Fragment implements View.OnClickListener, SocialLoginListener, WebServiceListener {
 
@@ -49,6 +51,7 @@ public class EmailFragment extends Fragment implements View.OnClickListener, Soc
     ProgressDialog dialog;
     boolean isValidated = true;
     DotProgressBar pbDot;
+    GifImageView progress;
     private TextInputLayout input_layout_email, input_layout_password;
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -83,6 +86,7 @@ public class EmailFragment extends Fragment implements View.OnClickListener, Soc
         input_layout_password = (TextInputLayout)rootView.findViewById(R.id.input_layout_password);
         mSwipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setEnabled(false);
+        progress=(GifImageView)rootView.findViewById(R.id.progress);
         tetEmail = rootView.findViewById(R.id.tetEmail);
         tetPassword = rootView.findViewById(R.id.tetpassword);
         tvErrorMsg = rootView.findViewById(R.id.tvErrorMsg);
@@ -110,10 +114,11 @@ public class EmailFragment extends Fragment implements View.OnClickListener, Soc
                 break;
 
             case R.id.btnNext:
-                dialog = new ProgressDialog(getActivity());
-                dialog.setMessage("please wait.");
-                dialog.setCancelable(false);
-                dialog.show();
+                progress.setVisibility(View.VISIBLE);
+//                dialog = new ProgressDialog(getActivity());
+//                dialog.setMessage("please wait.");
+//                dialog.setCancelable(false);
+//                dialog.show();
                 user = getUserDataFromInput();
                 ((AuthenticationActivity) mActivity).setUser(user);
                 if (Utils.isConnected(mActivity)) {
@@ -139,10 +144,10 @@ public class EmailFragment extends Fragment implements View.OnClickListener, Soc
         }
     }
     private void moveToOTPPage() {
-        ((AuthenticationActivity) mActivity).setFragment(AuthenticationActivity.INDEX_FORGET_PASSWORD_FRAGMENT, null);
+        ((AuthenticationActivity) mActivity).setFragment(AuthenticationActivity.INDEX_PHONENUMBER_FRAGMENT, null);
     }
     private void moveToForgotPasswordPage() {
-        ((AuthenticationActivity) mActivity).setFragment(AuthenticationActivity.INDEX_FORGET_PASSWORD_FRAGMENT, null);
+        ((AuthenticationActivity) mActivity).setFragment(AuthenticationActivity.INDEX_FORGET_PASSWORD_MOBILE, null);
     }
 
     private void moveToSignUpFragment() {
@@ -210,7 +215,7 @@ public class EmailFragment extends Fragment implements View.OnClickListener, Soc
 
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         LoginResponse loginResponse = (LoginResponse) response;
         user = loginResponse.getUser();
         Log.e("useridd",user.getUser_id());
@@ -221,26 +226,16 @@ public class EmailFragment extends Fragment implements View.OnClickListener, Soc
         moveToHomePage(user.getUser_id());
     }
     private void moveToHomePage(String userid) {
-//        Log.e("resighter",String.valueOf(preferences.isRegistered()));
-//        if (preferences.isRegistered()){
-//            Intent intent = new Intent(mActivity, MainDashboard.class);
-//            preferences.setuser_id(userid);
-//            intent.putExtra("userid",userid);
-//            mActivity.startActivity(intent);
-//        }else {
         Intent intent = new Intent(mActivity, MainDashboard.class);
-//            preferences.setuser_id(userid);
         AppController.set_userid(getActivity(),userid);
         intent.putExtra("userid",userid);
         mActivity.startActivity(intent);
-        // }
-
     }
 
 
     @Override
     public void onFailure(int requestCode, int responseCode, Object response) {
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         if (requestCode == WebServiceManager.REQUEST_CODE_LOGIN) {
             if (response != null) {
                 LoginResponse loginResponse = (LoginResponse) response;
@@ -284,10 +279,12 @@ public class EmailFragment extends Fragment implements View.OnClickListener, Soc
     private boolean isValidated() {
         isValidated = true;
         if (email .equals("")) {
+            progress.setVisibility(View.GONE);
             isValidated = false;
             errorMsg = "Email ID should not be empty";
             return isValidated;
         }else if (password.equals("")) {
+            progress.setVisibility(View.GONE);
             isValidated = false;
             errorMsg = "password  should not be empty";
             return isValidated;

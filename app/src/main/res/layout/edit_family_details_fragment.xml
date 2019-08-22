@@ -17,411 +17,426 @@
             type="com.skyappz.namma.activities.HomeActivity" />
 
     </data>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:orientation="vertical"
-        tools:context=".editprofile.EditFamilyDetails">
-
-        <android.support.v7.widget.CardView
+        android:layout_height="wrap_content">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="6dp">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            tools:context=".editprofile.EditFamilyDetails">
 
-
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="@color/white">
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/skip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Skip"
-                    android:textColor="@color/white"
-                    android:visibility="gone"
-                    android:layout_gravity="right"
-                    android:paddingLeft="15dp"
-                    android:paddingBottom="5dp"
-                    android:layout_margin="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/pink_rounded"
-                    android:textSize="@dimen/input_text_size"
-                    android:fontFamily="@font/opensansregular" />
-                <android.support.v7.widget.AppCompatTextView
+                android:layout_height="wrap_content"
+                app:cardElevation="6dp">
+
+
+                <android.support.v4.widget.NestedScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Family Details"
-                    android:textColor="@color/pink"
-                    android:paddingBottom="5dp"
-                    android:textSize="14dp"
-                    android:visibility="gone"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bottom_line"
-                    android:fontFamily="@font/opensansregular" />
-
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:fontFamily="@font/opensansregular"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="FAMILY TYPE"/>
-
-
-                <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spFamilyType"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/input_field_height"
-            android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:spinnerMode="dialog"
-            android:textColorHint="@color/hintgray"
-            android:background="@drawable/rounded_corner_gray"
-            android:gravity="center_vertical"
-                    android:textSize="@dimen/input_text_size"
-                    android:paddingLeft="10dp"
-            android:fontFamily="@font/opensansregular" />
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="FAMILY STATUS"/>
-
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spFamilyStatus"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/input_field_height"
-            android:textSize="@dimen/input_text_size"
-            android:layout_marginTop="@dimen/input_text_size"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
-            android:spinnerMode="dialog"
-            android:background="@drawable/rounded_corner_gray"
-            android:textColorHint="@color/hintgray"
-            android:paddingLeft="10dp"
-            android:hint="Select family status"
-            android:fontFamily="@font/opensansregular"/>
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="FAMILY VALUES"/>
-
-                <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/spFamilyValues"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/input_field_height"
-                    android:textSize="@dimen/input_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:spinnerMode="dialog"
-                    android:background="@drawable/rounded_corner_gray"
-                    android:textColorHint="@color/hintgray"
-                    android:paddingLeft="10dp"
-                    android:hint="Select family status"
-                    android:fontFamily="@font/opensansregular"/>
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="FATHER NAME"/>
-                <android.support.v7.widget.AppCompatEditText
-                    android:id="@+id/etFatherName"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/input_field_height"
-                    android:layout_marginTop="@dimen/input_field_margin"
-                    android:textSize="@dimen/input_text_size"
-                    android:inputType="text"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:background="@drawable/rounded_corner_gray"
-                    android:fontFamily="@font/opensansregular" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="FATHER OCCUPATION"/>
-
-                <android.support.v7.widget.AppCompatAutoCompleteTextView
-            android:id="@+id/spFatherOccupation"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/input_field_height"
-            android:layout_marginTop="@dimen/input_text_size"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:textColor="@color/black"
-            android:textSize="@dimen/input_text_size"
-            android:textColorHint="@color/black"
-            android:background="@drawable/rounded_corner_gray"
-            android:fontFamily="@font/opensansregular" />
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="MOTHER NAME"/>
-                <android.support.v7.widget.AppCompatEditText
-                    android:id="@+id/etMothername"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/input_field_height"
-                    android:layout_marginTop="@dimen/input_field_margin"
-                    android:textSize="@dimen/input_text_size"
-                    android:inputType="text"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:background="@drawable/rounded_corner_gray"
-                    android:fontFamily="@font/opensansregular" />
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="MOTHER OCCUPATION"/>
-
-                <android.support.v7.widget.AppCompatAutoCompleteTextView
-            android:id="@+id/spMotherOccupation"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/input_field_height"
-            android:layout_marginTop="@dimen/input_field_margin"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:textColor="@color/black"
-            android:textSize="@dimen/input_text_size"
-            android:background="@drawable/rounded_corner_gray"
-            android:fontFamily="@font/opensansregular" />
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="NUMBER OF SIBLINGS"/>
-
-
-                <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/etNoOfSiblings"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/input_field_height"
-            android:layout_marginTop="@dimen/input_text_size"
-            android:textSize="@dimen/input_text_size"
-            android:inputType="number"
-            android:paddingLeft="10dp"
-                    android:maxLength="1"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:background="@drawable/rounded_corner_gray"
-            android:fontFamily="@font/opensansregular" />
-                <LinearLayout
-                    android:visibility="gone"
-                    android:id="@+id/_nim_bro_lay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <android.support.v7.widget.AppCompatTextView
+                    android:padding="10dp"
+                    android:background="@color/white">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/opensansregular"
-                        android:textSize="@dimen/input_field_text_size"
-                        android:layout_marginTop="@dimen/input_text_size"
-                        android:text="NUMBER OF BROTHER"/>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/skip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Skip"
+                            android:textColor="@color/white"
+                            android:visibility="gone"
+                            android:layout_gravity="right"
+                            android:paddingLeft="15dp"
+                            android:paddingBottom="5dp"
+                            android:layout_margin="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/pink_rounded"
+                            android:textSize="@dimen/input_text_size"
+                            android:fontFamily="@font/opensansregular" />
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Family Details"
+                            android:textColor="@color/pink"
+                            android:paddingBottom="5dp"
+                            android:textSize="14dp"
+                            android:visibility="gone"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bottom_line"
+                            android:fontFamily="@font/opensansregular" />
 
 
-                    <android.support.v7.widget.AppCompatEditText
-                        android:id="@+id/etNoOfbrother"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/input_field_height"
-                        android:layout_marginTop="@dimen/input_text_size"
-                        android:textSize="@dimen/input_text_size"
-                        android:inputType="number"
-                        android:maxLength="1"
-                        android:paddingLeft="10dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:background="@drawable/rounded_corner_gray"
-                        android:fontFamily="@font/opensansregular" />
-                </LinearLayout>
-
-              <LinearLayout
-                  android:visibility="gone"
-                  android:id="@+id/_num_sis_lay"
-                  android:layout_width="match_parent"
-                  android:orientation="vertical"
-                  android:layout_height="wrap_content">
-                  <android.support.v7.widget.AppCompatTextView
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:textColor="@color/black"
-                      android:fontFamily="@font/opensansregular"
-                      android:textSize="@dimen/input_field_text_size"
-                      android:layout_marginTop="@dimen/input_text_size"
-                      android:text="NUMBER OF SISTER"/>
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:fontFamily="@font/opensansregular"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="FAMILY TYPE"/>
 
 
-                  <android.support.v7.widget.AppCompatEditText
-                      android:id="@+id/etNoOfsister"
-                      android:layout_width="match_parent"
-                      android:layout_height="@dimen/input_field_height"
-                      android:layout_marginTop="@dimen/input_text_size"
-                      android:textSize="@dimen/input_text_size"
-                      android:inputType="number"
-                      android:paddingLeft="10dp"
-                      android:maxLength="1"
-                      android:textColor="@color/black"
-                      android:textColorHint="@color/black"
-                      android:background="@drawable/rounded_corner_gray"
-                      android:fontFamily="@font/opensansregular" />
-              </LinearLayout>
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spFamilyType"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"
+                            android:spinnerMode="dialog"
+                            android:textColorHint="@color/hintgray"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/input_text_size"
+                            android:paddingLeft="10dp"
+                            android:fontFamily="@font/opensansregular" />
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/opensansregular"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="FAMILY STATUS"/>
 
-                <LinearLayout
-                    android:visibility="gone"
-                    android:id="@+id/_bro_status_lay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spFamilyStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:textSize="@dimen/input_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/black"
+                            android:spinnerMode="dialog"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:textColorHint="@color/hintgray"
+                            android:paddingLeft="10dp"
+                            android:hint="Select family status"
+                            android:fontFamily="@font/opensansregular"/>
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/opensansregular"
-                        android:textSize="@dimen/input_field_text_size"
-                        android:layout_marginTop="@dimen/input_text_size"
-                        android:text="BROTHER STATUS"/>
-                    <android.support.v7.widget.AppCompatSpinner
-                        android:id="@+id/etbro_status"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/input_field_height"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="10dp"
-                        android:spinnerMode="dialog"
-                        android:textColorHint="@color/hintgray"
-                        android:background="@drawable/rounded_corner_gray"
-                        android:gravity="center_vertical"
-                        android:textSize="@dimen/input_text_size"
-                        android:paddingLeft="10dp"
-                        android:fontFamily="@font/opensansregular" />
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/opensansregular"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="FAMILY VALUES"/>
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spFamilyValues"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:textSize="@dimen/input_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/black"
+                            android:spinnerMode="dialog"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:textColorHint="@color/hintgray"
+                            android:paddingLeft="10dp"
+                            android:hint="Select family status"
+                            android:fontFamily="@font/opensansregular"/>
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/opensansregular"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="FATHER NAME"/>
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/etFatherName"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:layout_marginTop="@dimen/input_field_margin"
+                            android:textSize="@dimen/input_text_size"
+                            android:inputType="text"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:fontFamily="@font/opensansregular" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/opensansregular"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="FATHER OCCUPATION"/>
+
+                        <android.support.v7.widget.AppCompatAutoCompleteTextView
+                            android:id="@+id/spFatherOccupation"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/input_text_size"
+                            android:textColorHint="@color/black"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:fontFamily="@font/opensansregular" />
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/opensansregular"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="MOTHER NAME"/>
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/etMothername"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:layout_marginTop="@dimen/input_field_margin"
+                            android:textSize="@dimen/input_text_size"
+                            android:inputType="text"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:fontFamily="@font/opensansregular" />
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/opensansregular"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="MOTHER OCCUPATION"/>
+
+                        <android.support.v7.widget.AppCompatAutoCompleteTextView
+                            android:id="@+id/spMotherOccupation"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:layout_marginTop="@dimen/input_field_margin"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/input_text_size"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:fontFamily="@font/opensansregular" />
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/opensansregular"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="NUMBER OF SIBLINGS"/>
 
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:visibility="gone"
-                    android:id="@+id/_sis_status_lay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/opensansregular"
-                        android:textSize="@dimen/input_field_text_size"
-                        android:layout_marginTop="@dimen/input_text_size"
-                        android:text="SISTER STATUS"/>
-
-                    <android.support.v7.widget.AppCompatSpinner
-                        android:id="@+id/et_sis_status"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/input_field_height"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="10dp"
-                        android:spinnerMode="dialog"
-                        android:textColorHint="@color/hintgray"
-                        android:background="@drawable/rounded_corner_gray"
-                        android:gravity="center_vertical"
-                        android:textSize="@dimen/input_text_size"
-                        android:paddingLeft="10dp"
-                        android:fontFamily="@font/opensansregular" />
-
-                </LinearLayout>
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/etNoOfSiblings"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:textSize="@dimen/input_text_size"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:maxLength="1"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:fontFamily="@font/opensansregular" />
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/_nim_bro_lay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/opensansregular"
+                                android:textSize="@dimen/input_field_text_size"
+                                android:layout_marginTop="@dimen/input_text_size"
+                                android:text="NUMBER OF BROTHER"/>
 
 
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_field_text_size"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:text="FAMILY LOCATION"/>
+                            <android.support.v7.widget.AppCompatEditText
+                                android:id="@+id/etNoOfbrother"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/input_field_height"
+                                android:layout_marginTop="@dimen/input_text_size"
+                                android:textSize="@dimen/input_text_size"
+                                android:inputType="number"
+                                android:maxLength="1"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black"
+                                android:background="@drawable/rounded_corner_gray"
+                                android:fontFamily="@font/opensansregular" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/_num_sis_lay"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/opensansregular"
+                                android:textSize="@dimen/input_field_text_size"
+                                android:layout_marginTop="@dimen/input_text_size"
+                                android:text="NUMBER OF SISTER"/>
 
 
-                <android.support.v7.widget.AppCompatEditText
-                    android:id="@+id/et_family_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/input_field_height"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:textSize="@dimen/input_text_size"
-                    android:inputType="text"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:background="@drawable/rounded_corner_gray"
-                    android:fontFamily="@font/opensansregular" />
+                            <android.support.v7.widget.AppCompatEditText
+                                android:id="@+id/etNoOfsister"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/input_field_height"
+                                android:layout_marginTop="@dimen/input_text_size"
+                                android:textSize="@dimen/input_text_size"
+                                android:inputType="number"
+                                android:paddingLeft="10dp"
+                                android:maxLength="1"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black"
+                                android:background="@drawable/rounded_corner_gray"
+                                android:fontFamily="@font/opensansregular" />
+                        </LinearLayout>
 
-        <!--<android.support.v7.widget.AppCompatEditText-->
-            <!--android:id="@+id/etAboutMyFamily"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="@dimen/input_field_height"-->
-            <!--android:layout_marginTop="@dimen/input_field_height"-->
-            <!--android:hint="@string/about_myself_hint"-->
-            <!--android:background="@drawable/rounded_spinner_red"-->
-            <!--android:fontFamily="@font/opensansregular"-->
-            <!--android:text="@={user.about_myself}" />-->
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/_bro_status_lay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/update"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/input_text_size"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/pink_rounded"
-                    android:paddingLeft="@dimen/input_field_height"
-                    android:paddingRight="@dimen/input_field_height"
-                    android:text="@string/update"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/opensansregular"
+                                android:textSize="@dimen/input_field_text_size"
+                                android:layout_marginTop="@dimen/input_text_size"
+                                android:text="BROTHER STATUS"/>
+                            <android.support.v7.widget.AppCompatSpinner
+                                android:id="@+id/etbro_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/input_field_height"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="10dp"
+                                android:spinnerMode="dialog"
+                                android:textColorHint="@color/hintgray"
+                                android:background="@drawable/rounded_corner_gray"
+                                android:gravity="center_vertical"
+                                android:textSize="@dimen/input_text_size"
+                                android:paddingLeft="10dp"
+                                android:fontFamily="@font/opensansregular" />
 
-        </android.support.v7.widget.CardView>
 
-    </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/_sis_status_lay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/opensansregular"
+                                android:textSize="@dimen/input_field_text_size"
+                                android:layout_marginTop="@dimen/input_text_size"
+                                android:text="SISTER STATUS"/>
+
+                            <android.support.v7.widget.AppCompatSpinner
+                                android:id="@+id/et_sis_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/input_field_height"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="10dp"
+                                android:spinnerMode="dialog"
+                                android:textColorHint="@color/hintgray"
+                                android:background="@drawable/rounded_corner_gray"
+                                android:gravity="center_vertical"
+                                android:textSize="@dimen/input_text_size"
+                                android:paddingLeft="10dp"
+                                android:fontFamily="@font/opensansregular" />
+
+                        </LinearLayout>
+
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/opensansregular"
+                            android:textSize="@dimen/input_field_text_size"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:text="FAMILY LOCATION"/>
+
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/et_family_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:textSize="@dimen/input_text_size"
+                            android:inputType="text"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:background="@drawable/rounded_corner_gray"
+                            android:fontFamily="@font/opensansregular" />
+
+                        <!--<android.support.v7.widget.AppCompatEditText-->
+                        <!--android:id="@+id/etAboutMyFamily"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="@dimen/input_field_height"-->
+                        <!--android:layout_marginTop="@dimen/input_field_height"-->
+                        <!--android:hint="@string/about_myself_hint"-->
+                        <!--android:background="@drawable/rounded_spinner_red"-->
+                        <!--android:fontFamily="@font/opensansregular"-->
+                        <!--android:text="@={user.about_myself}" />-->
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/update"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/pink_rounded"
+                            android:paddingLeft="@dimen/input_field_height"
+                            android:paddingRight="@dimen/input_field_height"
+                            android:text="@string/update"
+                            android:textColor="@android:color/white" />
+                    </LinearLayout>
+                </android.support.v4.widget.NestedScrollView>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/progress"
+            android:visibility="gone"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/loadericon"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="0dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
 
 </layout>

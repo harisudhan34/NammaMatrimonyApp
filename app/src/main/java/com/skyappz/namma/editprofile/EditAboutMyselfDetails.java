@@ -114,7 +114,7 @@ public class EditAboutMyselfDetails extends Fragment implements WebServiceListen
 //        params.put("user_id", "1");
 //        userDetailsViewModel.updateUser(params, this);
         params.put("user_id",userid);
-        params.put("about_myself", user.getAbout_myself());
+        params.put("about_myself", user.getAbout_myself().toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
     public void skip(View view){

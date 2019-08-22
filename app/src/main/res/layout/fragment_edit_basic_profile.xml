@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".profileupdate.EditBasicProfile">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/input_text_size"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="left"
+                android:text="NAME"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:background="@drawable/rounded_edittext_red"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="center_vertical"
+                android:padding="@dimen/medium_padding"
+                android:textColor="@color/black"
+                android:textColorHint="@color/medium_gray"
+                android:textSize="@dimen/input_text_size" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="left"
+                android:layout_marginTop="10dp"
+                android:text="PROFILE CREATED FOR"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size" />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spProfilesFor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:spinnerMode="dialog"
+                android:background="@drawable/rounded_edittext_red"
+                android:fontFamily="@font/opensansregular" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:fontFamily="@font/opensansregular"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:text="MARITAL STATUS"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/sp_maritalstatus"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/input_field_text_size"
+                android:spinnerMode="dialog"
+                android:background="@drawable/rounded_corner_gray"
+                android:gravity="center_vertical"
+                android:hint="select marital status"
+                android:paddingLeft="5dp"
+                android:fontFamily="@font/opensansregular" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/input_text_size"
+                android:text="MOTHER TONGUE"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size" />
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/mothertongue_auto"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:clickable="true"
+                android:background="@drawable/rounded_corner_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size"
+                android:fontFamily="@font/opensansregular" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HEIGHT"
+                android:fontFamily="@font/opensansregular"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:textSize="@dimen/input_text_size"
+                android:textColor="@color/black"
+                />
+
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/tetHeight"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="@dimen/input_field_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:clickable="true"
+                android:textSize="@dimen/input_field_text_size"
+                android:spinnerMode="dialog"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@drawable/rounded_corner_gray"
+                android:fontFamily="@font/opensansregular" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WEIGHT"
+                android:fontFamily="@font/opensansregular"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:textSize="@dimen/input_text_size"
+                android:textColor="@color/black"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/tetWeight"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="@dimen/input_field_height"
+                android:gravity="center_vertical"
+                android:hint="Select Your Complexion"
+                android:paddingLeft="10dp"
+                android:clickable="true"
+                android:textSize="@dimen/input_field_text_size"
+                android:spinnerMode="dialog"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@drawable/rounded_corner_gray"
+                android:fontFamily="@font/opensansregular" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="COMPLEXION"
+                android:fontFamily="@font/opensansregular"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:textSize="@dimen/input_text_size"
+                android:textColor="@color/black"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/sp_complexion"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="@dimen/input_field_height"
+                android:gravity="center_vertical"
+                android:hint="Select Your Complexion"
+                android:paddingLeft="10dp"
+                android:clickable="true"
+                android:textSize="@dimen/input_field_text_size"
+                android:spinnerMode="dialog"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:background="@drawable/rounded_corner_gray"
+                android:fontFamily="@font/opensansregular" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/opensansregular"
+                android:text="BODY TYPE"
+                android:textSize="@dimen/input_text_size"
+                android:layout_marginTop="@dimen/input_field_margin" />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/sp_bodytype"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corner_gray"
+                android:clickable="true"
+                android:spinnerMode="dialog"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_field_text_size"
+                android:textColorHint="@color/black"
+                android:gravity="center_vertical"
+                android:hint="Select your body type"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/opensansregular" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PHYSICAL STATUS"
+                android:fontFamily="@font/opensansregular"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp" />
+
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/sp_physicalstatus"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/input_field_text_size"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:hint="Select Disability"
+                android:paddingLeft="10dp"
+                android:spinnerMode="dialog"
+                android:background="@drawable/rounded_corner_gray"
+                android:clickable="true"
+                android:fontFamily="@font/opensansregular" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/input_field_text_size"
+                android:text="FOOD HABITS"/>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spFoodHabit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:textSize="@dimen/input_text_size"
+                android:layout_marginTop="10dp"
+                android:spinnerMode="dialog"
+                android:background="@drawable/rounded_corner_gray"
+                android:clickable="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintgray"
+                android:hint="Select food habits"
+                android:fontFamily="@font/opensansregular" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/input_text_size"
+                android:textSize="@dimen/input_text_size"
+                android:text="SMOKING HABITS"/>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spSmookingHabit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:background="@drawable/rounded_corner_gray"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/input_text_size"
+                android:spinnerMode="dialog"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintgray"
+                android:hint="Select smoking habit"
+                android:fontFamily="@font/opensansregular" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size"
+                android:layout_marginTop="10dp"
+                android:text="DRINKING HABITS"/>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spDrinkHabit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="@dimen/input_text_size"
+                android:background="@drawable/rounded_corner_gray"
+                android:textSize="@dimen/input_text_size"
+                android:clickable="true"
+                android:spinnerMode="dialog"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintgray"
+                android:hint="Select drinking habit"
+                android:fontFamily="@font/opensansregular"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/pink_rounded"
+                android:paddingLeft="@dimen/input_field_height"
+                android:paddingRight="@dimen/input_field_height"
+                android:text="@string/update"
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/progress"
+            android:visibility="visible"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/loadericon"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="0dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
+
+

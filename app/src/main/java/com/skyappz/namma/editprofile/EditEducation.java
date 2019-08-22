@@ -42,6 +42,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
+import pl.droidsonroids.gif.GifImageView;
+
 import static com.skyappz.namma.activities.HomeActivity.INDEX_FAMILY_DETAILS;
 import static com.skyappz.namma.activities.HomeActivity.INDEX_RESINDING_ADDRESS;
 import static com.skyappz.namma.activities.HomeActivity.userid;
@@ -60,6 +62,7 @@ public class EditEducation extends Fragment implements WebServiceListener, View.
     AppCompatSpinner spWorkingSector,sp_physicalstatus,Birth_SPcountry;
     AppCompatEditText etofficedetails,collegename;
     AppCompatButton update;
+    GifImageView progress;
     String s_sate,s_city,s_country,s_birthtime;
     AppCompatTextView skip,birthtime;
     ProgressDialog dialog;
@@ -98,6 +101,8 @@ public class EditEducation extends Fragment implements WebServiceListener, View.
     }
 
     private void initViews(View view) {
+        progress=(GifImageView)view.findViewById(R.id.progress);
+        progress=(GifImageView)view.findViewById(R.id.progress);
         height_ed=(AppCompatSpinner)view.findViewById(R.id.tetHeight);
         weight_ed=(AppCompatSpinner)view.findViewById(R.id.tetWeight);
         sp_complexion=(AppCompatSpinner)view.findViewById(R.id.sp_complexion);
@@ -337,10 +342,7 @@ public class EditEducation extends Fragment implements WebServiceListener, View.
     }
 
     public void update() {
-        dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("please wait.");
-        dialog.setCancelable(false);
-        dialog.show();
+       progress.setVisibility(View.VISIBLE);
         s_sate=birth_auto_state.getText().toString();
         s_city=birth_auto_city.getText().toString();
         s_disability_commend =disability_commend.getText().toString();
@@ -366,27 +368,27 @@ public class EditEducation extends Fragment implements WebServiceListener, View.
     }
     private boolean isInputValidated(User user) {
         if (s_height.equalsIgnoreCase("Select a Height")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Height is empty!";
             return false;
         }
         if (s_weight.equalsIgnoreCase("Select a Weight")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Weight is empty!";
             return false;
         }
         if (s_complexion.equals("Select your Complexions")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Complexions is empty!";
             return false;
         }
         if (s_btype.equals("Select your Body Type")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Body type  is empty!";
             return false;
         }
         if (s_disability.equals("Any Disability")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Disability is empty!";
             return false;
         }
@@ -395,74 +397,74 @@ public class EditEducation extends Fragment implements WebServiceListener, View.
 //            return false;
 //        }
         if (s_physical_status.equalsIgnoreCase("Select physical_status")){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "physical status is empty!";
             return false;
         }
         if (s_paadham.equals("Select a Padhams")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Padham is empty!";
             return false;
         }
         if (s_paadham.equals("Select a Padhams")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Padham is empty!";
             return false;
         }
         if (s_paadham.equals("Select a Padhams")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Padham is empty!";
             return false;
         }
         if (s_birthtime.equalsIgnoreCase("")){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Birth Time   is empty!";
             return false;
         }
         if (s_country.equalsIgnoreCase("Country")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Country  is empty!";
             return false;
         }
         if (Utils.isEmpty(s_sate)){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "state  is empty!";
             return false;
         }
 
         if (Utils.isEmpty(s_city)) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "city  is empty!";
             return false;
         }
 
         if (s_degree.equalsIgnoreCase("Select your Degree") || Utils.isEmpty(s_degree) ) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Degree is empty!";
             return false;
         }
         if ((s_collegename.equalsIgnoreCase(""))){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg="Enter College name";
             return false;
         }
         if (s_myocc.equalsIgnoreCase("Select your Job") || Utils.isEmpty(s_myocc)) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Job is empty!";
             return false;
         }
         if (s_workingsector.equalsIgnoreCase("Select your Working Sector")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Working Sector is empty!";
             return false;
         } if (Utils.isEmpty(s_oficedetails)) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Office Detail is empty!";
             return false;
         }
 
         if (Utils.isEmpty(s_monthlyIncome)) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Income is empty!";
             return false;
         }
@@ -472,8 +474,8 @@ public class EditEducation extends Fragment implements WebServiceListener, View.
 
 
     private  void checkparams(){
-        Log.e("paadham",s_paadham);
-        Log.e("physical",s_physical_status);
+        Log.e("paadham",s_paadham.toLowerCase());
+        Log.e("physical",s_physical_status.toLowerCase());
 //  if (!user.getEducation().equalsIgnoreCase(duplicate.getEducation())) {
 //            params.put("education", user.getEducation());
 
@@ -490,23 +492,23 @@ public class EditEducation extends Fragment implements WebServiceListener, View.
 //        params.put("user_id", "1");
 //        userDetailsViewModel.updateUser(params, this);
         params.put("user_id",userid);
-        params.put("education", s_degree);
-        params.put("occupation", s_myocc);
-        params.put("working_sector", s_workingsector);
-        params.put("max_income", s_monthlyIncome);
-        params.put("complexion", s_complexion);
-        params.put("body_type", s_btype);
-        params.put("disability", s_disability);
-        params.put("physical_status", s_physical_status);
-        params.put("height", s_height);
-        params.put("birth_country", s_country);
-        params.put("birth_state", s_sate);
-        params.put("birth_time", s_birthtime);
-        params.put("birth_city", s_city);
-        params.put("weight", s_weight);
-        params.put("paadham", s_paadham);
-        params.put("college", s_collegename);
-        params.put("office_details", s_oficedetails);
+        params.put("education", s_degree.toLowerCase());
+        params.put("occupation", s_myocc.toLowerCase());
+        params.put("working_sector", s_workingsector.toLowerCase());
+        params.put("max_income", s_monthlyIncome.toLowerCase());
+        params.put("complexion", s_complexion.toLowerCase());
+        params.put("body_type", s_btype.toLowerCase());
+        params.put("disability", s_disability.toLowerCase());
+        params.put("physical_status", s_physical_status.toLowerCase());
+        params.put("height", s_height.toLowerCase());
+        params.put("birth_country", s_country.toLowerCase());
+        params.put("birth_state", s_sate.toLowerCase());
+        params.put("birth_time", s_birthtime.toLowerCase());
+        params.put("birth_city", s_city.toLowerCase());
+        params.put("weight", s_weight.toLowerCase());
+        params.put("paadham", s_paadham.toLowerCase());
+        params.put("college", s_collegename.toLowerCase());
+        params.put("office_details", s_oficedetails.toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
 
@@ -535,7 +537,7 @@ public class EditEducation extends Fragment implements WebServiceListener, View.
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         ((HomeActivity) mActivity).setFragment(INDEX_FAMILY_DETAILS, null);
     }
 

@@ -1,19 +1,26 @@
 package com.skyappz.namma.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.github.silvestrpredko.dotprogressbar.DotProgressBar;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
+import com.skyappz.namma.ResponseEntities.BaseResponse;
 import com.skyappz.namma.activities.AuthenticationActivity;
+import com.skyappz.namma.activities.MainDashboard;
 import com.skyappz.namma.listeners.SocialLoginListener;
 import com.skyappz.namma.model.User;
 import com.skyappz.namma.utils.Preferences;
@@ -23,21 +30,23 @@ import com.skyappz.namma.webservice.WebServiceManager;
 
 import org.json.JSONObject;
 
+import pl.droidsonroids.gif.GifImageView;
+
 
 public class PhoneNumberFragment extends Fragment implements View.OnClickListener, SocialLoginListener, WebServiceListener {
     private User user;
     private Activity mActivity;
     private View rootView;
     WebServiceManager webServiceManager;
-    AppCompatTextView phonenumber_ed;
+    AppCompatEditText phonenumber_ed,signin_otp_ed;
     Preferences preferences;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    DotProgressBar pbDot;
-    AppCompatButton btnNext;
-    String mobile;
-    private AppCompatTextView tvSignUp;
+    AppCompatButton btnNext,btn_otp_signin;
+    String mobile,s_otp;
     AppCompatTextView tvErrorMsg;
+    LinearLayout otp_layout,mobile_layout;
     String errorMsg;
+    GifImageView progress;
     boolean isValidated = true;
     public PhoneNumberFragment() {
         // Required empty public constructor
@@ -66,14 +75,17 @@ public class PhoneNumberFragment extends Fragment implements View.OnClickListene
     }
     private void initViews(View rootView) {
         mSwipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
+        otp_layout=(LinearLayout)rootView.findViewById(R.id.otp_layout);
+        mobile_layout=(LinearLayout)rootView.findViewById(R.id.mobile_layout);
         mSwipeRefreshLayout.setEnabled(false);
-        phonenumber_ed = rootView.findViewById(R.id.tetEmail);
+        phonenumber_ed = rootView.findViewById(R.id.temobile);
+        signin_otp_ed = rootView.findViewById(R.id.signin_otp_ed);
         tvErrorMsg = rootView.findViewById(R.id.tvErrorMsg);
-        pbDot = rootView.findViewById(R.id.pbDot);
         btnNext = rootView.findViewById(R.id.btnNext);
-        tvSignUp = rootView.findViewById(R.id.tvSignUp);
-        tvSignUp.setOnClickListener(this);
         btnNext.setOnClickListener(this);
+        progress=(GifImageView)rootView.findViewById(R.id.progress);
+        btn_otp_signin = rootView.findViewById(R.id.btn_otp_signin);
+        btn_otp_signin.setOnClickListener(this);
     }
 
 
@@ -89,17 +101,25 @@ public class PhoneNumberFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tvSignUp:
-                moveToSignUpFragment();
-                break;
 
+            case R.id.btn_otp_signin:
+                progress.setVisibility(View.VISIBLE);
+                s_otp=signin_otp_ed.getText().toString();
+                if (s_otp.equalsIgnoreCase("")){
+                    Utils.showToast(getActivity(),"Enter OTP");
+                }else {
+                    verifyOTP();
+                }
+
+                break;
             case R.id.btnNext:
+                progress.setVisibility(View.VISIBLE);
                 user = getUserDataFromInput();
                 ((AuthenticationActivity) mActivity).setUser(user);
                 if (Utils.isConnected(mActivity)) {
                     if (isValidated()) {
                         tvErrorMsg.setText("");
-//                        movePasswordFragment();
+                        sendOTP("signin");
                     } else {
                         tvErrorMsg.setText(errorMsg);
                     }
@@ -110,6 +130,15 @@ public class PhoneNumberFragment extends Fragment implements View.OnClickListene
             default:
                 break;
         }
+    }
+    private void verifyOTP() {
+
+        webServiceManager.verifyOTP(mobile, s_otp,"signin", this);
+    }
+
+    private void sendOTP(String type) {
+
+        webServiceManager.sendOTP(user.getMobile_number(), type, this);
     }
 
 
@@ -128,8 +157,10 @@ public class PhoneNumberFragment extends Fragment implements View.OnClickListene
         } else {
             isValidated = false;
             if (mobile.length() < 10){
+                progress.setVisibility(View.GONE);
                 errorMsg = "Mobile Number should not be 10 digit";
             }else {
+                progress.setVisibility(View.GONE);
                 errorMsg = "Mobile Number should not be empty";
             }
 
@@ -155,11 +186,40 @@ public class PhoneNumberFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
+        progress.setVisibility(View.GONE);
+         if (requestCode == WebServiceManager.REQUEST_CODE_SEND_OTP) {
+          mobile_layout.setVisibility(View.GONE);
+          otp_layout.setVisibility(View.VISIBLE);
+        }
+         else if (requestCode == WebServiceManager.REQUEST_CODE_VERIFY_OTP) {
+             BaseResponse otpResponse = (BaseResponse) response;
+             Log.e("resss",otpResponse.getUser_id());
+             moveToHomePage(otpResponse.getUser_id());
+//           Utils.showToast(getActivity(),"Move to Home Page");
+         }
+    }
+    private void moveToHomePage(String userid) {
+        Intent intent = new Intent(mActivity, MainDashboard.class);
+        AppController.set_userid(getActivity(),userid);
+        intent.putExtra("userid",userid);
+        mActivity.startActivity(intent);
+        getActivity().finish();
+        // }
 
     }
 
+
     @Override
     public void onFailure(int requestCode, int responseCode, Object response) {
+        progress.setVisibility(View.GONE);
+         if (requestCode == WebServiceManager.REQUEST_CODE_SEND_OTP) {
+            BaseResponse otpResponse = (BaseResponse) response;
+            Utils.showAlert(mActivity, otpResponse.getMsg());
+        }
+        if (requestCode == WebServiceManager.REQUEST_CODE_VERIFY_OTP) {
+            BaseResponse otpResponse = (BaseResponse) response;
+            Utils.showAlert(mActivity, otpResponse.getMsg());
+        }
 
     }
 

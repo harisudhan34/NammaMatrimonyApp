@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".profileupdate.EditBasicProfile">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EDUCATIONAL QUALIFICATION"
+            android:textColor="@color/black"
+            android:fontFamily="@font/opensansregular"
+            android:layout_marginTop="@dimen/input_field_margin" />
+
+        <android.support.v7.widget.AppCompatAutoCompleteTextView
+            android:id="@+id/autoDegree"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_field_height"
+            android:background="@drawable/rounded_corner_gray"
+            android:clickable="true"
+            android:layout_marginTop="@dimen/input_text_size"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="@dimen/input_text_size"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/opensansregular" />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COLLEGE NAME"
+            android:textColor="@color/black"
+            android:fontFamily="@font/opensansregular"
+            android:layout_marginTop="@dimen/input_field_margin" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/collegename"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_field_height"
+            android:background="@drawable/rounded_corner_gray"
+            android:clickable="true"
+            android:layout_marginTop="@dimen/input_text_size"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="@dimen/input_text_size"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/opensansregular" />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OCCUPATION"
+            android:textColor="@color/black"
+            android:fontFamily="@font/opensansregular"
+            android:layout_marginTop="@dimen/input_field_margin" />
+
+        <android.support.v7.widget.AppCompatAutoCompleteTextView
+            android:id="@+id/autoMyOcc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_field_height"
+            android:layout_marginTop="@dimen/input_field_margin"
+            android:textSize="@dimen/input_text_size"
+            android:background="@drawable/rounded_corner_gray"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:clickable="true"
+            android:fontFamily="@font/opensansregular" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/input_text_size"
+            android:fontFamily="@font/opensansregular"
+            android:text="OFFICE DETAILS"/>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/etofficedetails"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_field_height"
+            android:layout_marginTop="@dimen/input_text_size"
+            android:inputType="text"
+            android:background="@drawable/rounded_spinner_red"
+            android:fontFamily="@font/opensansregular"
+            android:padding="@dimen/medium_text_size"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="@dimen/input_text_size" />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/input_text_size"
+            android:fontFamily="@font/opensansregular"
+            android:text="WORKING SECTOR"/>
+
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spWorkingSector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_field_height"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/input_text_size"
+            android:spinnerMode="dialog"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_corner_gray"
+            android:clickable="true"
+            android:fontFamily="@font/opensansregular" />
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/input_text_size"
+            android:fontFamily="@font/opensansregular"
+            android:text="Annual INCOME"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spMonthlyIncome"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_field_height"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/input_text_size"
+            android:spinnerMode="dialog"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_corner_gray"
+            android:clickable="true"
+            android:fontFamily="@font/opensansregular" />
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/pink_rounded"
+            android:paddingLeft="@dimen/input_field_height"
+            android:paddingRight="@dimen/input_field_height"
+            android:text="UPDATE"
+            android:textColor="@android:color/white" />
+        </LinearLayout>
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/progress"
+            android:visibility="visible"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/loadericon"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="0dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+
+
+
+</android.support.v4.widget.NestedScrollView>
+
+

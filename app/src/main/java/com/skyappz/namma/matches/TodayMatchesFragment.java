@@ -28,6 +28,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.google.gson.JsonParseException;
 import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.activities.SearchActivity;
 import com.skyappz.namma.adapter.ViewAllMatches;
 import com.skyappz.namma.model.User;
@@ -152,6 +153,7 @@ public class TodayMatchesFragment extends Fragment implements WebServiceListener
         }
     }
     public void get_todaymatches() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getmatches";
         String url = URL_GET_TODAY_MATCHES+ AppController.get_userid(getActivity()) +"&type=today_matches&parameter=age,gender,height,weight,caste,sub_caste,marital_status,mother_tongue,raasi,star,having_dosham,occupation,physical_status,nationality,country,home_city,monthly_income,paadham,education" ;
         Log.e("url",url);
@@ -216,6 +218,7 @@ public class TodayMatchesFragment extends Fragment implements WebServiceListener
     }
 
     public void dummydata2(){
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "dummy";
         String url = URL_GET_DUMMY_MATCHES;
         StringRequest jsonObjRequest = new StringRequest(Request.Method.POST,

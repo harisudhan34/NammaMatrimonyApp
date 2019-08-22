@@ -31,6 +31,7 @@ import com.google.android.gms.common.api.Status;
 import com.skyappz.namma.R;
 import com.skyappz.namma.fragments.EmailFragment;
 import com.skyappz.namma.fragments.ForgetPasswordFragment;
+import com.skyappz.namma.fragments.ForgotFragment;
 import com.skyappz.namma.fragments.OTPFragment;
 import com.skyappz.namma.fragments.PasswordFragment;
 import com.skyappz.namma.fragments.PhoneNumberFragment;
@@ -66,6 +67,7 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
     public static final int INDEX_FORGET_PASSWORD_FRAGMENT = 5;
     public static final int INDEX_OTP_FRAGMENT = 6;
     public static final int INDEX_PHONENUMBER_FRAGMENT = 7;
+    public static final int INDEX_FORGET_PASSWORD_MOBILE =8;
     public static final int INDEX_RESET_PASSWORD_FRAGMENT = 100;
 
     HashMap<String, Fragment> fragments = new HashMap<String, Fragment>();
@@ -315,7 +317,7 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
                 }
                 break;
 
-            case INDEX_PHONENUMBER_FRAGMENT:
+                case INDEX_PHONENUMBER_FRAGMENT:
 //                getSupportActionBar().setTitle("Phonenumber");
                 fragmentTag = "PHONENUMBERFragment";
                 if (fragments.containsKey(fragmentTag)) {
@@ -330,6 +332,20 @@ public class AuthenticationActivity extends AppCompatActivity implements View.On
                 }
                 break;
 
+            case INDEX_FORGET_PASSWORD_MOBILE:
+//                getSupportActionBar().setTitle("Phonenumber");
+                fragmentTag = "ForgotFragment";
+                if (fragments.containsKey(fragmentTag)) {
+                    newFragment = fragments.get(fragmentTag);
+                    //Fragment currentFragment = getCurrentFragment();
+                    //fragmentTransaction.hide(currentFragment);
+                    fragmentTransaction.add(R.id.flFramentContainer, newFragment, fragmentTag).commit();
+                } else {
+                    newFragment = ForgotFragment.newInstance();
+                    fragmentTransaction.replace(R.id.flFramentContainer, newFragment, fragmentTag).commit();
+                    fragments.put(fragmentTag, newFragment);
+                }
+                break;
 
             default:
                 break;

@@ -38,19 +38,37 @@
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/bottom_line"
                         android:fontFamily="@font/opensansregular" />
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="50dp"
-                        android:paddingRight="50dp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"
-                        android:layout_below="@+id/profile_image"
-                        android:fontFamily="@font/opensansregular"
-                        android:text="Choose Image"
-                        android:textColor="@color/pink"
-                        android:textSize="15dp"
-                        android:gravity="center"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="50dp"
+                            android:paddingRight="50dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansregular"
+                            android:text="Choose Image"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/pink"
+                            android:textSize="15dp"
+                            android:gravity="center"/>
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="50dp"
+                            android:paddingRight="10dp"
+                            android:id="@+id/photo_skip"
+                            android:textStyle="bold"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/opensansregular"
+                            android:text="Skip"
+                            android:textColor="@color/pink"
+                            android:textSize="15dp"
+                            android:gravity="center"/>
+
+                    </RelativeLayout>
 
                     <!-- TODO: Update blank fragment layout -->
                     <android.support.v7.widget.CardView
@@ -124,19 +142,37 @@
 
 
                     <!-- TODO: Update blank fragment layout -->
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="50dp"
-                        android:paddingRight="50dp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"
-                        android:layout_below="@+id/profile_image"
-                        android:fontFamily="@font/opensansregular"
-                        android:text="Choose Image"
-                        android:textColor="@color/pink"
-                        android:textSize="15dp"
-                        android:gravity="center"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="50dp"
+                            android:paddingRight="50dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansregular"
+                            android:text="Choose Image"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/pink"
+                            android:textSize="15dp"
+                            android:gravity="center"/>
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="50dp"
+                            android:paddingRight="10dp"
+                            android:textStyle="bold"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/opensansregular"
+                            android:text="Skip"
+                            android:id="@+id/id_skip"
+                            android:textColor="@color/pink"
+                            android:textSize="15dp"
+                            android:gravity="center"/>
+
+                    </RelativeLayout>
 
                     <android.support.v7.widget.CardView
                         android:layout_width="wrap_content"
@@ -207,6 +243,37 @@
                         android:background="@drawable/bottom_line"
                         android:fontFamily="@font/opensansregular" />
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="50dp"
+                            android:paddingRight="50dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansregular"
+                            android:text="Choose Image"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/pink"
+                            android:textSize="15dp"
+                            android:gravity="center"/>
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/horo_skip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="50dp"
+                            android:paddingRight="10dp"
+                            android:textStyle="bold"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/opensansregular"
+                            android:text="Skip"
+                            android:textColor="@color/pink"
+                            android:textSize="15dp"
+                            android:gravity="center"/>
+
+                    </RelativeLayout>
 
                     <!-- TODO: Update blank fragment layout -->
                     <android.support.v7.widget.CardView

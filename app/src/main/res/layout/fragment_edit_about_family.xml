@@ -13,7 +13,9 @@
             type="com.skyappz.namma.model.User" />
 
     </data>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -92,6 +94,18 @@
 
 
     </LinearLayout>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/progress"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/loadericon"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
 
 
 </layout>

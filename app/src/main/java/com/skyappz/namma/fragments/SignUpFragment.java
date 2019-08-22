@@ -11,6 +11,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
@@ -21,8 +22,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.firebase.FirebaseApp;
+import com.google.gson.JsonParseException;
 import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
 import com.skyappz.namma.ResponseEntities.BaseResponse;
@@ -30,6 +38,7 @@ import com.skyappz.namma.ResponseEntities.LoginResponse;
 import com.skyappz.namma.ResponseEntities.SignUpResponse;
 import com.skyappz.namma.activities.AuthenticationActivity;
 import com.skyappz.namma.activities.HomeActivity;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.adapter.CustomListAdapter;
 import com.skyappz.namma.model.OTPRequest;
 import com.skyappz.namma.model.User;
@@ -40,11 +49,19 @@ import com.skyappz.namma.webservice.WebServiceListener;
 import com.skyappz.namma.webservice.WebServiceManager;
 import com.github.silvestrpredko.dotprogressbar.DotProgressBar;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import pl.droidsonroids.gif.GifImageView;
 
 
 public class SignUpFragment extends Fragment implements View.OnClickListener, WebServiceListener, AdapterView.OnItemSelectedListener {
@@ -61,7 +78,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
     private Preferences preferences;
     private String loginMode;
     private Handler h;
-
+    GifImageView progress;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private String errorMsg;
     RadioGroup gender;
@@ -83,7 +100,10 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
     ProgressDialog dialog ;
     AppCompatTextView tvLogin;
     UserDetailList userDetailList;
-
+    RelativeLayout otp_layout,signup_layou;
+    AppCompatEditText signup_otp;
+    AppCompatButton btn_otp;
+    String s_otp;
     public SignUpFragment() {
         // Required empty public constructor
     }
@@ -120,6 +140,11 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
 
 
     private void initViews(View rootView) {
+        otp_layout=(RelativeLayout)rootView.findViewById(R.id.otp_layout);
+        signup_layou=(RelativeLayout)rootView.findViewById(R.id.signup_layou);
+        signup_otp=(AppCompatEditText)rootView.findViewById(R.id.signup_otp);
+        btn_otp=(AppCompatButton) rootView.findViewById(R.id.btn_otp);
+        btn_otp.setOnClickListener(this);
         termsandcondition=(AppCompatCheckBox)rootView.findViewById(R.id.termsandcondition);
         radioMale=(RadioButton)rootView.findViewById(R.id.radioMale);
         radioFemale=(RadioButton)rootView.findViewById(R.id.radioFemale);
@@ -143,6 +168,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
         sp_month = rootView.findViewById(R.id.sp_month);
         sp_month.setOnItemSelectedListener(this);
         sp_year = rootView.findViewById(R.id.sp_year);
+        progress=(GifImageView)rootView.findViewById(R.id.progress);
         sp_year.setOnItemSelectedListener(this);
         ArrayList<String> religojn = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.religions)));
         CustomListAdapter adapter = new CustomListAdapter(getActivity(),
@@ -230,11 +256,18 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+
+            case R.id.btn_otp:
+                s_otp=signup_otp.getText().toString();
+                if (s_otp.equalsIgnoreCase("")){
+                    Utils.showToast(getActivity(),"Enter OTP");
+                }else {
+                    verifyOTP();
+                }
+
+                break;
             case R.id.btnSignUp:
-                dialog = new ProgressDialog(getActivity());
-                dialog.setMessage("please wait.");
-                dialog.setCancelable(false);
-                dialog.show();
+                progress.setVisibility(View.VISIBLE);
 
                 user = getUserDataFromInput();
                 if (Utils.isConnected(mActivity)) {
@@ -250,16 +283,18 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                         AppController.set_dob(getActivity(),s_day+"/"+s_month+"/"+s_year);
                         AppController.set_religion(getActivity(),s_religion);
                         AppController.set_mothertongue(getActivity(),s_mothertounge);
-                       // sendOTP("signup");
-                        signUp(user);
+                        sendOTP("signup");
+//                        signUp(user);
+
+
                         //showOTPRequestAlert();
                     } else {
-                        dialog.dismiss();
+                        progress.setVisibility(View.GONE);
                         Utils.showToast(mActivity, errorMsg);
                     }
-                    //signUp(user);
+//                    signUp(user);
                 } else {
-                    dialog.dismiss();
+                    progress.setVisibility(View.GONE);
                     Utils.showAlert(mActivity, mActivity.getResources().getString(R.string.no_internet));
                 }
                 break;
@@ -270,85 +305,192 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                 break;
         }
     }
+    public void verifyotp() {
+        HttpsTrustManager.allowAllSSL();
+        String tag_json_obj = "verifyotp";
+        String url = "https://nammamatrimony.in/api/sendotp.php";
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("verfiotp",response.toString());
+                        try {
+                            String status= response.getString("status");
+                            if (!status.equalsIgnoreCase("false")){
+                                Utils.showToast(getActivity(),response.getString("msg"));
+                               signUp(user);
+                            }else {
+                                Utils.showToast(getActivity(),response.getString("msg"));
+                            }
+
+                        } catch (JSONException e) {
+
+                        } catch (JsonParseException e) {
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("mobile_number", AppController.get_signuphone(getActivity()));
+                params.put("type", "signup");
+                params.put("otp", s_otp);
+                return params;
+            }
+
+        };
+
+        if (Utils.isConnected((getActivity()))) {
+            AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+        } else {
+            this.isNetworkAvailable(false);
+        }
+    }
+
+
+    public void sendotp() {
+        progress.setVisibility(View.GONE);
+        HttpsTrustManager.allowAllSSL();
+        String tag_json_obj = "sendotp";
+        String url = "https://nammamatrimony.in/api/sendotp.php";
+        Log.e("url",url);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("otpsend",response.toString());
+                        try {
+                                String status= response.getString("status");
+                                if (!status.equalsIgnoreCase("false")){
+                                    Utils.showToast(getActivity(),response.getString("msg"));
+                                    signup_layou.setVisibility(View.GONE);
+                                    otp_layout.setVisibility(View.VISIBLE);
+                                }else {
+                                    Utils.showToast(getActivity(),response.getString("msg"));
+                                }
+
+                        } catch (JSONException e) {
+
+                        } catch (JsonParseException e) {
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("mobile_number", AppController.get_signuphone(getActivity()));
+                params.put("type", "signup");
+                return params;
+            }
+
+        };
+
+        if (Utils.isConnected((getActivity()))) {
+            AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+        } else {
+            this.isNetworkAvailable(false);
+        }
+    }
 
     private void sendOTP(String type) {
 
         webServiceManager.sendOTP(user.getMobile_number(), type, this);
     }
+    private void verifyOTP() {
 
+        webServiceManager.verifyOTP(user.getMobile_number(), s_otp,"signup", this);
+    }
     private boolean isInputValidated(User user) {
 
         if (Utils.isEmpty(user.getProfile_created_for())) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Please select any one from Profile for!";
             return false;
         }
         if (Utils.isEmpty(user.getName())) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Name is empty!";
             return false;
         }
         if (s_gender.equals("")){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Choose Gender";
             return false;
         }
         if (s_day.equals("DAY")){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "select Day";
             return false;
         }
         if (s_month.equals("MONTH")){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Select Month";
             return false;
         }if (s_month.equals("YEAR")){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Select Year";
             return false;
         }
         if (s_religion.equals("") ){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Select Religion!";
             return false;
         }
         if (s_mothertounge.equals("")){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Select Mother Tongue!";
             return false;
         }
         if (Utils.isEmpty(user.getMobile_number())) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Phone number is empty!";
             return false;
         }
         if(validatePhoneNumber(user.getMobile_number())==false) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Enter Valid  Mobile Number!";
             return false;
         }
         if (Utils.isEmpty(user.getEmail())) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Email is empty!";
             return false;
         }
         if (!user.getEmail().matches(EMAIL_REGEX)){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Enter Valid Email!";
             return false;
         }
         if (!Utils.isEmailValid(user.getEmail())) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Enter a valid email!";
             return false;
         }
         if (Utils.isEmpty(user.getPassword())) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Password is empty!";
             return false;
         }
         if (!user.getPassword().matches(PASSWORD_PATTERN)){
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "";
             Utils.showAlert(mActivity,"Password must contain min 6 character, mix of upper and lower case letters as well as digits and one special charecter");
             return false;
@@ -441,7 +583,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
         Log.e("aaa","aaaa");
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         if (requestCode == WebServiceManager.REQUEST_CODE_SIGNUP) {
             SignUpResponse loginResponse = (SignUpResponse) response;
             user = loginResponse.getUser();
@@ -455,10 +597,15 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
             preferences.updateUser(user);
 
         } else if (requestCode == WebServiceManager.REQUEST_CODE_SEND_OTP) {
-            BaseResponse otpResponse = (BaseResponse) response;
-            Utils.showToast(mActivity, otpResponse.getMsg());
-            OTPRequest otpRequest = new OTPRequest("", user.getMobile_number(), OTPRequest.SIGNUP);
-            ((AuthenticationActivity) mActivity).setFragment(AuthenticationActivity.INDEX_OTP_FRAGMENT, otpRequest);
+            signup_layou.setVisibility(View.GONE);
+            otp_layout.setVisibility(View.VISIBLE);
+//            BaseResponse otpResponse = (BaseResponse) response;
+//            Utils.showToast(mActivity, otpResponse.getMsg());
+//            OTPRequest otpRequest = new OTPRequest("", user.getMobile_number(), OTPRequest.SIGNUP);
+//            ((AuthenticationActivity) mActivity).setFragment(AuthenticationActivity.INDEX_OTP_FRAGMENT, otpRequest);
+        }
+        else if (requestCode == WebServiceManager.REQUEST_CODE_VERIFY_OTP) {
+           signUp(user);
         }
     }
     private void moveToHomePage(String userid) {
@@ -473,7 +620,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
     @Override
     public void onFailure(int requestCode, int responseCode, Object response) {
         if (response != null) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             if (requestCode == WebServiceManager.REQUEST_CODE_SIGNUP) {
                 SignUpResponse signUpResponse = (SignUpResponse) response;
                 if (signUpResponse.getUser() != null) {
@@ -489,6 +636,10 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                     Utils.showAlert(mActivity, loginResponse.getMsg());
                 }
             } else if (requestCode == WebServiceManager.REQUEST_CODE_SEND_OTP) {
+                BaseResponse otpResponse = (BaseResponse) response;
+                Utils.showAlert(mActivity, otpResponse.getMsg());
+            }
+            else if (requestCode == WebServiceManager.REQUEST_CODE_VERIFY_OTP) {
                 BaseResponse otpResponse = (BaseResponse) response;
                 Utils.showAlert(mActivity, otpResponse.getMsg());
             }
@@ -554,7 +705,9 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                 if (!s_year.equalsIgnoreCase("YEAR")){
                     int dobyear=Integer.parseInt(s_year);
                     int age1=year-dobyear;
+
                     s_age=String.valueOf(age1);
+                    AppController.set_age(getActivity(),s_age);
                     if (s_gender.equalsIgnoreCase("Male")){
                         if (age1 <= 21){
                             Utils.showAlert(getActivity(),"Not Eligible to Register male ");

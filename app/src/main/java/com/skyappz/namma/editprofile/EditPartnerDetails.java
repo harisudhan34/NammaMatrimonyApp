@@ -28,6 +28,8 @@ import com.skyappz.namma.webservice.WebServiceListener;
 
 import java.util.HashMap;
 
+import pl.droidsonroids.gif.GifImageView;
+
 import static com.skyappz.namma.activities.HomeActivity.INDEX_ABOUTFAMILY;
 import static com.skyappz.namma.activities.HomeActivity.userid;
 
@@ -40,6 +42,7 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
     private String errorMsg;
     private Activity mActivity;
     ProgressDialog dialog;
+    GifImageView progress;
     public static EditPartnerDetails newInstance() {
         return new EditPartnerDetails();
     }
@@ -53,6 +56,7 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
         userDetailsViewModel.setActivity((HomeActivity) getActivity());
         //userDetailsViewModel.getUserDetails("1");
         duplicate = ((HomeActivity) getActivity()).getUser();
+        progress=(GifImageView)getActivity().findViewById(R.id.progress);
         user = new User().duplicate(duplicate);
         binding.setUser(user);
         subscribe();
@@ -77,10 +81,8 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
         mActivity = activity;
     }
     public void update(View view) {
-        dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("please wait.");
-        dialog.setCancelable(false);
-        dialog.show();
+
+        progress.setVisibility(View.VISIBLE);
         if (Utils.isConnected(mActivity)) {
             if (isInputValidated(user)) {
                 errorMsg = "";
@@ -99,7 +101,7 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
     private boolean isInputValidated(User user) {
 
         if (Utils.isEmpty(user.getAbout_partner())) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "About partner  is empty!";
             return false;
         }
@@ -124,7 +126,7 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
 //        params.put("user_id", "1");
 //        userDetailsViewModel.updateUser(params, this);
         params.put("user_id",userid);
-        params.put("about_partner", user.getAbout_partner());
+        params.put("about_partner", user.getAbout_partner().toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
 
@@ -139,7 +141,7 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
     }
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
         ((HomeActivity) mActivity).setFragment(INDEX_ABOUTFAMILY, null);
     }

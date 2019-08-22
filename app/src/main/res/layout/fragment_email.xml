@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:background="#E0FAFAFA"
         android:orientation="vertical">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -40,130 +39,146 @@
 
 
         </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="23dp"
-            android:textStyle="bold"
-            android:textColor="@color/header"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="10dp"/>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/pink"
-            android:layout_marginTop="20dp">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/tetEmail"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/opensansregular"
-                android:gravity="center_vertical"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@drawable/bottom_line"
-                android:hint="Matri ID / Email ID / Mobile No "
-                android:padding="@dimen/medium_padding"
-                android:textColor="@color/black"
-                android:inputType="textWebEmailAddress"
-                android:textColorHint="@color/medium_gray"
-                android:textSize="@dimen/input_text_size" />
-        </android.support.design.widget.TextInputLayout>
+                android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/pink"
-            android:layout_marginTop="20dp">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/tetpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/opensansregular"
-                android:gravity="center_vertical"
-                android:layout_margin="10dp"
-                android:hint="@string/password"
-                android:inputType="textWebPassword"
-                android:background="@drawable/bottom_line"
-                android:padding="@dimen/medium_padding"
-                android:textColor="@color/black"
-                android:textColorHint="@color/medium_gray"
-                android:textSize="@dimen/input_text_size" />
-        </android.support.design.widget.TextInputLayout>
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tvErrorMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/red"
-                android:layout_marginLeft="20dp"
-                android:textSize="@dimen/medium_text_size" />
-
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/btnNext"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/loginbutton"
-                android:background="@drawable/pink_rounded"
-                android:fontFamily="@font/opensansregular"
-                android:paddingLeft="100dp"
-                android:paddingRight="100dp"
-                android:layout_gravity="center"
-                android:text="@string/login"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/btn_text_size" />
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
                 <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/loginviaotp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/header"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="10dp"/>
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/pink"
+                    android:layout_marginTop="20dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/tetEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensansregular"
+                        android:gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/bottom_line"
+                        android:hint="Matri ID / Email ID / Mobile No "
+                        android:padding="@dimen/medium_padding"
+                        android:textColor="@color/black"
+                        android:inputType="textWebEmailAddress"
+                        android:textColorHint="@color/medium_gray"
+                        android:textSize="@dimen/input_text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/pink"
+                    android:textColorHint="@color/pink"
+                    android:layout_marginTop="20dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/tetpassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensansregular"
+                        android:gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:hint="@string/password"
+                        android:inputType="textWebPassword"
+                        android:background="@drawable/bottom_line"
+                        android:padding="@dimen/medium_padding"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/medium_gray"
+                        android:textSize="@dimen/input_text_size" />
+                </android.support.design.widget.TextInputLayout>
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvErrorMsg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/header"
+                    android:textColor="@color/red"
                     android:layout_marginLeft="20dp"
-                    android:text="@string/login_via_otp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="30dp"
-                    android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_text_size" />
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tvForgetPassword"
+                    android:textSize="@dimen/medium_text_size" />
+
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnNext"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/header"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginLeft="20dp"
-                    android:textStyle="bold"
-                    android:text="@string/forgot_password"
-                    android:layout_marginTop="30dp"
+                    android:layout_height="@dimen/loginbutton"
+                    android:background="@drawable/pink_rounded"
                     android:fontFamily="@font/opensansregular"
-                    android:textSize="@dimen/input_text_size" />
+                    android:paddingLeft="100dp"
+                    android:paddingRight="100dp"
+                    android:layout_gravity="center"
+                    android:text="@string/login"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/btn_text_size" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/loginviaotp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/header"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/login_via_otp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/opensansregular"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tvForgetPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/header"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="20dp"
+                        android:textStyle="bold"
+                        android:text="@string/forgot_password"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/opensansregular"
+                        android:textSize="@dimen/input_text_size" />
 
-            </RelativeLayout>
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/register"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/loginbutton"
-                android:background="@drawable/pink_border_rounded"
-                android:text="Not a member? Register FREE"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textColor="@color/header"
-                android:layout_marginTop="20dp"
-                android:paddingLeft="35dp"
-                android:paddingRight="35dp"/>
+                </RelativeLayout>
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/loginbutton"
+                    android:background="@drawable/pink_border_rounded"
+                    android:text="Not a member? Register FREE"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/header"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="35dp"
+                    android:paddingRight="35dp"/>
 
-        </LinearLayout>
+            </LinearLayout>
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/progress"
+                android:visibility="gone"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/loadericon"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="0dp"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
     </LinearLayout>
 
 </android.support.v4.widget.SwipeRefreshLayout>

@@ -18,6 +18,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.JsonParseException;
 import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.activities.SearchActivity;
 import com.skyappz.namma.adapter.ViewAllMatches;
 import com.skyappz.namma.model.User;
@@ -61,6 +62,7 @@ public class Optionresult extends AppCompatActivity implements WebServiceListene
     }
 
     public void get_education_matches(String type) {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getmatches";
         String url = URL_GET_TODAY_MATCHES+ AppController.get_userid(getApplicationContext()) +"&type="+type+"&parameter=age,gender,height,weight,caste,marital_status,mother_tongue,raasi,having_dosham,physical_status,paadham,dosham_details&education="+s_education ;
         Log.e("url",url);

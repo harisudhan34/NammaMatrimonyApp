@@ -907,7 +907,7 @@
 
     </string-array>
     <string-array name="monthly_income">
-        <item>Select Monthly Income</item>
+        <item>Select Anual Income</item>
         <item>0 - 1 Lakh</item>
         <item>1 - 2 Lakh</item>
         <item>2 - 3 Lakh</item>

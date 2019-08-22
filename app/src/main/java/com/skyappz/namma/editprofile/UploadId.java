@@ -16,6 +16,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +56,7 @@ public class UploadId extends Fragment implements WebServiceListener {
         return new UploadId();
     }
     AppCompatImageView profilepic,profilepic_photo,profilepic_horoscope;
+    AppCompatTextView photo_skip,id_skip,horo_skip;
     AppCompatButton uploadbutton,uploadbutton_photo,uploadbutton_horoscope;
     private int PICK_IMAGE_REQUEST = 1;
     private static final int STORAGE_PERMISSION_CODE = 123;
@@ -62,7 +64,7 @@ public class UploadId extends Fragment implements WebServiceListener {
     private Bitmap bitmap;
     String clicknmae;
     private Activity mActivity;
-    String uploadurl="https://nammamatrimony.in/api/uploads.php.php";
+    String uploadurl="https://nammamatrimony.in/api/uploads.php";
     //Uri to store the image uri
     private Uri filePath;
     Intent CropIntent;
@@ -96,16 +98,21 @@ public class UploadId extends Fragment implements WebServiceListener {
         spec.setContent(R.id.tab3);
         spec.setIndicator("Horoscope");
         tabs.addTab(spec);
+
+
         uploadbutton=(AppCompatButton)view.findViewById(R.id.upload_button);
         profilepic=(AppCompatImageView)view.findViewById(R.id.profile_image);
+        id_skip=(AppCompatTextView)view.findViewById(R.id.id_skip);
 
         uploadbutton_photo=(AppCompatButton)view.findViewById(R.id.upload_button_photo);
         profilepic_photo=(AppCompatImageView)view.findViewById(R.id.profile_image_photo);
+        photo_skip=(AppCompatTextView)view.findViewById(R.id.photo_skip);
 
         uploadbutton_horoscope=(AppCompatButton)view.findViewById(R.id.upload_button_horoscope);
         profilepic_horoscope=(AppCompatImageView)view.findViewById(R.id.profile_image_hororscope);
+        horo_skip=(AppCompatTextView)view.findViewById(R.id.horo_skip);
         requestStoragePermission();
-
+//        tabs.getTabWidget().setEnabled(false);
         uploadbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,7 +168,22 @@ public class UploadId extends Fragment implements WebServiceListener {
                 clicknmae = "horoscope";
             }
         });
+        photo_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tabs.setCurrentTab(1);
+            }
+        });
+        id_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tabs.setCurrentTab(2);
+            }
+        });
+
         return view;
+
+
     }
 
 
@@ -356,7 +378,7 @@ public class UploadId extends Fragment implements WebServiceListener {
                         @Override
                         public void onCompleted(UploadInfo uploadInfo, ServerResponse serverResponse) {
                             sendmail();
-                            send_sms();
+//                            send_sms();
                             Intent move=new Intent(getActivity(), MainDashboard.class);
                             mActivity.startActivity(move);
                             getActivity().finish();

@@ -37,5 +37,8 @@
     <dimen name="discover_icon_size">40dp</dimen>
     <dimen name="username">12sp</dimen>
     <dimen name="profile_size">12sp</dimen>
-    <dimen name="title">18sp</dimen>
+    <dimen name="title">16sp</dimen>
+    <dimen name="OTP_HEADE">18sp</dimen>
+
+
 </resources>

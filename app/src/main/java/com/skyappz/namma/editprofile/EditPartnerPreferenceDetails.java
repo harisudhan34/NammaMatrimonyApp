@@ -32,6 +32,7 @@ import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
 import com.skyappz.namma.ResponseEntities.Setpartner;
 import com.skyappz.namma.activities.HomeActivity;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.adapter.CustomListAdapter;
 import com.skyappz.namma.databinding.EditPartnerPreferenceFragmentBinding;
 import com.skyappz.namma.model.PartnerPreference;
@@ -50,6 +51,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+
+import pl.droidsonroids.gif.GifImageView;
 
 import static com.skyappz.namma.activities.HomeActivity.INDEX_UPLOAD_ID;
 import static com.skyappz.namma.activities.HomeActivity.userid;
@@ -77,6 +80,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
     private String errorMsg;
     MultiSelectionSpinner spDosham;
     Handler h;
+    GifImageView progress;
     Integer mi_he,max_he,mi_weight,max_weight,mi_income,max_income;
 
     LinearLayout dhosam_details_layout;
@@ -101,6 +105,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
 
     public void initViews(View view){
         h = new Handler();
+        progress=(GifImageView)view.findViewById(R.id.progress);
         update=(AppCompatButton)view.findViewById(R.id.update);
         update.setOnClickListener(this);
         etMinAge=(AppCompatSpinner)view.findViewById(R.id.etMinAge);
@@ -287,6 +292,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
 
 
     public void getAllCaste() {
+        HttpsTrustManager.allowAllSSL();
         spSubCaste.setText("");
         String tag_json_obj = "getAllCaste";
         String url = "https://nammamatrimony.in/api/getcaste.php";
@@ -326,6 +332,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
     }
 
     public void getsubcaste() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getAllSubCaste";
         String url = "https://nammamatrimony.in/api/getsubcaste.php";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -766,10 +773,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
         }
     }
     public void update() {
-        dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("please wait.");
-        dialog.setCancelable(false);
-        dialog.show();
+      progress.setVisibility(View.VISIBLE);
         if (radioMale.isChecked()) {
             s_gender = radioMale.getText().toString();
         }else {
@@ -798,7 +802,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
 
         if (s_having_dhosam.equals("Yes")){
             if (s_dhosam.equals("Select a Dhosam")) {
-                dialog.dismiss();
+                progress.setVisibility(View.GONE);
                 errorMsg = "Dosam is empty!";
                 return false;
             }
@@ -839,31 +843,31 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
 //            params.put("profile_created_for", user.getProfile_created_for());
 //        }
         params.put("user_id",userid);
-        params.put("min_age", s_minage);
-        params.put("min_income", s_min_income);
-        params.put("max_income", s_max_inxome);
-        params.put("max_age", s_maxage);
-        params.put("min_height", s_minheight);
-        params.put("max_height", s_maxheight);
-        params.put("min_weight", s_minweight);
-        params.put("max_weight", s_max_weight);
-        params.put("caste", s_caste);
-        params.put("sub_caste", s_subcaste);
-        params.put("marital_status", s_maritalstatus);
-        params.put("mother_tongue", s_mothertounge);
-        params.put("paadham", s_paatham);
-        params.put("dosham", s_dhosam);
-        params.put("having_dosham", s_having_dhosam);
-        params.put("education", s_degree);
-        params.put("profession", s_myocc);
-        params.put("nationality", s_nationality);
-        params.put("country", s_country);
-        params.put("state", s_sate);
-        params.put("natchathiram",s_natchathram);
-        params.put("preferred_cities", s_city);
-        params.put("physical_status", s_disability);
-        params.put("gender",s_gender);
-        params.put("raasi",s_raasi);
+        params.put("min_age", s_minage.toLowerCase());
+        params.put("min_income", s_min_income.toLowerCase());
+        params.put("max_income", s_max_inxome.toLowerCase());
+        params.put("max_age", s_maxage).toLowerCase();
+        params.put("min_height", s_minheight.toLowerCase());
+        params.put("max_height", s_maxheight.toLowerCase());
+        params.put("min_weight", s_minweight.toLowerCase());
+        params.put("max_weight", s_max_weight.toLowerCase());
+        params.put("caste", s_caste.toLowerCase());
+        params.put("sub_caste", s_subcaste.toLowerCase());
+        params.put("marital_status", s_maritalstatus.toLowerCase());
+        params.put("mother_tongue", s_mothertounge.toLowerCase());
+        params.put("paadham", s_paatham.toLowerCase());
+        params.put("dosham", s_dhosam.toLowerCase());
+        params.put("having_dosham", s_having_dhosam.toLowerCase());
+        params.put("education", s_degree.toLowerCase());
+        params.put("profession", s_myocc.toLowerCase());
+        params.put("nationality", s_nationality.toLowerCase());
+        params.put("country", s_country.toLowerCase());
+        params.put("state", s_sate.toLowerCase());
+        params.put("natchathiram",s_natchathram.toLowerCase());
+        params.put("preferred_cities", s_city.toLowerCase());
+        params.put("physical_status", s_disability.toLowerCase());
+        params.put("gender",s_gender.toLowerCase());
+        params.put("raasi",s_raasi.toLowerCase());
 
 
         userDetailsViewModel.setpartner(params, this);
@@ -872,7 +876,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
         Utils.showToast(getActivity(), ((Setpartner) response).getMsg());
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         ((HomeActivity) mActivity).setFragment(INDEX_UPLOAD_ID, null);
     }
 

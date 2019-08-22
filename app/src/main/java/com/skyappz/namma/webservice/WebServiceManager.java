@@ -67,19 +67,19 @@ public class WebServiceManager {
     public static int REQUEST_CODE_GET_CASTE = 1012;
     /*URLs*/
     private static final String URL_LOGIN = "https://nammamatrimony.in/api/login.php?";
-    private static final String URL_SIGNUP = "nammamatrimony.in/api/signup.php";
-    private static final String URL_SEND_OTP = "nammamatrimony.in/api/sendotp.php";
-    private static final String URL_VERIFY_OTP = "nammamatrimony.in/api/verifyotp.php";
-    private static final String URL_UPDATE_PASSWORD = "nammamatrimony.in/api/update_password.php";
-    private static final String URL_UPDATE_USER = "nammamatrimony.in/api/update.php";
+    private static final String URL_SIGNUP = "https://nammamatrimony.in/api/signup.php";
+    private static final String URL_SEND_OTP = "https://nammamatrimony.in/api/sendotp.php";
+    private static final String URL_VERIFY_OTP = "https://nammamatrimony.in/api/verifyotp.php";
+    private static final String URL_UPDATE_PASSWORD = "https://nammamatrimony.in/api/update_password.php";
+    private static final String URL_UPDATE_USER = "https://nammamatrimony.in/api/update.php";
     private static final String URL_STORE_DEVICE_ID = "http://silvermatrimony.com/api/user/updateDeviceId?";
-    private static final String URL_GET_USER_DETAILS = "nammamatrimony.in/api/getuser.php?user_id=";
-    private static final String URL_GET_PLAN_DETAILS = "nammamatrimony.in/api/allplan.php";
-    private static final String URL_BUY_PLAN = "nammamatrimony.in/api/buyplan.php";
-    private static final String URL_GET_TODAY_MATCHES = "nammamatrimony.in/api/todaymatches.php?user_id=";
-    private static final String URL_GET_STATES = "nammamatrimony.in/api/getstate.php";
-    private static final String URL_SET_PARTNER = "nammamatrimony.in/api/setpartner.php";
-    private static final String URL_GET_CASTE = "nammamatrimony.in/api/getcaste.php";
+    private static final String URL_GET_USER_DETAILS = "https://nammamatrimony.in/api/getuser.php?user_id=";
+    private static final String URL_GET_PLAN_DETAILS = "https://nammamatrimony.in/api/allplan.php";
+    private static final String URL_BUY_PLAN = "https://nammamatrimony.in/api/buyplan.php";
+    private static final String URL_GET_TODAY_MATCHES = "https://nammamatrimony.in/api/todaymatches.php?user_id=";
+    private static final String URL_GET_STATES = "https://nammamatrimony.in/api/getstate.php";
+    private static final String URL_SET_PARTNER = "https://nammamatrimony.in/api/setpartner.php";
+    private static final String URL_GET_CASTE = "https://nammamatrimony.in/api/getcaste.php";
 
     private Preferences preferences;
 
@@ -269,12 +269,12 @@ public class WebServiceManager {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("profile_for", user.getProfile_created_for());
-                params.put("name", user.getName());
-                params.put("email", user.getEmail());
+                params.put("profile_for", user.getProfile_created_for().toLowerCase());
+                params.put("name", user.getName().toLowerCase());
+                params.put("email", user.getEmail().toLowerCase());
 //                params.put("name", user.getName());
-                params.put("password", user.getPassword());
-                params.put("mobile_number", user.getMobile_number());
+                params.put("password", user.getPassword().toLowerCase());
+                params.put("mobile_number", user.getMobile_number().toLowerCase());
                 params.put("login_type","0");
                 return params;
             }
@@ -394,7 +394,7 @@ public class WebServiceManager {
         }
     }
 
-    public void verifyOTP(final OTPRequest otpRequest, final WebServiceListener webServiceListener) {
+    public void verifyOTP(final String mobilenumber,final String otp, final String type, final WebServiceListener webServiceListener) {
         HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "verifyOTP";
         String url = URL_VERIFY_OTP;
@@ -473,9 +473,9 @@ public class WebServiceManager {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("mobile_number", otpRequest.getMobile_number());
-                params.put("type", otpRequest.getType());
-                params.put("otp", otpRequest.getOTP());
+                params.put("mobile_number", mobilenumber);
+                params.put("type", type);
+                params.put("otp", otp);
                 return params;
             }
 
@@ -488,7 +488,7 @@ public class WebServiceManager {
         }
     }
 
-    public void updatePassword(final User user, final WebServiceListener webServiceListener) {
+    public void updatePassword(final  String userid,final User user, final WebServiceListener webServiceListener) {
         HttpsTrustManager.allowAllSSL();
         Log.e("updatepwd",user.getEmail() + "," + user.getPassword());
         String tag_json_obj = "updatePassword";
@@ -572,7 +572,7 @@ public class WebServiceManager {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", user.getEmail());
+                params.put("user_id",userid );
                 params.put("password", user.getPassword());
                 return params;
             }

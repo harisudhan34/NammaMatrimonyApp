@@ -34,6 +34,7 @@ public class Searchresult extends AppCompatActivity implements WebServiceListene
     }
 
     public void searh_result() {
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "searcchresult";
         String url = "https://nammamatrimony.in/api/search.php?gender=male&max_age="+s_age+"&max_height="+s_height+"&marital_status="+s_marital_ststus+"&religion="+s_religiion+"&mother_tongue="+s_languvage+"&caste="+s_caste;
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,

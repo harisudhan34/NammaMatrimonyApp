@@ -29,6 +29,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import pl.droidsonroids.gif.GifImageView;
+
 import static com.skyappz.namma.activities.HomeActivity.INDEX_ABOUT_MYSELF;
 import static com.skyappz.namma.activities.HomeActivity.INDEX_EDUCATION_DETAILS;
 import static com.skyappz.namma.activities.HomeActivity.userid;
@@ -46,6 +48,7 @@ public class EditHabitsDetails extends Fragment implements WebServiceListener, V
     AppCompatButton update;
     AppCompatTextView skip;
     ProgressDialog dialog;
+    GifImageView progress;
     AppCompatSpinner spFoodHabit,spSmookingHabit,spDrinkHabit;
     public static EditHabitsDetails newInstance() {
         return new EditHabitsDetails();
@@ -79,6 +82,7 @@ public class EditHabitsDetails extends Fragment implements WebServiceListener, V
     }
 
     private void initViews(View view) {
+        progress=(GifImageView)view.findViewById(R.id.progress);
         spFoodHabit=(AppCompatSpinner)view.findViewById(R.id.spFoodHabit);
         spSmookingHabit=(AppCompatSpinner)view.findViewById(R.id.spSmookingHabit);
         spDrinkHabit=(AppCompatSpinner)view.findViewById(R.id.spDrinkHabit);
@@ -135,10 +139,7 @@ public class EditHabitsDetails extends Fragment implements WebServiceListener, V
 
 
     public void update() {
-        dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("please wait.");
-        dialog.setCancelable(false);
-        dialog.show();
+       progress.setVisibility(View.VISIBLE);
         if (Utils.isConnected(mActivity)) {
             if (isInputValidated(user)) {
                 errorMsg = "";
@@ -157,17 +158,17 @@ public class EditHabitsDetails extends Fragment implements WebServiceListener, V
     private boolean isInputValidated(User user) {
 
         if (s_food.equalsIgnoreCase("Select your Food Habits")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Food habit is empty!";
             return false;
         }
         if (s_smook.equalsIgnoreCase("Select your Smoking Habits")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Smooke habit is empty!";
             return false;
         }
         if (s_drink.equalsIgnoreCase("Select your Drinking Habits")) {
-            dialog.dismiss();
+            progress.setVisibility(View.GONE);
             errorMsg = "Drink habit is empty!";
             return false;
         }
@@ -187,9 +188,9 @@ public class EditHabitsDetails extends Fragment implements WebServiceListener, V
 //        params.put("user_id", "1");
 //        userDetailsViewModel.updateUser(params, this);
         params.put("user_id",userid);
-        params.put("smoking_habits", s_smook);
-        params.put("drinking_habits", s_drink);
-        params.put("eating_habits", s_food);
+        params.put("smoking_habits", s_smook.toLowerCase());
+        params.put("drinking_habits", s_drink.toLowerCase());
+        params.put("eating_habits", s_food.toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
 
@@ -201,13 +202,14 @@ public class EditHabitsDetails extends Fragment implements WebServiceListener, V
 
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
-        dialog.dismiss();
+        progress.setVisibility(View.GONE);
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
         ((HomeActivity) mActivity).setFragment(INDEX_ABOUT_MYSELF, null);
     }
 
     @Override
     public void onFailure(int requestCode, int responseCode, Object response) {
+        progress.setVisibility(View.GONE);
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
     }
 

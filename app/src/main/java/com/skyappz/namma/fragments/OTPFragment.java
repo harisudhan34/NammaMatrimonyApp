@@ -90,7 +90,7 @@ public class OTPFragment extends Fragment implements View.OnClickListener, WebSe
                 otpRequest.setOTP(otp);
                 if (isValidated()) {
                     if (!Utils.isEmpty(otp)) {
-                        webServiceManager.verifyOTP(otpRequest, this);
+//                        webServiceManager.verifyOTP(otpRequest, this);
                     }
                 }
                 break;

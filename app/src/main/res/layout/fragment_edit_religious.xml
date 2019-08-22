@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".profileupdate.EditBasicProfile">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/input_text_size"
+                android:text="Religion"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size" />
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/religion_auto"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:clickable="true"
+                android:background="@drawable/rounded_corner_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size"
+                android:fontFamily="@font/opensansregular" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/input_text_size"
+                android:text="Caste"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size" />
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/caste_auto"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:clickable="true"
+                android:background="@drawable/rounded_corner_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size"
+                android:fontFamily="@font/opensansregular" />
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/subcaste_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input_text_size"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="10dp"
+                    android:text="SUB CASTE"/>
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/auto_subcaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:clickable="true"
+                    android:paddingLeft="10dp"
+                    android:entries="@array/castes"
+                    android:fontFamily="@font/opensansregular"
+                    />
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="left"
+                android:layout_marginTop="10dp"
+                android:text="Star"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size" />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spstar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:spinnerMode="dialog"
+                android:background="@drawable/rounded_edittext_red"
+                android:fontFamily="@font/opensansregular" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:fontFamily="@font/opensansregular"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:text="Rassi"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/sprassi"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/input_field_text_size"
+                android:spinnerMode="dialog"
+                android:background="@drawable/rounded_corner_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:fontFamily="@font/opensansregular" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansregular"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/input_text_size"
+                android:text="Dhosam"
+                android:textColor="@color/black"
+                android:textSize="@dimen/input_text_size" />
+
+
+
+
+            <com.skyappz.namma.utils.MultiSelectionSpinner
+                android:id="@+id/dhosam_new"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_field_height"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corner_gray"
+                android:clickable="true"
+                android:textSize="@dimen/input_field_text_size"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/opensansregular" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/pink_rounded"
+                android:paddingLeft="@dimen/input_field_height"
+                android:paddingRight="@dimen/input_field_height"
+                android:text="UPDATE"
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/progress"
+            android:visibility="visible"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/loadericon"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="0dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
+
+

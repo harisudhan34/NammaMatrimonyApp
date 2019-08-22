@@ -308,9 +308,9 @@ public class EditReligionDetails extends Fragment implements WebServiceListener 
 //        }
 //        params.put("user_id", "1");
         params.put("user_id",userid);
-        params.put("religion", religion);
-        params.put("caste", caste);
-        params.put("sub_caste", subcaste);
+        params.put("religion", religion.toLowerCase());
+        params.put("caste", caste.toLowerCase());
+        params.put("sub_caste", subcaste.toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
     public void skip(){
