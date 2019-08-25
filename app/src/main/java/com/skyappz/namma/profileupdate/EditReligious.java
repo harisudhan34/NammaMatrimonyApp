@@ -54,12 +54,16 @@ public class EditReligious extends Fragment implements View.OnClickListener, Web
     AppCompatButton update;
     private static final String URL_GET_USER = "https://nammamatrimony.in/api/getuser.php?user_id=";
     ArrayList<String> castes =new ArrayList<>();
+    ArrayList<String> castes_id =new ArrayList<>();
     ArrayList<String> subcastes =new ArrayList<>();
     String s_religion,s_caste,s_star,s_raasi,s_dhosam,s_subcaste;
     LinearLayout subcaste_layout;
     ArrayAdapter rassiadapter,nachathramadapter;
     ArrayList start_list,raasi_list,dosamList;
     GifImageView progress;
+    String selecctedid;
+    HashMap<String,String> castelist =new HashMap<>();
+    ArrayList<HashMap<String, String>> castenew=new ArrayList<>();
     HashMap<String, String> params = new HashMap<>();
     private UserDetailsViewModel userDetailsViewModel;
     public EditReligious() {
@@ -94,7 +98,6 @@ public class EditReligious extends Fragment implements View.OnClickListener, Web
         religion_auto.setAdapter(adapter);
         religion_auto.setOnItemClickListener(religionclick);
 
-
         CustomListAdapter casetadapter = new CustomListAdapter(getActivity(),
                 R.layout.right_menu_item, castes);
         caste_auto.setAdapter(casetadapter);
@@ -128,10 +131,7 @@ public class EditReligious extends Fragment implements View.OnClickListener, Web
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     s_caste = String.valueOf(adapterView.getItemAtPosition(i));
-//                    int selectedposition=i+1;
-////                    s_casteid=..get(i);
-//                    Log.e("castepos.",caste_id.get(selectedposition));
-                   // getsubcaste();
+
                 }
             };
 
@@ -149,9 +149,9 @@ public class EditReligious extends Fragment implements View.OnClickListener, Web
                             JSONArray castearray=response.getJSONArray("castes");
                             for (int i=0; i<castearray.length();i++){
                                 JSONObject list= castearray.getJSONObject(i);
-                                HashMap<String,String> castelist =new HashMap<>();
                                 castes.add(list.getString("caste"));
-                            }
+
+                        }
 
                         } catch (JSONException e) {
 
@@ -377,10 +377,10 @@ public class EditReligious extends Fragment implements View.OnClickListener, Web
     }
     private void update_values(){
         params.put("user_id",AppController.get_userid(getActivity()));
-        params.put("religion", s_religion);
-        params.put("caste", s_caste);
-        params.put("raasi", s_raasi);
-        params.put("star", s_star);
+        params.put("religion", s_religion.toLowerCase());
+        params.put("caste", s_caste.toLowerCase());
+        params.put("raasi", s_raasi.toLowerCase());
+        params.put("star", s_star.toLowerCase());
 
         userDetailsViewModel.updateUser(params, this);
     }

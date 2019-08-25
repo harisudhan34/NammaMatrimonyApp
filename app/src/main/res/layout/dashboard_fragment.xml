@@ -40,13 +40,22 @@
                 <!--android:layout_height="@dimen/profile_image_size"-->
                 <!--android:layout_marginTop="-50dp"-->
                 <!--android:src="@drawable/testuser" />-->
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_padding"
+                android:text="Welcome"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:fontFamily="@font/opensansregular"
+                android:textColor="@color/black_gradient" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_padding"
-                android:text="Surendar"
+                android:text=""
                 android:textStyle="bold"
                 android:textSize="14dp"
                 android:fontFamily="@font/opensansregular"
@@ -78,7 +87,7 @@
                     android:padding="@dimen/medium_padding"
                     android:fontFamily="@font/opensansregular"
                     android:text="@string/today_matches"
-                    android:textColor="@color/black_gradient" />
+                    android:textColor="@color/black" />
 
 
                 <android.support.v7.widget.AppCompatTextView
@@ -119,6 +128,7 @@
                 android:visibility="visible"
                 android:id="@+id/scroll_layout"
                 android:layout_width="match_parent"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
                 android:background="@color/light_gray"
                 android:layout_marginTop="10dp"
@@ -140,6 +150,49 @@
             </HorizontalScrollView>
 
             <!--</android.support.v7.widget.CardView>-->
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:cardElevation="6dp"
+                android:layout_margin="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@color/white">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:padding="6dp"
+                        android:src="@drawable/top_demo"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="50dp"
+                            android:text="Laks of Success stories. Yours could be next."/>
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/header"
+                            android:layout_marginTop="10dp"
+                            android:text="Upgrade Now"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
@@ -174,7 +227,7 @@
                     <android.support.v7.widget.AppCompatButton
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:text="get premium"
+                        android:text="Upgrade Now"
                         android:layout_marginTop="5dp"
                         android:textColor="#fff"
                         android:paddingLeft="10dp"
@@ -202,7 +255,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/opensansregular"
                     android:text="@string/premium_matches"
-                    android:textColor="@color/black_gradient" />
+                    android:textColor="@color/black" />
 
 
                 <android.support.v7.widget.AppCompatTextView
@@ -281,7 +334,7 @@
                     android:textSize="16dp"
                     android:textStyle="bold"
                     android:text="@string/discover_matches"
-                    android:textColor="@color/black_gradient" />
+                    android:textColor="@color/black" />
 
 
                 <android.support.v7.widget.AppCompatTextView
@@ -446,15 +499,17 @@
                 android:layout_gravity="left"
                 android:layout_marginTop="30dp"
                 android:padding="@dimen/medium_padding"
+                android:visibility="gone"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/opensansregular"
                 android:text="Complete Profile For Better Response"
-                android:textColor="@color/black_gradient" />
+                android:textColor="@color/black" />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:background="@color/white"
                 >
                 <ViewFlipper
@@ -638,7 +693,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/opensansregular"
                     android:text="@string/recommend_matches"
-                    android:textColor="@color/black_gradient" />
+                    android:textColor="@color/black" />
 
 
                 <android.support.v7.widget.AppCompatTextView

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".editprofile.Edit_partner_preference2">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skip >>"
+                android:textColor="#1d5d77"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="15dp"
+                android:layout_margin="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:drawablePadding="5dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="14dp"
+                android:fontFamily="@font/opensansregular" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_padding"
+                    android:text="Education &amp; Carrier Details"
+                    android:background="@drawable/bottom_line"
+                    android:fontFamily="@font/opensansregular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/btn_text_size" />
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="EDUCATION"/>
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/spEducation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/opensansregular" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:fontFamily="@font/opensansregular"
+                    android:text="OCCUPATION"/>
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/spProfession"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_padding"
+                    android:text="Residency Details"
+                    android:background="@drawable/bottom_line"
+                    android:fontFamily="@font/opensansregular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/btn_text_size" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="NATIONALITY"/>
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/spNationality"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="COUNTRY"/>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:spinnerMode="dialog"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="STATE"/>
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/spPreferredstate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:hint="Select State"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="CITY"/>
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/spPreferredCities"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:hint="Select City"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:entries="@array/countries"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensansregular"
+                    android:background="@drawable/pink_rounded"
+                    android:paddingLeft="@dimen/input_field_height"
+                    android:paddingRight="@dimen/input_field_height"
+                    android:text="@string/update"
+                    android:layout_marginBottom="50dp"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/progress"
+                android:visibility="gone"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/loadericon"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="0dp"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

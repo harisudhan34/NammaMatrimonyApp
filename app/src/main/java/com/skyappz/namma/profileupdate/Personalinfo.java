@@ -243,12 +243,12 @@ public class Personalinfo extends Fragment implements AdapterView.OnItemSelected
 
     private  void  updatevalue(){
         params.put("user_id", AppController.get_userid(getActivity()));
-        params.put("education", s_degree);
-        params.put("occupation", s_myocc);
-        params.put("max_income", s_income);
-        params.put("working_sector", s_working_sector);
-        params.put("office_details", s_officedetails);
-        params.put("college", s_collegename);
+        params.put("education", s_degree.toLowerCase());
+        params.put("occupation", s_myocc.toLowerCase());
+        params.put("max_income", s_income.toLowerCase());
+        params.put("working_sector", s_working_sector.toLowerCase());
+        params.put("office_details", s_officedetails.toLowerCase());
+        params.put("college", s_collegename.toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
 

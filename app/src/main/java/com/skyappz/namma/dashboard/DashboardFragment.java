@@ -182,7 +182,7 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
                                s_profileimage=user.getString("profile_image");
                                s_coverimage=user.getString("cover_image");
                                s_gender=user.getString("gender");
-                               username.setText("Hi "+s_username + " ( "+"NM-"+s_userid +" )");
+                               username.setText(s_username + " ( "+"NM-"+s_userid +" )");
                                userid.setText("NM-"+s_userid);
                                if (s_gender.equalsIgnoreCase("male")){
                                    UrlImageViewHelper.setUrlDrawable(profile_image, "https://nammamatrimony.in/uploads/profile_image/" + s_profileimage, R.drawable.dashboardicon);

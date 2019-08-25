@@ -118,6 +118,20 @@ public class EditProfileActivity extends AppCompatActivity implements FragmentMa
 
             case INDEX_BASIC_DETAILS:
                 getSupportActionBar().setTitle("Basic Details");
+                fragmentTag = "EditReligiousDetails";
+                if (fragments.containsKey(fragmentTag)) {
+                    newFragment = fragments.get(fragmentTag);
+                    fragmentTransaction.replace(R.id.flFramentContainer, newFragment, fragmentTag);
+                    fragmentTransaction.commit();
+                } else {
+                    newFragment = EditReligiousDetails.newInstance();
+                    fragmentTransaction.replace(R.id.flFramentContainer, newFragment, fragmentTag).commit();
+                    fragments.put(fragmentTag, newFragment);
+                }
+                break;
+
+            case INDEX_PERSONAL_DETAILS:
+                getSupportActionBar().setTitle("Personal Details");
                 fragmentTag = "EditBasicDetails";
                 if (fragments.containsKey(fragmentTag)) {
                     newFragment = fragments.get(fragmentTag);
@@ -130,8 +144,8 @@ public class EditProfileActivity extends AppCompatActivity implements FragmentMa
                 }
                 break;
 
-            case INDEX_PERSONAL_DETAILS:
-                getSupportActionBar().setTitle("Personal Details");
+            case INDEX_EDUCATION_DETAILS:
+                getSupportActionBar().setTitle("Education Details");
                 fragmentTag = "EditPersonalDetails";
                 if (fragments.containsKey(fragmentTag)) {
                     newFragment = fragments.get(fragmentTag);
@@ -139,20 +153,6 @@ public class EditProfileActivity extends AppCompatActivity implements FragmentMa
                     fragmentTransaction.commit();
                 } else {
                     newFragment = EditPersonalDetails.newInstance();
-                    fragmentTransaction.replace(R.id.flFramentContainer, newFragment, fragmentTag).commit();
-                    fragments.put(fragmentTag, newFragment);
-                }
-                break;
-
-            case INDEX_EDUCATION_DETAILS:
-                getSupportActionBar().setTitle("Education Details");
-                fragmentTag = "EditEducation";
-                if (fragments.containsKey(fragmentTag)) {
-                    newFragment = fragments.get(fragmentTag);
-                    fragmentTransaction.replace(R.id.flFramentContainer, newFragment, fragmentTag);
-                    fragmentTransaction.commit();
-                } else {
-                    newFragment = EditEducation.newInstance();
                     fragmentTransaction.replace(R.id.flFramentContainer, newFragment, fragmentTag).commit();
                     fragments.put(fragmentTag, newFragment);
                 }

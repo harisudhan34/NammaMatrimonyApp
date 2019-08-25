@@ -2,16 +2,16 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/pink</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/header</item>
         <item name="colorAccent">@color/pink</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_ab_up_compat</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
     <style name="noactionbar" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/pink</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/header</item>
         <item name="colorAccent">@color/pink</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
@@ -19,7 +19,7 @@
     <style name="AppTheme1" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/transparent</item>
-        <item name="colorPrimaryDark">#FF69BC</item>
+        <item name="colorPrimaryDark">#1c5c77</item>
         <item name="colorAccent">@color/pink</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
@@ -70,7 +70,8 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimaryDark">#FF69BC</item>
+        <item name="colorPrimaryDark">#1c5c77</item>
+
     </style>
 
 

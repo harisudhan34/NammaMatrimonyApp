@@ -158,7 +158,7 @@ public class EditAbtMySelf extends Fragment implements WebServiceListener, View.
 
     private  void checkparams(){
         params.put("user_id", AppController.get_userid(getActivity()));
-        params.put("about_myself", s_ed_abt);
+        params.put("about_myself", s_ed_abt.toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }
     public void customdia(){

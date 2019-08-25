@@ -242,12 +242,12 @@ public class EditFamily extends Fragment implements AdapterView.OnItemSelectedLi
 
     private void update_values(){
         params.put("user_id",AppController.get_userid(getActivity()));
-        params.put("family_status", s_familystatus);
-        params.put("family_type", s_ffamily_type);
-        params.put("father_occupation", s_father_occ);
-        params.put("mother_occupation", s_mother_occc);
-        params.put("no_of_siblings", s_siblings);
-        params.put("family_location", s_f_location);
+        params.put("family_status", s_familystatus).toLowerCase();
+        params.put("family_type", s_ffamily_type.toLowerCase());
+        params.put("father_occupation", s_father_occ.toLowerCase());
+        params.put("mother_occupation", s_mother_occc.toLowerCase());
+        params.put("no_of_siblings", s_siblings.toLowerCase());
+        params.put("family_location", s_f_location.toLowerCase());
 
         userDetailsViewModel.updateUser(params, this);
     }

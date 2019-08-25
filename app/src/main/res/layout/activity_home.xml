@@ -13,51 +13,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:background="@android:color/white"
-        android:fitsSystemWindows="true">
+    <!--<android.support.design.widget.NavigationView-->
+        <!--android:id="@+id/nav_view"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="end"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:fitsSystemWindows="true">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
-            android:background="@android:color/white"
-            android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginTop="24dp"-->
+            <!--android:background="@android:color/white"-->
+            <!--android:orientation="vertical">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="vertical">-->
 
-                <android.support.v7.widget.AppCompatEditText
-                    android:id="@+id/etSearch"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/small_padding"
-                    android:background="@drawable/rounded_corner_gray"
-                    android:drawableLeft="@drawable/search_gray"
-                    android:drawablePadding="@dimen/small_padding"
-                    android:hint="@string/search"
-                    android:padding="@dimen/medium_padding"
-                    android:textColor="@color/input_text_color"
-                    android:textColorHint="@color/medium_gray"
-                    android:textSize="@dimen/medium_text_size1" />
+                <!--<android.support.v7.widget.AppCompatEditText-->
+                    <!--android:id="@+id/etSearch"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_margin="@dimen/small_padding"-->
+                    <!--android:background="@drawable/rounded_corner_gray"-->
+                    <!--android:drawableLeft="@drawable/search_gray"-->
+                    <!--android:drawablePadding="@dimen/small_padding"-->
+                    <!--android:hint="@string/search"-->
+                    <!--android:padding="@dimen/medium_padding"-->
+                    <!--android:textColor="@color/input_text_color"-->
+                    <!--android:textColorHint="@color/medium_gray"-->
+                    <!--android:textSize="@dimen/medium_text_size1" />-->
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvValues"
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent" />
+                <!--<android.support.v7.widget.RecyclerView-->
+                    <!--android:id="@+id/rvValues"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="fill_parent" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
-    </android.support.design.widget.NavigationView>
+    <!--</android.support.design.widget.NavigationView>-->
 
 
 </android.support.v4.widget.DrawerLayout>

@@ -33,6 +33,8 @@ import pl.droidsonroids.gif.GifImageView;
 
 import static com.skyappz.namma.activities.HomeActivity.INDEX_ABOUT_MYSELF;
 import static com.skyappz.namma.activities.HomeActivity.INDEX_EDUCATION_DETAILS;
+import static com.skyappz.namma.activities.HomeActivity.INDEX_RELIGION_DETAILS;
+import static com.skyappz.namma.activities.HomeActivity.INDEX_RELIGIO_DETAILS;
 import static com.skyappz.namma.activities.HomeActivity.userid;
 
 public class EditHabitsDetails extends Fragment implements WebServiceListener, View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -204,7 +206,7 @@ public class EditHabitsDetails extends Fragment implements WebServiceListener, V
     public void onSuccess(int requestCode, int responseCode, Object response) {
         progress.setVisibility(View.GONE);
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
-        ((HomeActivity) mActivity).setFragment(INDEX_ABOUT_MYSELF, null);
+        ((HomeActivity) mActivity).setFragment(INDEX_RELIGIO_DETAILS, null);
     }
 
     @Override

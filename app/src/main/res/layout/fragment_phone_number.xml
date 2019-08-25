@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/otp_layout"
@@ -33,9 +36,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/input_field_height"
                     android:layout_marginTop="@dimen/login_top_margin"
-                    android:background="@drawable/bottom_line"
+                    android:background="@drawable/rounded_corner_gray"
                     android:fontFamily="@font/opensansregular"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:hint="@string/otp_hint"
                     android:padding="@dimen/medium_padding"
                     android:inputType="number"
@@ -47,12 +50,13 @@
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/btn_otp_signin"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/input_field_height"
                     android:layout_marginTop="@dimen/input_field_height"
                     android:background="@drawable/pink_rounded"
                     android:fontFamily="@font/opensansregular"
                     android:padding="@dimen/small_padding"
+                    android:layout_gravity="center"
                     android:paddingLeft="@dimen/input_field_height"
                     android:paddingRight="@dimen/input_field_height"
                     android:text="@string/next"
@@ -71,6 +75,7 @@
                 android:layout_marginTop="@dimen/login_top_margin"
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/input_field_height"
+                android:background="@color/white"
                 android:paddingRight="@dimen/input_field_height">
 
 
@@ -84,11 +89,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/input_field_height"
                     android:layout_marginTop="@dimen/login_top_margin"
-                    android:background="@drawable/bottom_line"
+                    android:background="@drawable/rounded_edittext_red"
                     android:fontFamily="@font/opensansregular"
-                    android:gravity="center_vertical"
-                    android:hint="@string/mobile_number"
+                    android:gravity="center"
+                    android:hint="Enter Mobile Number"
                     android:inputType="number"
+
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:padding="@dimen/medium_padding"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
@@ -105,14 +113,15 @@
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/btnNext"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/input_field_height"
-                    android:layout_marginTop="@dimen/input_field_height"
                     android:background="@drawable/pink_rounded"
                     android:fontFamily="@font/opensansregular"
                     android:padding="@dimen/small_padding"
                     android:paddingLeft="@dimen/input_field_height"
                     android:paddingRight="@dimen/input_field_height"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/next"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"

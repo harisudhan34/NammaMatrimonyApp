@@ -270,9 +270,9 @@ public class EditLocation extends Fragment implements  View.OnClickListener, Web
     }
     private  void  updatevalue(){
         params.put("user_id", AppController.get_userid(getActivity()));
-        params.put("country", s_country);
-        params.put("state", s_sate);
-        params.put("home_city", s_city);
+        params.put("country", s_country.toLowerCase());
+        params.put("state", s_sate.toLowerCase());
+        params.put("home_city", s_city.toLowerCase());
 
         userDetailsViewModel.updateUser(params, this);
     }

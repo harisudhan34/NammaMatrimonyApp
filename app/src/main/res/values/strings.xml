@@ -61,7 +61,8 @@
     <string name="gender">Gender</string>
     <string name="dob_hint">Date of Birth - dd/mm/yyyy</string>
     <string name="signup_agreement">I have read and agree to the</string>
-    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="terms_and_conditions">By submiting you agree to our </string>
+    <string name="terms_and_conditions1">Privacy Policy and T&amp;C </string>
     <string name="already_a_member">Already a member</string>
     <string name="profile_select_hint">Profile Created by</string>
     <string name="religion_select_hint">Select a Religion</string>
@@ -81,6 +82,7 @@
     <string name="location_details">Location Details</string>
     <string name="contact_details">Contact Details</string>
     <string name="mobile_number">Mobile Number</string>
+    <string name="mobile_number_email">Email / Mobile Number</string>
     <string name="whatsapp_number">Whatsapp Number</string>
     <string name="parents_number">Parent\'s Number</string>
     <string name="parents_whatsapp_number">Parent\'s Whatsapp Number</string>
@@ -110,8 +112,6 @@
 
     <string-array name="dhosam">
         <item>Select a Dhosam</item>
-        <item>No</item>
-        <item>Don\'t know</item>
         <item>Chevvai Dosam</item>
         <item>Naga Dosam</item>
         <item>Kaalsarpa Dosam</item>
@@ -353,6 +353,7 @@
     <string-array name="degrees">
         <item>Select your Degree</item>
         <item>B.ARCH</item>
+        <item>HIGHER SECONDARY / HIGH SCHOOL</item>
         <item>BCA</item>
         <item>B.E</item>
         <item>B.PLAN</item>
@@ -817,6 +818,7 @@
         <item>Vegetarian</item>
         <item>Non-Vegetarian</item>
         <item>Eggetarian</item>
+        <item>Dont\'t wish to specify</item>
     </string-array>
 
     <string-array name="smoking_habits">
@@ -880,7 +882,6 @@
 
     </string-array>
     <string-array name="age">
-        <item>Select Age</item>
         <item>18</item>
         <item>19</item>
         <item>20</item>
@@ -917,11 +918,78 @@
         <item>6 - 7 Lakh</item>
         <item>7 - 8 Lakh</item>
         <item>8 - 9 Lakh</item>
-        <item>10 - 11 Lakh</item>
-        <item>11 - 12 Lakh</item>
-        <item>12 - 13 Lakh</item>
-        <item>13 - 14 Lakh</item>
-        <item>14 - 15 Lakh</item>
+        <item>9 - 10 Lakh</item>
+        <item>10 - 12 Lakh</item>
+        <item>12 - 14 Lakh</item>
+        <item>14 - 16 Lakh</item>
+        <item>16 - 18 Lakh</item>
+        <item>18 - 20 Lakh</item>
+        <item>20 - 25 Lakh</item>
+        <item>25 - 30 Lakh</item>
+        <item>30 - 40 Lakh</item>
+        <item>40 - 50 Lakh</item>
+        <item>50 - 60 Lakh</item>
+        <item>60 - 70 Lakh</item>
+        <item>70 - 80 Lakh</item>
+        <item>80 - 90 Lakh</item>
+
+    </string-array>
+    <string-array name="min_income">
+        <item>Select Min Income</item>
+        <item>Less than Rs 50,000</item>
+        <item>Rs.50 Thousand</item>
+        <item>Rs.1 Lakh</item>
+        <item>Rs.2 Lakh</item>
+        <item>Rs.3 Lakh</item>
+        <item>Rs.4 Lakh</item>
+        <item>Rs.5 Lakh</item>
+        <item>Rs.6 Lakh</item>
+        <item>Rs.7 Lakh</item>
+        <item>Rs.8 Lakh</item>
+        <item>Rs.9 Lakh</item>
+        <item>Rs.10 Lakh</item>
+        <item>Rs.12 Lakh</item>
+        <item>Rs.14 Lakh</item>
+        <item>Rs.16 Lakh</item>
+        <item>Rs.18 Lakh</item>
+        <item>Rs.20 Lakh</item>
+        <item>Rs.25 Lakh</item>
+        <item>Rs.30 Lakh</item>
+        <item>Rs.40 Lakh</item>
+        <item>Rs.50 Lakh</item>
+        <item>Rs.60 Lakh</item>
+        <item>Rs.70 Lakh</item>
+        <item>Rs.80 Lakh</item>
+        <item>Rs.90 Lakh</item>
+
+    </string-array>
+    <string-array name="max_income">
+        <item>Select Max Income</item>
+        <item>Less than Rs 50,000</item>
+        <item>Rs.50 Thousand</item>
+        <item>Rs.1 Lakh</item>
+        <item>Rs.2 Lakh</item>
+        <item>Rs.3 Lakh</item>
+        <item>Rs.4 Lakh</item>
+        <item>Rs.5 Lakh</item>
+        <item>Rs.6 Lakh</item>
+        <item>Rs.7 Lakh</item>
+        <item>Rs.8 Lakh</item>
+        <item>Rs.9 Lakh</item>
+        <item>Rs.10 Lakh</item>
+        <item>Rs.12 Lakh</item>
+        <item>Rs.14 Lakh</item>
+        <item>Rs.16 Lakh</item>
+        <item>Rs.18 Lakh</item>
+        <item>Rs.20 Lakh</item>
+        <item>Rs.25 Lakh</item>
+        <item>Rs.30 Lakh</item>
+        <item>Rs.40 Lakh</item>
+        <item>Rs.50 Lakh</item>
+        <item>Rs.60 Lakh</item>
+        <item>Rs.70 Lakh</item>
+        <item>Rs.80 Lakh</item>
+        <item>Rs.90 Lakh</item>
 
     </string-array>
 
@@ -1035,7 +1103,7 @@
         <item>Normal</item>
         <item>Physically Challenged</item>
         <item>Others</item>
-        <item>Don\'t wish to Specify</item>
+        <item>No</item>
     </string-array>
 
     <string-array name="select_status">
@@ -1073,8 +1141,7 @@
     </string-array>
 
     <string-array name="codes">
-        <item>Country Code</item>
-        <item>100</item>
+        <item>+91</item>
         <item>221</item>
         <item>222</item>
         <item>1</item>
@@ -1162,7 +1229,7 @@
         <item>88</item>
         <item>89</item>
         <item>90</item>
-        <item>91</item>
+        <item>+91</item>
         <item>92</item>
         <item>93</item>
         <item>94</item>
@@ -2078,4 +2145,5 @@
     <string name="title_activity_update_user">UpdateUserActivity</string>
     <string name="title_activity_main_dashboard">MainDashboard</string>
     <string name="title_activity_view_all_matchess">ViewAllMatchess</string>
+    <string name="update_btn">Update</string>
 </resources>

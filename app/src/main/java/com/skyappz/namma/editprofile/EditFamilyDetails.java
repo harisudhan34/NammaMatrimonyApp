@@ -55,6 +55,7 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
     AppCompatButton update;
     GifImageView progress;
     AppCompatTextView skip;
+    int sibling_count;
     String s_change_nosibiling,s_change_no_bro,s_change_no_sis,s_change_bro_status,s_change_sis_status;
     AppCompatEditText etNoOfSiblings,etNoOfbrother,etNoOfsister,et_family_location;
     ArrayList ftype,fstatus,f_values,bro_status;
@@ -200,6 +201,7 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 s_change_no_sis=s.toString();
                 if(!s_change_no_sis.equalsIgnoreCase("")){
+
                     if (Integer.parseInt(s_change_no_sis) > 0){
                         _sis_status_lay.setVisibility(View.VISIBLE);
                     }else {
@@ -281,6 +283,12 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
     }
     public void update() {
        progress.setVisibility(View.VISIBLE);
+       if (s_no_of_bro  == null){
+           s_no_of_bro = "0";
+       }
+       if (s_no_sis == null){
+           s_no_sis = "0";
+       }
         s_noofsibiling=etNoOfSiblings.getText().toString();
         s_no_of_bro=etNoOfbrother.getText().toString();
         s_no_sis=etNoOfsister.getText().toString();
@@ -343,6 +351,11 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
             errorMsg = "Num of siblings is empty!";
             return false;
         }
+//       if (Integer.parseInt(s_noofsibiling)  == (Integer.parseInt(s_no_of_bro)+Integer.parseInt(s_no_sis)) ){
+//           progress.setVisibility(View.GONE);
+//           errorMsg = "Siblings does't match";
+//           return false;
+//       }
         return true;
     }
 
@@ -379,8 +392,14 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
         params.put("no_of_siblings", s_noofsibiling.toLowerCase());
         params.put("no_of_brothers", s_no_of_bro.toLowerCase());
         params.put("no_of_sisters", s_no_sis.toLowerCase());
-        params.put("brother_status", s_bro_status.toLowerCase());
-        params.put("sister_status", s_sis_status.toLowerCase());
+        if (s_bro_status != null){
+            params.put("brother_status", s_bro_status.toLowerCase());
+        }
+        if (s_sis_status != null){
+            params.put("sister_status", s_sis_status.toLowerCase());
+        }
+
+
         params.put("family_location", s_family_location.toLowerCase());
         userDetailsViewModel.updateUser(params, this);
     }

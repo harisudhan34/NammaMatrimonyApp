@@ -65,6 +65,7 @@ public class WebServiceManager {
     public static int REQUEST_CODE_GET_TODAY_MATCHES_perimium = 1014;
     public static int REQUEST_CODE_GET_STATES = 1011;
     public static int REQUEST_CODE_GET_CASTE = 1012;
+    public static int REQUEST_CODE_CHECK_MOBILE = 1013;
     /*URLs*/
     private static final String URL_LOGIN = "https://nammamatrimony.in/api/login.php?";
     private static final String URL_SIGNUP = "https://nammamatrimony.in/api/signup.php";
@@ -80,6 +81,7 @@ public class WebServiceManager {
     private static final String URL_GET_STATES = "https://nammamatrimony.in/api/getstate.php";
     private static final String URL_SET_PARTNER = "https://nammamatrimony.in/api/setpartner.php";
     private static final String URL_GET_CASTE = "https://nammamatrimony.in/api/getcaste.php";
+    private static final String URL_VERIFY_EMIL = "https://nammamatrimony.in/api/email.php";
 
     private Preferences preferences;
 
@@ -93,7 +95,7 @@ public class WebServiceManager {
     public void login(final User user, final WebServiceListener webServiceListener) {
         HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "login";
-        String url = URL_LOGIN + "email=" + user.getEmail() + "&password=" + user.getPassword();
+        String url = URL_LOGIN + "email=" + user.getEmail() + "&password=" + user.getPassword()+"&login_way=mobile";
         pDialog.setMessage("login...");
         //pDialog.show();
         Log.e("logg",url);
@@ -319,6 +321,8 @@ public class WebServiceManager {
                         try {
                             String res = new String(response.data);
                             otpResponse = new Gson().fromJson(res, BaseResponse.class);
+                            Log.e("sendotp",otpResponse.getMsg());
+
                             if (otpResponse != null) {
                                 if (otpResponse.getStatus().equalsIgnoreCase("true")) {
                                     webServiceListener.onSuccess(REQUEST_CODE_SEND_OTP, 0, otpResponse);
@@ -393,6 +397,105 @@ public class WebServiceManager {
             webServiceListener.isNetworkAvailable(false);
         }
     }
+
+
+    public void checkemail(final String email, final WebServiceListener webServiceListener) {
+        // loading or check internet connection or something...
+        // ... then
+        HttpsTrustManager.allowAllSSL();
+        String tag_json_obj = "sendOTP";
+        String url = URL_VERIFY_EMIL;
+        pDialog.setMessage("Sending OTP...");
+        //pDialog.show();
+        webServiceListener.onProgressStart();
+
+        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, url,
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        //pDialog.dismiss();
+                        webServiceListener.onProgressEnd();
+                        BaseResponse otpResponse = new BaseResponse();
+                        try {
+                            String res = new String(response.data);
+                            otpResponse = new Gson().fromJson(res, BaseResponse.class);
+                            Log.e("sendotp",otpResponse.getMsg());
+
+                            if (otpResponse != null) {
+                                if (otpResponse.getStatus().equalsIgnoreCase("true")) {
+                                    webServiceListener.onSuccess(REQUEST_CODE_CHECK_MOBILE, 0, otpResponse);
+                                } else {
+                                    webServiceListener.onFailure(REQUEST_CODE_CHECK_MOBILE, 0, otpResponse);
+                                }
+                            } else {
+                                otpResponse = new BaseResponse();
+                                otpResponse.setMsg("Internal Server Error");
+                                webServiceListener.onFailure(REQUEST_CODE_SEND_OTP, 0, otpResponse);
+                            }
+                        } catch (JsonSyntaxException e) {
+                            otpResponse = new BaseResponse();
+                            otpResponse.setMsg("Internal Server Error");
+                            webServiceListener.onFailure(REQUEST_CODE_SEND_OTP, 0, otpResponse);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //pDialog.dismiss();
+                        webServiceListener.onProgressEnd();
+                        NetworkResponse response = error.networkResponse;
+                        BaseResponse baseResponse = new BaseResponse();
+                        if (error instanceof ServerError && response != null) {
+                            try {
+                                String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                baseResponse = new Gson().fromJson(res, BaseResponse.class);
+                                if (baseResponse != null && baseResponse.getMsg() != null) {
+                                    webServiceListener.onFailure(REQUEST_CODE_SEND_OTP, 0, baseResponse);
+                                } else {
+                                    baseResponse = new BaseResponse();
+                                    baseResponse.setMsg("Internal Server Error");
+                                    webServiceListener.onFailure(REQUEST_CODE_SEND_OTP, 0, baseResponse);
+                                }
+
+                            } catch (UnsupportedEncodingException e1) {
+                                e1.printStackTrace();
+                                baseResponse.setMsg("Internal Server Error");
+                                webServiceListener.onFailure(REQUEST_CODE_SEND_OTP, 0, baseResponse);
+                            } catch (JsonSyntaxException e1) {
+                                e1.printStackTrace();
+                                baseResponse.setMsg("Internal Server Error");
+                                webServiceListener.onFailure(REQUEST_CODE_SEND_OTP, 0, baseResponse);
+                            } catch (JsonParseException e) {
+                                baseResponse = new BaseResponse();
+                                baseResponse.setMsg("Internal Server Error");
+                                webServiceListener.onFailure(REQUEST_CODE_SEND_OTP, 0, baseResponse);
+                            }
+                        } else {
+                            baseResponse.setMsg("Internal Server Error");
+                            webServiceListener.onFailure(REQUEST_CODE_SEND_OTP, 0, baseResponse);
+                        }
+                    }
+                }) {
+
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("email",email);
+                return params;
+            }
+
+        };
+
+        if (Utils.isConnected((Activity) context)) {
+            AppController.getInstance().addToRequestQueue(volleyMultipartRequest, tag_json_obj);
+        } else {
+            webServiceListener.isNetworkAvailable(false);
+        }
+    }
+
+
 
     public void verifyOTP(final String mobilenumber,final String otp, final String type, final WebServiceListener webServiceListener) {
         HttpsTrustManager.allowAllSSL();

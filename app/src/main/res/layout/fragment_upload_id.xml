@@ -17,7 +17,7 @@
             <TabWidget android:id="@android:id/tabs"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/pink"/>
+                android:background="@color/white"/>
             <FrameLayout android:id="@android:id/tabcontent"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
@@ -26,18 +26,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Upload profile Photo"
-                        android:textColor="@color/pink"
-                        android:paddingBottom="5dp"
-                        android:textSize="14dp"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/bottom_line"
-                        android:fontFamily="@font/opensansregular" />
+                    <!--<android.support.v7.widget.AppCompatTextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="Upload profile Photo"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--android:paddingBottom="5dp"-->
+                        <!--android:textSize="14dp"-->
+                        <!--android:gravity="center"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                       <!--android:fontFamily="@font/opensansregular" />-->
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -45,13 +44,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="50dp"
+                            android:layout_marginTop="30dp"
                             android:paddingRight="50dp"
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:fontFamily="@font/opensansregular"
-                            android:text="Choose Image"
+                            android:text="Upload profile Photo"
                             android:layout_centerHorizontal="true"
-                            android:textColor="@color/pink"
+                            android:textColor="@color/black"
                             android:textSize="15dp"
                             android:gravity="center"/>
                         <android.support.v7.widget.AppCompatTextView
@@ -61,10 +61,11 @@
                             android:paddingRight="10dp"
                             android:id="@+id/photo_skip"
                             android:textStyle="bold"
+                            android:layout_marginTop="10dp"
                             android:layout_alignParentRight="true"
                             android:fontFamily="@font/opensansregular"
-                            android:text="Skip"
-                            android:textColor="@color/pink"
+                            android:text="Skip >>"
+                            android:textColor="@color/header"
                             android:textSize="15dp"
                             android:gravity="center"/>
 
@@ -73,15 +74,44 @@
                     <!-- TODO: Update blank fragment layout -->
                     <android.support.v7.widget.CardView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
                         android:padding="10dp">
-                        <android.support.v7.widget.AppCompatImageView
-                            android:id="@+id/profile_image_photo"
-                            android:layout_width="200dp"
-                            android:layout_height="200dp"
-                            android:src="@drawable/add_image"
-                            android:layout_gravity="center_horizontal"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/black"
+                            android:padding="1dp"
+                            android:orientation="vertical">
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/profile_image_photo"
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                android:src="@drawable/add_image"
+                                android:layout_gravity="center_horizontal"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:background="@color/medium_gray"
+                                        />
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"
+                                android:gravity="center">
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/edit_profie_black"/>
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="50dp"
+                                    android:src="@drawable/delete_blue"/>
+
+                            </RelativeLayout>
+                        </LinearLayout>
 
                     </android.support.v7.widget.CardView>
 
@@ -91,33 +121,46 @@
                         android:paddingLeft="50dp"
                         android:paddingRight="50dp"
                         android:fontFamily="@font/opensansregular"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
                         android:textStyle="bold"
-                        android:text="Don't let your special someone miss you"
-                        android:textColor="@color/pink"
+                        android:text="Upload Photo and Get 12 Times More Response"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/prodfiletext"
                         android:gravity="center"/>
 
-                    <android.support.v7.widget.AppCompatButton
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/upload_button_photo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/pink_rounded"
                         android:text="Upload Profile Photo"
                         android:textColor="@color/white"
-                        android:paddingLeft="20dp"
+                        android:textStyle="bold"
+                        android:padding="15dp"
+                        android:textSize="18dp"
                         android:fontFamily="@font/opensansregular"
                         android:paddingRight="20dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="20dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/opensansregular"
-                        android:textColor="@color/black_gradient"
-                        android:text="upload photos from your local storage"
-                        android:gravity="center_horizontal"/>
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:textSize="14dp"-->
+                        <!--android:fontFamily="@font/opensansregular"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--android:text="upload photos from your local storage"-->
+                        <!--android:gravity="center_horizontal"/>-->
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:textSize="18dp"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:fontFamily="@font/opensansregular"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--android:text="Allowed Formats : jpeg, jpg, png, gif"-->
+                        <!--android:gravity="center_horizontal"/>-->
 
 
                 </LinearLayout>
@@ -202,7 +245,7 @@
                         android:textSize="@dimen/prodfiletext"
                         android:gravity="center"/>
 
-                    <android.support.v7.widget.AppCompatButton
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/upload_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -304,7 +347,7 @@
                         android:textSize="@dimen/prodfiletext"
                         android:gravity="center"/>
 
-                    <android.support.v7.widget.AppCompatButton
+                    <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/upload_button_horoscope"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

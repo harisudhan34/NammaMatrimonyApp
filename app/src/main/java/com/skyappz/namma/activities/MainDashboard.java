@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -92,6 +93,12 @@ public class MainDashboard extends AppCompatActivity implements View.OnClickList
                 });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.dashboard_top, menu);
+        return true;
+    }
 
     @Override
     public void onClick(View v) {
@@ -107,4 +114,5 @@ public class MainDashboard extends AppCompatActivity implements View.OnClickList
             }}
         }
     }
+
 }

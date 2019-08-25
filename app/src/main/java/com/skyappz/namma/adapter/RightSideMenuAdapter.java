@@ -16,22 +16,20 @@ import com.skyappz.namma.activities.HomeActivity;
 import java.util.ArrayList;
 
 import static com.skyappz.namma.activities.HomeActivity.drawer;
-import static com.skyappz.namma.editprofile.EditPersonalDetails.select_dosam;
-import static com.skyappz.namma.editprofile.EditPersonalDetails.select_padham;
-import static com.skyappz.namma.editprofile.EditBasicDetails.select_profilecreatby;
-import static com.skyappz.namma.editprofile.EditPersonalDetails.selectMaritalstatus;
-import static com.skyappz.namma.editprofile.EditBasicDetails.selectmother_tongu;
-import static com.skyappz.namma.editprofile.EditEducation.select_job;
-import static com.skyappz.namma.editprofile.EditEducation.select_workingsector;
+import static com.skyappz.namma.editprofile.EditBasicDetails.select_dosam;
+import static com.skyappz.namma.editprofile.EditBasicDetails.select_padham;
+import static com.skyappz.namma.editprofile.EditBasicDetails.selectMaritalstatus;
+import static com.skyappz.namma.editprofile.EditPersonalDetails.select_job;
+import static com.skyappz.namma.editprofile.EditPersonalDetails.select_workingsector;
 import static com.skyappz.namma.editprofile.EditFamilyDetails.select_family_status;
 import static com.skyappz.namma.editprofile.EditFamilyDetails.select_father_occ;
 import static com.skyappz.namma.editprofile.EditFamilyDetails.select_mother_occ;
 import static com.skyappz.namma.editprofile.EditHabitsDetails.select_drinkinghapit;
 import static com.skyappz.namma.editprofile.EditHabitsDetails.select_smookinghapit;
-import static com.skyappz.namma.editprofile.EditPersonalDetails.select_bodytype;
-import static com.skyappz.namma.editprofile.EditPersonalDetails.select_complexion;
-import static com.skyappz.namma.editprofile.EditPersonalDetails.select_disability;
-import static com.skyappz.namma.editprofile.EditEducation.select_degree;
+import static com.skyappz.namma.editprofile.EditBasicDetails.select_bodytype;
+import static com.skyappz.namma.editprofile.EditBasicDetails.select_complexion;
+import static com.skyappz.namma.editprofile.EditBasicDetails.select_disability;
+import static com.skyappz.namma.editprofile.EditPersonalDetails.select_degree;
 import static com.skyappz.namma.editprofile.EditReligionDetails.select_caste;
 import static com.skyappz.namma.editprofile.EditReligionDetails.select_region;
 import static com.skyappz.namma.editprofile.EditReligionDetails.select_subcaste;
@@ -97,12 +95,12 @@ public class RightSideMenuAdapter extends RecyclerView.Adapter<RightSideMenuAdap
             String clickvalue= String.valueOf(items.get(position));
             Log.e("indexx",String.valueOf(rightindex));
             switch (rightindex){
-                case 0:
-                selectmother_tongu = clickvalue;
-                break;
-                case 1:
-                    select_profilecreatby = clickvalue;
-                    break;
+//                case 0:
+//                selectmother_tongu = clickvalue;
+//                break;
+//                case 1:
+//                    select_profilecreatby = clickvalue;
+//                    break;
                 case 2:
                     select_complexion =clickvalue;
                     break;

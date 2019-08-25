@@ -380,18 +380,18 @@ AppCompatSpinner tetHeight,tetWeight,sp_complexion,sp_bodytype,sp_maritalstatus,
     }
     private void update_values(){
         params.put("user_id",AppController.get_userid(getActivity()));
-        params.put("name", s_name);
-        params.put("profile_created_for", s_profilereate);
-        params.put("marital_status", s_marital);
-        params.put("mother_tongue", s_mother);
-        params.put("height", s_height);
-        params.put("weight", s_weight);
-        params.put("complexion", s_complexion);
-        params.put("body_type", s_bodytype);
-        params.put("physical_status", s_physical);
-        params.put("smoking_habits", s_smoking);
-        params.put("drinking_habits", s_drinking);
-        params.put("eating_habits", s_eating);
+        params.put("name", s_name.toLowerCase());
+        params.put("profile_created_for", s_profilereate.toLowerCase());
+        params.put("marital_status", s_marital.toLowerCase());
+        params.put("mother_tongue", s_mother.toLowerCase());
+        params.put("height", s_height.toLowerCase());
+        params.put("weight", s_weight.toLowerCase());
+        params.put("complexion", s_complexion.toLowerCase());
+        params.put("body_type", s_bodytype.toLowerCase());
+        params.put("physical_status", s_physical.toLowerCase());
+        params.put("smoking_habits", s_smoking.toLowerCase());
+        params.put("drinking_habits", s_drinking.toLowerCase());
+        params.put("eating_habits", s_eating.toLowerCase());
 
         userDetailsViewModel.updateUser(params, this);
     }

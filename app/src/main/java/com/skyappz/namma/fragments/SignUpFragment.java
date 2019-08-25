@@ -1,9 +1,12 @@
 package com.skyappz.namma.fragments;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
@@ -20,9 +23,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -57,7 +63,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -85,11 +93,12 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
     RadioButton radioMale,radioFemale;
     AppCompatCheckBox termsandcondition;
     String s_gender="Male",s_age;
-    AppCompatSpinner spProfilesFor,sp_day,sp_month,sp_year;
+    AppCompatSpinner spProfilesFor,sp_day,sp_month,sp_year,sp_country_code;
     String  s_day,s_month,s_year,s_religion="",s_mothertounge="";
-    private ArrayAdapter<String> profilesAdapter,dayadapter,monthAdapter,YearAdapter;
+    private ArrayAdapter<String> profilesAdapter,dayadapter,monthAdapter,YearAdapter,ccountry_code_adapter;
     public ArrayList<String> profilesFor = new ArrayList<>();
     public ArrayList<String> daylist = new ArrayList<>();
+    public ArrayList<String> countrycode = new ArrayList<>();
     public ArrayList<String> monthlist = new ArrayList<>();
     public ArrayList<String> yearlist = new ArrayList<>();
     AppCompatAutoCompleteTextView auto_religion,mothertongue_auto;
@@ -102,8 +111,12 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
     UserDetailList userDetailList;
     RelativeLayout otp_layout,signup_layou;
     AppCompatEditText signup_otp;
+    AppCompatTextView name_txt;
     AppCompatButton btn_otp;
-    String s_otp;
+    LinearLayout resend_layout;
+    LinearLayout change_mobile;
+    AppCompatTextView count,resend,mobile_text;
+    String s_otp,s_change_mobile;
     public SignUpFragment() {
         // Required empty public constructor
     }
@@ -140,15 +153,23 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
 
 
     private void initViews(View rootView) {
+        resend_layout=(LinearLayout) rootView.findViewById(R.id.resend_layout);
+        change_mobile=(LinearLayout) rootView.findViewById(R.id.change_mobile);
+        change_mobile.setOnClickListener(this);
+        name_txt=(AppCompatTextView)rootView.findViewById(R.id.name_txt);
         otp_layout=(RelativeLayout)rootView.findViewById(R.id.otp_layout);
         signup_layou=(RelativeLayout)rootView.findViewById(R.id.signup_layou);
         signup_otp=(AppCompatEditText)rootView.findViewById(R.id.signup_otp);
         btn_otp=(AppCompatButton) rootView.findViewById(R.id.btn_otp);
         btn_otp.setOnClickListener(this);
-        termsandcondition=(AppCompatCheckBox)rootView.findViewById(R.id.termsandcondition);
+//        termsandcondition=(AppCompatCheckBox)rootView.findViewById(R.id.termsandcondition);
         radioMale=(RadioButton)rootView.findViewById(R.id.radioMale);
         radioFemale=(RadioButton)rootView.findViewById(R.id.radioFemale);
         gender = (RadioGroup)rootView.findViewById(R.id.radioSex);
+        count=(AppCompatTextView)rootView.findViewById(R.id.count);
+        resend=(AppCompatTextView)rootView.findViewById(R.id.resend);
+        mobile_text=(AppCompatTextView)rootView.findViewById(R.id.mobile_text);
+        resend.setOnClickListener(this);
         mothertongue_auto=(AppCompatAutoCompleteTextView)rootView.findViewById(R.id.mothertongue_auto);
         auto_religion=(AppCompatAutoCompleteTextView)rootView.findViewById(R.id.auto_religion);
         mSwipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
@@ -164,6 +185,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
         btnSignUp.setOnClickListener(this);
         spProfilesFor = rootView.findViewById(R.id.spProfilesFor);
         sp_day = rootView.findViewById(R.id.sp_day);
+        sp_country_code = rootView.findViewById(R.id.sp_country_code);
         sp_day.setOnItemSelectedListener(this);
         sp_month = rootView.findViewById(R.id.sp_month);
         sp_month.setOnItemSelectedListener(this);
@@ -202,6 +224,28 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                 if (position != 0) {
                     profileCreateBy = profilesFor.get(position);
                     profile_create_position=position;
+                    switch (profile_create_position){
+
+                        case 2:
+                            name_txt.setText("Groom's Name");
+                            radioMale.setChecked(true);
+                            break;
+                        case  3:
+                            name_txt.setText("Daughter's Name");
+                            radioFemale.setChecked(true);
+                            break;
+                        case 4:
+                            name_txt.setText("Groom's Name");
+                            radioMale.setChecked(true);
+                            break;
+                        case 5:
+                            name_txt.setText("Bride's Name");
+                            radioFemale.setChecked(true);
+                            break;
+                            default:
+                                name_txt.setText("Name");
+
+                    }
                     AppController.set_signupprofilecreatepos(getActivity(),profile_create_position);
                 } else {
                     profileCreateBy = null;
@@ -232,6 +276,11 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
         YearAdapter.setDropDownViewResource(R.layout.spinner_drop_item);
         sp_year.setAdapter(YearAdapter);
 
+        countrycode = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.codes)));
+        ccountry_code_adapter=new ArrayAdapter(getActivity(),R.layout.spinner_item,countrycode);
+        ccountry_code_adapter.setDropDownViewResource(R.layout.spinner_drop_item);
+        sp_country_code.setAdapter(ccountry_code_adapter);
+
     }
     private AdapterView.OnItemClickListener religionclick =
             new AdapterView.OnItemClickListener(){
@@ -257,6 +306,13 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
     public void onClick(View view) {
         switch (view.getId()) {
 
+            case R.id.change_mobile:
+                Editmobile();
+                break;
+            case R.id.resend:
+                sendOTP("signup");
+                break;
+
             case R.id.btn_otp:
                 s_otp=signup_otp.getText().toString();
                 if (s_otp.equalsIgnoreCase("")){
@@ -280,10 +336,12 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                         AppController.set_signupphone(getActivity(),user.getMobile_number());
                         AppController.set_signupprofilecreate(getActivity(),user.getProfile_created_for());
                         AppController.set_gender(getActivity(),s_gender);
-                        AppController.set_dob(getActivity(),s_day+"/"+s_month+"/"+s_year);
+                        AppController.set_dob(getActivity(),s_year+"-"+s_month+"-"+s_day);
                         AppController.set_religion(getActivity(),s_religion);
                         AppController.set_mothertongue(getActivity(),s_mothertounge);
-                        sendOTP("signup");
+
+                        check_email();
+
 //                        signUp(user);
 
 
@@ -414,6 +472,10 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
 
         webServiceManager.sendOTP(user.getMobile_number(), type, this);
     }
+    private void check_email() {
+
+        webServiceManager.checkemail(user.getEmail(), this);
+    }
     private void verifyOTP() {
 
         webServiceManager.verifyOTP(user.getMobile_number(), s_otp,"signup", this);
@@ -503,10 +565,10 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
 //            errorMsg = "Password and Confirm Password should be same!";
 //            return false;
 //        }
-        if (!termsandcondition.isChecked()) {
-            errorMsg = "kindly check terms & condition";
-            return false;
-        }
+//        if (!termsandcondition.isChecked()) {
+//            errorMsg = "kindly check terms & condition";
+//            return false;
+//        }
 
 
 
@@ -599,6 +661,24 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
         } else if (requestCode == WebServiceManager.REQUEST_CODE_SEND_OTP) {
             signup_layou.setVisibility(View.GONE);
             otp_layout.setVisibility(View.VISIBLE);
+            count.setVisibility(View.VISIBLE);
+            mobile_text.setText(user.getMobile_number());
+            new CountDownTimer(60000, 1000) { // adjust the milli seconds here
+
+                public void onTick(long millisUntilFinished) {
+                    count.setText((millisUntilFinished / 60000)+":"+(millisUntilFinished % 60000 / 1000));
+
+//                    count.setText(""+String.format("%d min, %d sec",
+//                            TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
+//                            TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+//                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                }
+
+                public void onFinish() {
+                    count.setVisibility(View.GONE);
+                    resend_layout.setVisibility(View.VISIBLE);
+                }
+            }.start();
 //            BaseResponse otpResponse = (BaseResponse) response;
 //            Utils.showToast(mActivity, otpResponse.getMsg());
 //            OTPRequest otpRequest = new OTPRequest("", user.getMobile_number(), OTPRequest.SIGNUP);
@@ -606,6 +686,9 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
         }
         else if (requestCode == WebServiceManager.REQUEST_CODE_VERIFY_OTP) {
            signUp(user);
+        }else if (requestCode == WebServiceManager.REQUEST_CODE_CHECK_MOBILE){
+            BaseResponse otpResponse = (BaseResponse) response;
+            Utils.showAlert(mActivity, otpResponse.getMsg());
         }
     }
     private void moveToHomePage(String userid) {
@@ -642,6 +725,9 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
             else if (requestCode == WebServiceManager.REQUEST_CODE_VERIFY_OTP) {
                 BaseResponse otpResponse = (BaseResponse) response;
                 Utils.showAlert(mActivity, otpResponse.getMsg());
+            }else if (requestCode == WebServiceManager.REQUEST_CODE_CHECK_MOBILE) {
+                sendOTP("signup");
+
             }
         } else {
             LoginResponse loginResponse = (LoginResponse) response;
@@ -689,7 +775,13 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                 s_day=sp_day.getSelectedItem().toString();
                 break;
             case R.id.sp_month:
-                s_month=sp_month.getSelectedItem().toString();
+//                s_month=sp_month.getSelectedItem().toString();
+                s_month = String.valueOf(sp_month.getItemIdAtPosition(position));
+                Log.e("month",s_month);
+                if (Integer.parseInt(s_month) <= 9){
+                    s_month = "0"+s_month;
+                }
+
                 break;
             case R.id.sp_year:
                 if (radioMale.isChecked()) {
@@ -724,6 +816,38 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                 break;
         }
 
+    }
+
+    public void Editmobile() {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Change Mobile Number");
+
+        final EditText input = new EditText(getActivity());
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        builder.setView(input);
+        input.setText(user.getMobile_number());
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                s_change_mobile=input.getText().toString();
+                AppController.set_signupphone(getActivity(),s_change_mobile);
+                user.setMobile_number(s_change_mobile);
+                mobile_text.setText(user.getMobile_number());
+                sendOTP("signup");
+            }
+        });
+        builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                builder.setCancelable(true);
+            }
+        });
+        builder.show();
     }
 
     @Override

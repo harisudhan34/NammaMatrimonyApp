@@ -66,13 +66,16 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
     RadioGroup gender,radiodhosam;
     RadioButton radioMale,radioFemale,radio_yes,radio_no;
     ArrayList<String> castes =new ArrayList<>();
+    ArrayList<String> castesid =new ArrayList<>();
+
     ArrayList<String> subcastes =new ArrayList<>();
+    ArrayList<String> subcastesid =new ArrayList<>();
     PartnerPreference partnerPreference;
-    ArrayList maritalStatusList,paadhamList,dosamList,state_list,city_list,raasi_list,start_list,min_height_list,max_height_list,min_weightlist,max_weightlist,natchartamlist;
+    ArrayList maritalStatusList,paadhamList,dosamList,raasi_list,min_height_list,max_height_list,min_weightlist,max_weightlist,natchartamlist;
     ProgressDialog dialog;
-    AppCompatSpinner etMinAge,etMaxAge,etMinIncome,etMaxincome, spMaritalStatus,spRaasi,spNatchathiram,spPaadham,spCountry,spDisability,etMinHeight,etMaxHeight,etMinweight,etMaxWeight;
-    AppCompatAutoCompleteTextView spCaste,spSubCaste,spEducation,spProfession,spNationality,spPreferredstate,spPreferredCities,spMotherTongue;
-    String s_gender,s_mothertounge,s_caste,s_subcaste,s_degree,s_myocc,s_nationality,s_sate,s_city,s_maritalstatus,s_paatham,s_dhosam,s_country,s_disability,
+    AppCompatSpinner etMinAge,etMaxAge,etMinIncome,etMaxincome, spMaritalStatus,spRaasi,spNatchathiram,spPaadham,spDisability,etMinHeight,etMaxHeight,etMinweight,etMaxWeight;
+    AppCompatAutoCompleteTextView auto_religion,spCaste,spSubCaste,spMotherTongue;
+    String s_gender,s_mothertounge,s_caste,s_subcaste,s_maritalstatus,s_paatham,s_dhosam,s_disability,
     s_minage,s_maxage="",s_minheight,s_maxheight,s_minweight,s_max_weight,s_natchathram,s_min_income,s_max_inxome,s_raasi,s_having_dhosam;
     AppCompatButton update;
     AppCompatTextView skip;
@@ -82,7 +85,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
     Handler h;
     GifImageView progress;
     Integer mi_he,max_he,mi_weight,max_weight,mi_income,max_income;
-
+    String s_religion;
     LinearLayout dhosam_details_layout;
     HashMap<String, String> params = new HashMap<>();
     public static EditPartnerPreferenceDetails newInstance() {
@@ -123,6 +126,12 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
         radioFemale=(RadioButton)view.findViewById(R.id.radioFemale);
         gender = (RadioGroup)view.findViewById(R.id.radioSex);
 
+        auto_religion=(AppCompatAutoCompleteTextView)view.findViewById(R.id.auto_religion);
+        ArrayList<String> religojn = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.religions)));
+        CustomListAdapter adapter = new CustomListAdapter(getActivity(),
+                R.layout.right_menu_item, religojn);
+        auto_religion.setAdapter(adapter);
+        auto_religion.setOnItemClickListener(religionclick);
         radiodhosam=(RadioGroup)view.findViewById(R.id.radiodhosam);
         radio_yes=(RadioButton)view.findViewById(R.id.radio_yes);
         radio_no=(RadioButton)view.findViewById(R.id.radio_no);
@@ -131,12 +140,16 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
         spSubCaste=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spSubCaste);
         getAllCaste();
 
-        ArrayList income = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.monthly_income)));
+        ArrayList income = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.min_income)));
         ArrayAdapter incomeAdapter=new ArrayAdapter(getActivity(),R.layout.spinner_item,income);
         incomeAdapter.setDropDownViewResource(R.layout.spinner_drop_item);
         etMinIncome.setAdapter(incomeAdapter);
         etMinIncome.setOnItemSelectedListener(this);
-        etMaxincome.setAdapter(incomeAdapter);
+
+        ArrayList max_income = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.max_income)));
+        ArrayAdapter max_incomeAdapter=new ArrayAdapter(getActivity(),R.layout.spinner_item,max_income);
+        incomeAdapter.setDropDownViewResource(R.layout.spinner_drop_item);
+        etMaxincome.setAdapter(max_incomeAdapter);
         etMaxincome.setOnItemSelectedListener(this);
 
         ArrayList age = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.age)));
@@ -213,18 +226,13 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
         spDosham.setSelection(new int[]{0});
         spDosham.setListener(this);
 
-        spCountry=(AppCompatSpinner)view.findViewById(R.id.spCountry);
-        ArrayList countrylist = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.country)));
-        ArrayAdapter disabilityadapter=new ArrayAdapter(getActivity(),R.layout.spinner_item,countrylist);
-        disabilityadapter.setDropDownViewResource(R.layout.spinner_drop_item);
-        spCountry.setAdapter(disabilityadapter);
-        spCountry.setOnItemSelectedListener(this);
+
 
         spMotherTongue=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spMotherTongue);
         ArrayList<String> motherTongues = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.languages)));
-        CustomListAdapter adapter = new CustomListAdapter(getActivity(),
+        CustomListAdapter adapter1 = new CustomListAdapter(getActivity(),
                 R.layout.right_menu_item, motherTongues);
-        spMotherTongue.setAdapter(adapter);
+        spMotherTongue.setAdapter(adapter1);
         spMotherTongue.setOnItemClickListener(mothertoungelistner);
 
 
@@ -237,19 +245,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
 
         spSubCaste.setOnItemClickListener(subcastelistner);
 
-        spEducation=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spEducation);
-        ArrayList<String> degreeList = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.degrees)));
-        CustomListAdapter degreeadapter = new CustomListAdapter(getActivity(),
-                R.layout.right_menu_item, degreeList);
-        spEducation.setAdapter(degreeadapter);
-        spEducation.setOnItemClickListener(degreeListner);
 
-        spProfession=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spProfession);
-        ArrayList<String> occlist = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.jobs)));
-        CustomListAdapter occAdaoter = new CustomListAdapter(getActivity(),
-                R.layout.right_menu_item, occlist);
-        spProfession.setAdapter(occAdaoter);
-        spProfession.setOnItemClickListener(myoccListner);
 
         spDisability=(AppCompatSpinner)view.findViewById(R.id.spDisability);
         ArrayList disablitylist = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.physical_status)));
@@ -258,18 +254,9 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
         spDisability.setAdapter(spDisabilityadapter);
         spDisability.setOnItemSelectedListener(this);
 
-        spNationality=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spNationality);
-        ArrayList<String> nationalityList = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.nationality)));
-        CustomListAdapter natioalityadapter = new CustomListAdapter(getActivity(),
-                R.layout.right_menu_item, nationalityList);
-        spNationality.setAdapter(natioalityadapter);
-        spNationality.setOnItemClickListener(nationlistylistner);
 
-        spPreferredstate=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spPreferredstate);
-        loadStateandDist();
-        spPreferredCities=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spPreferredCities);
-        spPreferredstate.setOnItemClickListener(stateListner);
-        spPreferredCities.setOnItemClickListener(citylistner);
+
+
 
         radiodhosam.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -289,6 +276,15 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
 
 
     }
+    private AdapterView.OnItemClickListener religionclick =
+            new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    s_religion = String.valueOf(adapterView.getItemAtPosition(i));
+                    Log.e("religion",s_religion);
+                }
+            };
+
 
 
     public void getAllCaste() {
@@ -308,6 +304,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                                 JSONObject list= castearray.getJSONObject(i);
                                 HashMap<String,String> castelist =new HashMap<>();
                                 castes.add(list.getString("caste"));
+                                castesid.add(list.getString("id"));
                             }
 
                         } catch (JSONException e) {
@@ -351,6 +348,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                                         for (int j=0;j<subcasetarray.length();j++){
                                             JSONObject sublist = subcasetarray.getJSONObject(j);
                                             subcastes.add(sublist.getString("subcaste"));
+                                            subcastesid.add(sublist.getString("id"));
                                         }
                                         CustomListAdapter subcasetadapter = new CustomListAdapter(getActivity(),
                                                 R.layout.right_menu_item, subcastes);
@@ -384,91 +382,6 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
     }
 
 
-    public void loadStateandDist() {
-        state_list =new ArrayList<>();
-        try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
-            JSONArray m_jArry = obj.getJSONArray("states");
-            ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
-            for (int i = 0; i < m_jArry.length(); i++) {
-                JSONObject jo_inside = m_jArry.getJSONObject(i);
-                String state = jo_inside.getString("state");
-                state_list.add(state);
-                CustomListAdapter adapter = new CustomListAdapter(getActivity(),
-                        R.layout.right_menu_item, state_list);
-                spPreferredstate.setAdapter(adapter);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getActivity().getAssets().open("stateanddist.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-    private AdapterView.OnItemClickListener citylistner =
-            new AdapterView.OnItemClickListener(){
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    s_city = String.valueOf(adapterView.getItemAtPosition(i));
-
-                }
-            };
-
-    private AdapterView.OnItemClickListener stateListner =
-            new AdapterView.OnItemClickListener(){
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    s_sate = String.valueOf(adapterView.getItemAtPosition(i));
-                    loadcity(s_sate);
-
-                }
-            };
-    public  void loadcity(String dist){
-        city_list=new ArrayList<>();
-        try {
-            JSONObject obj = new JSONObject(loadcityjson());
-            JSONArray m_jArry = obj.getJSONArray(dist);
-
-            for (int k=0;k<m_jArry.length();k++ ) {
-                city_list.add(m_jArry.getString(k));
-                Log.e("cityarray",m_jArry.getString(k));
-                CustomListAdapter adapter = new CustomListAdapter(getActivity(),
-                        R.layout.right_menu_item, city_list);
-                spPreferredCities.setAdapter(adapter);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String loadcityjson() {
-        String json = null;
-        try {
-            InputStream is = getActivity().getAssets().open("city.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
 
     private AdapterView.OnItemClickListener mothertoungelistner =
             new AdapterView.OnItemClickListener(){
@@ -484,6 +397,10 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     s_caste = String.valueOf(adapterView.getItemAtPosition(i));
+//                    int castepos = castes.indexOf(s_subcaste);
+//                    String castid=  castesid.get(castepos);
+//                    Log.e("casteid",castid);
+//                    s_caste = castid;
                     getsubcaste();
                 }
             };
@@ -492,28 +409,10 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     s_subcaste = String.valueOf(adapterView.getItemAtPosition(i));
-                }
-            };
-    private AdapterView.OnItemClickListener degreeListner =
-            new AdapterView.OnItemClickListener(){
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    s_degree = String.valueOf(adapterView.getItemAtPosition(i));
-                }
-            };
-
-    private AdapterView.OnItemClickListener myoccListner =
-            new AdapterView.OnItemClickListener(){
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    s_myocc = String.valueOf(adapterView.getItemAtPosition(i));
-                }
-            };
-    private AdapterView.OnItemClickListener nationlistylistner =
-            new AdapterView.OnItemClickListener(){
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    s_nationality = String.valueOf(adapterView.getItemAtPosition(i));
+                    int castepos = subcastes.indexOf(s_subcaste);
+                    String castid=  subcastesid.get(castepos);
+                    Log.e("casteid",castid);
+                    s_subcaste = castid;
                 }
             };
 
@@ -670,9 +569,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                 case R.id.spDosham:
                     s_dhosam =spDosham.getSelectedItem().toString();
                     break;
-                case R.id.spCountry:
-                    s_country =spCountry.getSelectedItem().toString();
-                    break;
+
                 case R.id.spDisability:
                     s_disability =spDisability.getSelectedItem().toString();
                     break;
@@ -695,6 +592,8 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                 case R.id.etMinweight:
                     mi_weight=etMinweight.getSelectedItemPosition()+1;
                     s_minweight=etMinweight.getSelectedItem().toString();
+                    String[] separated = s_minweight.split(" ");
+                    s_minweight = separated[0];
                     break;
                 case R.id.etMaxWeight:
                     max_weight=etMaxWeight.getSelectedItemPosition()+1;
@@ -704,7 +603,8 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                         etMinweight.setSelection(0);
                     }else {
                         s_max_weight=etMaxWeight.getSelectedItem().toString();
-
+                        String[] separated1 = s_max_weight.split(" ");
+                        s_max_weight = separated1[0];
                     }
                     break;
                 case R.id.spNatchathiram:
@@ -713,6 +613,87 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                 case R.id.etMinincome:
                     mi_income=etMinIncome.getSelectedItemPosition()+1;
                     s_min_income =etMinIncome.getSelectedItem().toString();
+                    if (!s_min_income.equalsIgnoreCase("Select Min Income")){
+                        switch (s_min_income){
+                            case "Less than Rs 50,000" :
+                                s_min_income = "49000";
+                                break;
+                            case "Rs.50 Thousand" :
+                                s_min_income = "50000";
+                                break;
+                            case "Rs.1 Lakh" :
+                                s_min_income = "100000";
+                                break;
+                            case "Rs.2 Lakh" :
+                                s_min_income = "200000";
+                                break;
+                            case "Rs.3 Lakh" :
+                                s_min_income = "300000";
+                                break;
+                            case "Rs.4 Lakh" :
+                                s_min_income = "600000";
+                                break;
+                            case "Rs.5 Lakh" :
+                                s_min_income = "500000";
+                                break;
+                            case "Rs.6 Lakh" :
+                                s_min_income = "600000";
+                                break;
+                            case "Rs.7 Lakh" :
+                                s_min_income = "700000";
+                                break;
+                            case "Rs.8 Lakh" :
+                                s_min_income = "800000";
+                                break;
+                            case "Rs.9 Lakh" :
+                                s_min_income = "900000";
+                                break;
+                            case "Rs.10 Lakh" :
+                                s_min_income = "1000000";
+                                break;
+                            case "Rs.12 Lakh" :
+                                s_min_income = "1200000";
+                                break;
+                            case "Rs.14 Lakh" :
+                                s_min_income = "1400000";
+                                break;
+                            case "Rs.16 Lakh" :
+                                s_min_income = "1600000";
+                                break;
+                            case "Rs.18 Lakh" :
+                                s_min_income = "1800000";
+                                break;
+                            case "Rs.20 Lakh" :
+                                s_min_income = "2000000";
+                                break;
+                            case "Rs.25 Lakh" :
+                                s_min_income = "2500000";
+                                break;
+                            case "Rs.30 Lakh" :
+                                s_min_income = "3000000";
+                                break;
+                            case "Rs.40 Lakh" :
+                                s_min_income = "4000000";
+                                break;
+                            case "Rs.50 Lakh" :
+                                s_min_income = "5000000";
+                                break;
+                            case "Rs.60 Lakh" :
+                                s_min_income = "6000000";
+                                break;
+                            case "Rs.70 Lakh" :
+                                s_min_income = "7000000";
+                                break;
+                            case "Rs.80 Lakh" :
+                                s_min_income = "8000000";
+                                break;
+                            case "Rs.90 Lakh" :
+                                s_min_income = "9000000";
+                                break;
+
+                        }
+                    }
+
                     break;
                 case R.id.etMaxincome:
                     max_income=etMaxincome.getSelectedItemPosition()+1;
@@ -722,6 +703,87 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
                         etMinIncome.setSelection(0);
                     }else {
                         s_max_inxome =etMaxincome.getSelectedItem().toString();
+                        if (!s_max_inxome.equalsIgnoreCase("Select Min Income")){
+                            switch (s_max_inxome){
+                                case "Less than Rs 50,000" :
+                                    s_max_inxome = "49000";
+                                    break;
+                                case "Rs.50 Thousand" :
+                                    s_max_inxome = "50000";
+                                    break;
+                                case "Rs.1 Lakh" :
+                                    s_max_inxome = "100000";
+                                    break;
+                                case "Rs.2 Lakh" :
+                                    s_max_inxome = "200000";
+                                    break;
+                                case "Rs.3 Lakh" :
+                                    s_max_inxome = "300000";
+                                    break;
+                                case "Rs.4 Lakh" :
+                                    s_max_inxome = "600000";
+                                    break;
+                                case "Rs.5 Lakh" :
+                                    s_max_inxome = "500000";
+                                    break;
+                                case "Rs.6 Lakh" :
+                                    s_max_inxome = "600000";
+                                    break;
+                                case "Rs.7 Lakh" :
+                                    s_max_inxome = "700000";
+                                    break;
+                                case "Rs.8 Lakh" :
+                                    s_max_inxome = "800000";
+                                    break;
+                                case "Rs.9 Lakh" :
+                                    s_max_inxome = "900000";
+                                    break;
+                                case "Rs.10 Lakh" :
+                                    s_max_inxome = "1000000";
+                                    break;
+                                case "Rs.12 Lakh" :
+                                    s_max_inxome = "1200000";
+                                    break;
+                                case "Rs.14 Lakh" :
+                                    s_max_inxome = "1400000";
+                                    break;
+                                case "Rs.16 Lakh" :
+                                    s_min_income = "1600000";
+                                    break;
+                                case "Rs.18 Lakh" :
+                                    s_max_inxome = "1800000";
+                                    break;
+                                case "Rs.20 Lakh" :
+                                    s_max_inxome = "2000000";
+                                    break;
+                                case "Rs.25 Lakh" :
+                                    s_max_inxome = "2500000";
+                                    break;
+                                case "Rs.30 Lakh" :
+                                    s_max_inxome = "3000000";
+                                    break;
+                                case "Rs.40 Lakh" :
+                                    s_max_inxome = "4000000";
+                                    break;
+                                case "Rs.50 Lakh" :
+                                    s_max_inxome = "5000000";
+                                    break;
+                                case "Rs.60 Lakh" :
+                                    s_max_inxome = "6000000";
+                                    break;
+                                case "Rs.70 Lakh" :
+                                    s_max_inxome = "7000000";
+                                    break;
+                                case "Rs.80 Lakh" :
+                                    s_max_inxome = "8000000";
+                                    break;
+                                case "Rs.90 Lakh" :
+                                    s_max_inxome = "9000000";
+                                    break;
+
+                            }
+                        }
+
 
                     }
                     break;
@@ -780,7 +842,6 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
             s_gender = radioFemale.getText().toString();
         }
 
-        s_city =spPreferredCities.getText().toString();
         if (Utils.isConnected(mActivity)) {
             if (isInputValidated(user)) {
                 errorMsg = "";
@@ -846,25 +907,26 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
         params.put("min_age", s_minage.toLowerCase());
         params.put("min_income", s_min_income.toLowerCase());
         params.put("max_income", s_max_inxome.toLowerCase());
-        params.put("max_age", s_maxage).toLowerCase();
+        params.put("max_age", s_maxage.toLowerCase());
         params.put("min_height", s_minheight.toLowerCase());
         params.put("max_height", s_maxheight.toLowerCase());
         params.put("min_weight", s_minweight.toLowerCase());
         params.put("max_weight", s_max_weight.toLowerCase());
         params.put("caste", s_caste.toLowerCase());
-        params.put("sub_caste", s_subcaste.toLowerCase());
+        if (s_subcaste != null){
+            params.put("sub_caste", s_subcaste.toLowerCase());
+        }
+
         params.put("marital_status", s_maritalstatus.toLowerCase());
         params.put("mother_tongue", s_mothertounge.toLowerCase());
         params.put("paadham", s_paatham.toLowerCase());
-        params.put("dosham", s_dhosam.toLowerCase());
+        if (s_dhosam != null){
+            params.put("dosham", s_dhosam.toLowerCase());
+        }
+
         params.put("having_dosham", s_having_dhosam.toLowerCase());
-        params.put("education", s_degree.toLowerCase());
-        params.put("profession", s_myocc.toLowerCase());
-        params.put("nationality", s_nationality.toLowerCase());
-        params.put("country", s_country.toLowerCase());
-        params.put("state", s_sate.toLowerCase());
+
         params.put("natchathiram",s_natchathram.toLowerCase());
-        params.put("preferred_cities", s_city.toLowerCase());
         params.put("physical_status", s_disability.toLowerCase());
         params.put("gender",s_gender.toLowerCase());
         params.put("raasi",s_raasi.toLowerCase());
@@ -907,6 +969,7 @@ public class EditPartnerPreferenceDetails extends Fragment implements CompoundBu
 
     @Override
     public void selectedStrings(List<String> strings) {
+        s_dhosam="";
         for (int i=0; i<strings.size();i++){
             s_dhosam += strings.get(i)+",";
         }

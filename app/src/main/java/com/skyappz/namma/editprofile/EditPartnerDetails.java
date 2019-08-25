@@ -42,7 +42,6 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
     private String errorMsg;
     private Activity mActivity;
     ProgressDialog dialog;
-    GifImageView progress;
     public static EditPartnerDetails newInstance() {
         return new EditPartnerDetails();
     }
@@ -56,7 +55,6 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
         userDetailsViewModel.setActivity((HomeActivity) getActivity());
         //userDetailsViewModel.getUserDetails("1");
         duplicate = ((HomeActivity) getActivity()).getUser();
-        progress=(GifImageView)getActivity().findViewById(R.id.progress);
         user = new User().duplicate(duplicate);
         binding.setUser(user);
         subscribe();
@@ -81,8 +79,10 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
         mActivity = activity;
     }
     public void update(View view) {
-
-        progress.setVisibility(View.VISIBLE);
+        dialog = new ProgressDialog(getActivity());
+        dialog.setMessage("please wait.");
+        dialog.setCancelable(false);
+        dialog.show();
         if (Utils.isConnected(mActivity)) {
             if (isInputValidated(user)) {
                 errorMsg = "";
@@ -101,7 +101,7 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
     private boolean isInputValidated(User user) {
 
         if (Utils.isEmpty(user.getAbout_partner())) {
-            progress.setVisibility(View.GONE);
+            dialog.dismiss();
             errorMsg = "About partner  is empty!";
             return false;
         }
@@ -141,14 +141,14 @@ public class EditPartnerDetails extends Fragment implements WebServiceListener {
     }
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {
-        progress.setVisibility(View.GONE);
+        dialog.dismiss();
         Utils.showToast(getActivity(), ((GetUserDetailsResponse) response).getMsg());
         ((HomeActivity) mActivity).setFragment(INDEX_ABOUTFAMILY, null);
     }
 
     @Override
     public void onFailure(int requestCode, int responseCode, Object response) {
-
+        dialog.dismiss();
     }
 
     @Override

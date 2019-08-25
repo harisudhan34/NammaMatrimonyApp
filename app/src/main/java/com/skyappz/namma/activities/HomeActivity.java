@@ -25,6 +25,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.skyappz.namma.R;
@@ -32,13 +33,14 @@ import com.skyappz.namma.adapter.RightSideMenuAdapter;
 import com.skyappz.namma.dashboard.DashboardFragment;
 import com.skyappz.namma.editprofile.EditAboutFamily;
 import com.skyappz.namma.editprofile.EditAboutMyselfDetails;
-import com.skyappz.namma.editprofile.EditBasicDetails;
-import com.skyappz.namma.editprofile.EditEducation;
+import com.skyappz.namma.editprofile.EditEducationDetails;
+import com.skyappz.namma.editprofile.EditReligiousDetails;
+import com.skyappz.namma.editprofile.EditPersonalDetails;
 import com.skyappz.namma.editprofile.EditFamilyDetails;
 import com.skyappz.namma.editprofile.EditHabitsDetails;
 import com.skyappz.namma.editprofile.EditPartnerDetails;
 import com.skyappz.namma.editprofile.EditPartnerPreferenceDetails;
-import com.skyappz.namma.editprofile.EditPersonalDetails;
+import com.skyappz.namma.editprofile.EditBasicDetails;
 import com.skyappz.namma.editprofile.EditReligionDetails;
 import com.skyappz.namma.editprofile.EditResidencyAddress;
 import com.skyappz.namma.editprofile.UploadCoverrphoto;
@@ -63,7 +65,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.skyappz.namma.editprofile.EditBasicDetails.selectmother_tongu;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,10 +89,12 @@ public class HomeActivity extends AppCompatActivity
     public static final int INDEX_UPLOAD_COVER_PHOTO = 16;
     public static final int INDEX_UPLOAD_PHOTO_GALLERY = 17;
     public static final int INDEX_UPLOAD_horoscope = 18;
+    public static final int INDEX_RELIGIO_DETAILS = 19;
     public static DrawerLayout drawer;
     RecyclerView rvValues;
    private NavigationView navigationView;
     Preferences preferences;
+    Toolbar toolbar;
     private LinearLayoutManager listLayoutManager;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
@@ -129,7 +132,7 @@ public class HomeActivity extends AppCompatActivity
         userid=getIntent().getStringExtra("userid");
         if (allPermissionsGranted()) {
             onPermissionGranted();
-        } else {
+        }else{
             getRuntimePermissions();
         }
         initViews();
@@ -202,7 +205,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onChanged(@Nullable final User usr) {
                 user = usr;
-                setFragment(INDEX_PERSONAL_DETAILS, null);
+                setFragment(INDEX_BASIC_DETAILS, null);
             }
         };
         userDetailsViewModel.getUser().observeForever(getUserReceiver);
@@ -365,23 +368,33 @@ public class HomeActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        drawer = findViewById(R.id.drawer_layout);
+//        toolbar.setNavigationIcon(R.drawable.ic_ab_up_compat);
+//
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
+
+        setFragment(INDEX_BASIC_DETAILS, null);
+//        drawer = findViewById(R.id.drawer_layout);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 //        drawer.addDrawerListener(toggle);
 //        toggle.syncState();
 
-         navigationView = findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
-        rvValues = navigationView.findViewById(R.id.rvValues);
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        itemDecorator.setDrawable(ContextCompat.getDrawable(this, R.drawable.menu_divider));
-        rvValues.addItemDecoration(itemDecorator);
-        rvValues.setHasFixedSize(true);
-        LinearLayoutManager rvLayoutManager = new LinearLayoutManager(this);
-        rvValues.setLayoutManager(rvLayoutManager);
-        rvValues.setItemAnimator(new DefaultItemAnimator());
+//         navigationView = findViewById(R.id.nav_view);
+////        navigationView.setItemIconTintList(null);
+//////        rvValues = navigationView.findViewById(R.id.rvValues);
+////        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+////        itemDecorator.setDrawable(ContextCompat.getDrawable(this, R.drawable.menu_divider));
+////        rvValues.addItemDecoration(itemDecorator);
+////        rvValues.setHasFixedSize(true);
+////        LinearLayoutManager rvLayoutManager = new LinearLayoutManager(this);
+////        rvValues.setLayoutManager(rvLayoutManager);
+////        rvValues.setItemAnimator(new DefaultItemAnimator());
     }
 
     public void setFragment(int index, Bundle bundle) {
@@ -414,8 +427,8 @@ public class HomeActivity extends AppCompatActivity
                 break;
 
             case INDEX_BASIC_DETAILS:
-//                getSupportActionBar().setTitle("Basic Details");
-                fragmentTag = "EditBasicDetails";
+                getSupportActionBar().setTitle("Basic Details");
+                fragmentTag = "EdiBasicDetails";
                 if (fragments.containsKey(fragmentTag)) {
                     newFragment = fragments.get(fragmentTag);
                     fragmentTransaction.add(R.id.flFragmentContainer, newFragment, fragmentTag).addToBackStack(fragmentTag);
@@ -443,13 +456,13 @@ public class HomeActivity extends AppCompatActivity
 
             case INDEX_EDUCATION_DETAILS:
                 getSupportActionBar().setTitle("REGISTER");
-                fragmentTag = "EditEducation";
+                fragmentTag = "EDitEducationDetails";
                 if (fragments.containsKey(fragmentTag)) {
                     newFragment = fragments.get(fragmentTag);
                     fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).addToBackStack(fragmentTag);
                     fragmentTransaction.commit();
                 } else {
-                    newFragment = EditEducation.newInstance();
+                    newFragment = EditEducationDetails.newInstance();
                     fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).addToBackStack(fragmentTag).commit();
                     fragments.put(fragmentTag, newFragment);
                 }
@@ -478,6 +491,20 @@ public class HomeActivity extends AppCompatActivity
                     fragmentTransaction.commit();
                 } else {
                     newFragment = EditHabitsDetails.newInstance();
+                    fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).addToBackStack(fragmentTag).commit();
+                    fragments.put(fragmentTag, newFragment);
+                }
+                break;
+
+            case INDEX_RELIGIO_DETAILS:
+                getSupportActionBar().setTitle("REGISTER");
+                fragmentTag = "EditReligiousDetails";
+                if (fragments.containsKey(fragmentTag)) {
+                    newFragment = fragments.get(fragmentTag);
+                    fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).addToBackStack(fragmentTag);
+                    fragmentTransaction.commit();
+                } else {
+                    newFragment = EditReligiousDetails.newInstance();
                     fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).addToBackStack(fragmentTag).commit();
                     fragments.put(fragmentTag, newFragment);
                 }
@@ -658,11 +685,7 @@ public class HomeActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }*/
-        if (drawer.isDrawerOpen(GravityCompat.END)) {
-            drawer.closeDrawer(GravityCompat.END);
-        } else {
-            super.onBackPressed();
-        }
+       this.finish();
 
     }
 
@@ -721,9 +744,5 @@ public class HomeActivity extends AppCompatActivity
     public User getUser() {
         return user;
     }
-    public void drawerclose() {
-        user.setMother_tongue(selectmother_tongu);
-        drawer.closeDrawer(Gravity.END);
 
-    }
 }

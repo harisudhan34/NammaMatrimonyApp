@@ -69,12 +69,6 @@
         android:padding="10dp"
         android:background="@drawable/matches_header"
         >
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:src="@drawable/logo"/>
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,13 +76,13 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"
-            android:text="Matches at Education"
+            android:text="Education Matches"
             />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/right_arrow"/>
+        <!--<android.support.v7.widget.AppCompatImageView-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:src="@drawable/right_arrow"/>-->
 
     </RelativeLayout>
     <RelativeLayout

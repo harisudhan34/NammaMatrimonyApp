@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E0FAFAFA"
+        android:background="@color/white"
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -19,6 +19,8 @@
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:padding="20dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/logo" />
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tvSignUp"
@@ -119,8 +121,6 @@
                     android:layout_height="@dimen/loginbutton"
                     android:background="@drawable/pink_rounded"
                     android:fontFamily="@font/opensansregular"
-                    android:paddingLeft="100dp"
-                    android:paddingRight="100dp"
                     android:layout_gravity="center"
                     android:text="@string/login"
                     android:textAllCaps="false"
@@ -164,8 +164,8 @@
                     android:layout_gravity="center"
                     android:textColor="@color/header"
                     android:layout_marginTop="20dp"
-                    android:paddingLeft="35dp"
-                    android:paddingRight="35dp"/>
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
 
             </LinearLayout>
             <pl.droidsonroids.gif.GifImageView

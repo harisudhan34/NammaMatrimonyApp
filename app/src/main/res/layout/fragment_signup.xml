@@ -20,51 +20,105 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true">
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/OTP_HEADE"
                     android:gravity="center"
-                    android:layout_margin="50dp"
+                    android:layout_marginTop="40dp"
                     android:textColor="@color/header"
-                    android:text="OTP has been send to Register Mobile Number "/>
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/otp_ed"
-                    android:layout_width="match_parent"
+                    android:text="One Time Password(OTP) has been sent to your mobile number "/>
+                <LinearLayout
+                    android:id="@+id/change_mobile"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/pink"
-                    android:layout_marginTop="20dp">
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/signup_otp"
-                        android:layout_width="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/mobile_text"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/opensansregular"
-                        android:gravity="center_vertical"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/bottom_line"
-                        android:hint="Enter OTP"
-                        android:padding="@dimen/medium_padding"
-                        android:textColor="@color/black"
-                        android:inputType="textWebEmailAddress"
-                        android:textColorHint="@color/medium_gray"
-                        android:textSize="@dimen/input_text_size" />
-                </android.support.design.widget.TextInputLayout>
+                        android:text="9865565515"
+                        android:textSize="20dp"
+                        android:textColor="@color/header"
+                        android:gravity="center"
+                        />
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/edit_profie_black"/>
+                </LinearLayout>
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0.5dp"-->
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:background="@color/medium_gray"-->
+                    <!--/>-->
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signup_otp"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/opensansregular"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:hint="Enter OTP"
+                    android:textColor="@color/black"
+                    android:inputType="textWebEmailAddress"
+                    android:textColorHint="@color/medium_gray"
+                    android:textSize="@dimen/input_text_size" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:visibility="visible"
+                    android:id="@+id/count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/pink"
+                    android:layout_marginTop="10dp"
+                    android:text="00.00"/>
+
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/btn_otp"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/loginbutton"
                     android:background="@drawable/pink_rounded"
                     android:fontFamily="@font/opensansregular"
-                    android:paddingLeft="100dp"
-                    android:layout_marginTop="40dp"
-                    android:paddingRight="100dp"
+                    android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:text="@string/submit"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/btn_text_size" />
+                <LinearLayout
+                    android:id="@+id/resend_layout"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18dp"
+                        android:gravity="center"
+                        android:text="Not Received OTP?"/>
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/resend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/pink"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18dp"
+                        android:gravity="center"
+                        android:text="Resend OTP"/>
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
@@ -100,7 +154,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="15dp"
                     android:orientation="vertical">
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/tvLogin"
@@ -137,6 +191,7 @@
                         android:fontFamily="@font/opensansregular" />
 
                     <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/name_txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/input_text_size"
@@ -180,19 +235,19 @@
                             android:layout_toLeftOf="@+id/center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="20dp"
+                            android:padding="10dp"
                             style="@style/CheckBoxStyle"
                             android:textColor="@color/black"
                             android:layout_margin="5dp"
                             android:background="@drawable/rounded_edittext_red"
                             android:text="@string/male"
-                            android:checked="true" />
+                            />
 
                         <RadioButton
                             android:id="@+id/radioFemale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="20dp"
+                            android:padding="10dp"
                             style="@style/CheckBoxStyle"
                             android:textColor="@color/black"
                             android:layout_toRightOf="@+id/center"
@@ -217,7 +272,7 @@
                         android:orientation="horizontal">
                         <android.support.v7.widget.AppCompatSpinner
                             android:id="@+id/sp_day"
-                            android:layout_width="100dp"
+                            android:layout_width="80dp"
                             android:layout_height="@dimen/input_field_height"
                             android:layout_marginTop="@dimen/input_field_margin"
                             android:spinnerMode="dialog"
@@ -225,7 +280,7 @@
                             android:fontFamily="@font/opensansregular" />
                         <android.support.v7.widget.AppCompatSpinner
                             android:id="@+id/sp_month"
-                            android:layout_width="120dp"
+                            android:layout_width="100dp"
                             android:layout_height="@dimen/input_field_height"
                             android:spinnerMode="dialog"
                             android:layout_marginTop="@dimen/input_field_margin"
@@ -295,20 +350,35 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/input_text_size" />
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/tetPhoneNumber"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/input_field_height"
-                        android:layout_marginTop="@dimen/input_text_size"
-                        android:background="@drawable/rounded_edittext_red"
-                        android:fontFamily="@font/opensansregular"
-                        android:gravity="center_vertical"
-                        android:padding="@dimen/medium_padding"
-                        android:inputType="phone"
-                        android:maxLength="10"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/medium_gray"
-                        android:textSize="@dimen/input_text_size" />
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/sp_country_code"
+                            android:layout_width="80dp"
+                            android:layout_height="@dimen/input_field_height"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:spinnerMode="dialog"
+                            android:background="@drawable/rounded_edittext_red"
+                            android:fontFamily="@font/opensansregular" />
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/tetPhoneNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_field_height"
+                            android:layout_marginTop="@dimen/input_text_size"
+                            android:background="@drawable/rounded_edittext_red"
+                            android:fontFamily="@font/opensansregular"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/medium_padding"
+                            android:inputType="phone"
+                            android:layout_marginLeft="10dp"
+                            android:maxLength="10"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/medium_gray"
+                            android:textSize="@dimen/input_text_size" />
+
+                    </LinearLayout>
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
@@ -383,46 +453,35 @@
                         android:textSize="@dimen/input_text_size" />
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/input_text_size"
-                        android:gravity="center_vertical">
-
-                        <android.support.v7.widget.AppCompatCheckBox
-                            android:id="@+id/termsandcondition"
-                            style="@style/CheckBoxStyle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/signup_agreement"
-                            android:textColor="@color/pink"
-                            android:textSize="@dimen/medium_text_size" />
-
-                        <android.support.v7.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/small_padding"
-                            android:fontFamily="@font/opensansregular"
-                            android:text="@string/terms_and_conditions"
-                            android:textColor="@color/blue_300"
-                            android:textSize="@dimen/medium_text_size" />
-
-                    </LinearLayout>
 
                     <android.support.v7.widget.AppCompatButton
                         android:id="@+id/btnSignUp"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/input_field_height"
-                        android:layout_marginBottom="50dp"
+                        android:layout_marginBottom="10dp"
                         android:layout_marginTop="@dimen/input_text_size"
                         android:background="@drawable/pink_rounded"
                         android:fontFamily="@font/opensansregular"
                         android:paddingLeft="@dimen/input_field_height"
                         android:paddingRight="@dimen/input_field_height"
+                        android:layout_gravity="center"
                         android:text="@string/signup"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/btn_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="@string/terms_and_conditions"/>
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/pink"
+                        android:layout_marginBottom="40dp"
+                        android:text="@string/terms_and_conditions1"/>
 
                     <!--<LinearLayout-->
                     <!--android:layout_width="wrap_content"-->
