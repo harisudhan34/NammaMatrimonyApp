@@ -557,8 +557,8 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
                     startActivity(i);
                 }
             });
-            name.setText(data.get(i).getName()+" ,"+data.get(i).getAge());
-            caste.setText(data.get(i).getReligion());
+            name.setText(data.get(i).getName());
+            caste.setText(data.get(i).getAge()+" years,");
             if (s_gender.equalsIgnoreCase("male")){
                 UrlImageViewHelper.setUrlDrawable(profile_pic, "https://nammamatrimony.in/uploads/profile_image/" + data.get(i).getProfile_image(), R.drawable.female_noimage);
 
@@ -596,8 +596,8 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
                 }
             });
 
-            name.setText(data.get(i).getName()+" ,"+data.get(i).getAge());
-            caste.setText(data.get(i).getReligion());
+            name.setText(data.get(i).getName());
+            caste.setText(data.get(i).getAge()+" years,");
             if (s_gender.equalsIgnoreCase("male")){
                 UrlImageViewHelper.setUrlDrawable(profile_pic, "https://nammamatrimony.in/uploads/profile_image/" + data.get(i).getProfile_image(), R.drawable.female_noimage);
 
@@ -634,8 +634,8 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
                 }
             });
 
-            name.setText(data.get(i).getName()+" ,"+data.get(i).getAge());
-            caste.setText(data.get(i).getReligion());
+            name.setText(data.get(i).getName());
+            caste.setText(data.get(i).getAge()+" years");
             if (s_gender.equalsIgnoreCase("male")){
                 UrlImageViewHelper.setUrlDrawable(profile_pic, "https://nammamatrimony.in/uploads/profile_image/" + data.get(i).getProfile_image(), R.drawable.female_noimage);
 

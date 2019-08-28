@@ -7,7 +7,7 @@
         android:title="message"
         myapp:showAsAction="ifRoom"/>
     <item android:id="@+id/xx"
-        android:icon="@drawable/top_demo"
+        android:icon="@drawable/top_notification"
         android:title="message"
         myapp:showAsAction="ifRoom"/>
 
