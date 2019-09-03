@@ -124,12 +124,12 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
 //        vpPremium.setAdapter(premiumMatchesAdapter);
 //        recommendationsAdapter = new UserPagerAdapter(getActivity(), todayMatches);
 //        vpRecommendations.setAdapter(recommendationsAdapter);
-        matches = (RecyclerView)view.findViewById(R.id.recycle1);
-        RecyclerView.LayoutManager m1LayoutManager = new LinearLayoutManager(getActivity());
-        matches.setLayoutManager(m1LayoutManager);
-        matches.setNestedScrollingEnabled(false);
-        matches.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(1), true));
-        matches.setItemAnimator(new DefaultItemAnimator());
+//        matches = (RecyclerView)view.findViewById(R.id.recycle1);
+//        RecyclerView.LayoutManager m1LayoutManager = new LinearLayoutManager(getActivity());
+//        matches.setLayoutManager(m1LayoutManager);
+//        matches.setNestedScrollingEnabled(false);
+//        matches.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(1), true));
+//        matches.setItemAnimator(new DefaultItemAnimator());
 
         vpTodayMatches = (LinearLayout)view.findViewById(R.id.vpTodayMatches);
         vpRecommend_matches = (LinearLayout)view.findViewById(R.id.vpRecommend_matches);
@@ -162,6 +162,7 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
         get_recommended();
 //        get_matches();
 //        loadcity();
+
         return view;
     }
 
