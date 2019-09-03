@@ -70,6 +70,8 @@ public class UploadId extends Fragment implements WebServiceListener {
     private Uri filePath;
     Intent CropIntent;
     Uri uri;
+        AppCompatTextView photo_skip,id_skip,horo_skip;
+
     TabHost tabs;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -102,12 +104,46 @@ public class UploadId extends Fragment implements WebServiceListener {
 
         uploadbutton=(AppCompatTextView) view.findViewById(R.id.upload_button);
         profilepic=(AppCompatImageView)view.findViewById(R.id.profile_image);
+        photo_skip=(AppCompatTextView)view.findViewById(R.id.photo_skip);
 
         uploadbutton_photo=(AppCompatTextView)view.findViewById(R.id.upload_button_photo);
         profilepic_photo=(AppCompatImageView)view.findViewById(R.id.profile_image_photo);
+        id_skip=(AppCompatTextView)view.findViewById(R.id.id_skip);
 
         uploadbutton_horoscope=(AppCompatTextView)view.findViewById(R.id.upload_button_horoscope);
         profilepic_horoscope=(AppCompatImageView)view.findViewById(R.id.profile_image_hororscope);
+        horo_skip=(AppCompatTextView)view.findViewById(R.id.horo_skip);
+
+        photo_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tabs.getTabWidget().getChildTabViewAt(1).setEnabled(true);
+                tabs.setCurrentTab(1);
+                tabs.getTabWidget().getChildAt(tabs.getCurrentTab())
+                        .setBackgroundColor(getResources().getColor(R.color.pink));
+                tabs.getTabWidget().getChildTabViewAt(2).setEnabled(false);
+            }
+        });
+        id_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tabs.getTabWidget().getChildTabViewAt(2).setEnabled(true);
+                tabs.setCurrentTab(2);
+                tabs.getTabWidget().getChildAt(tabs.getCurrentTab())
+                        .setBackgroundColor(getResources().getColor(R.color.pink));
+            }
+        });
+        horo_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendmail();
+                send_sms();
+                Intent move=new Intent(getActivity(), MainDashboard.class);
+                mActivity.startActivity(move);
+                getActivity().finish();
+            }
+        });
+
         requestStoragePermission();
 
         uploadbutton.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +206,14 @@ public class UploadId extends Fragment implements WebServiceListener {
             tabs.getTabWidget().getChildAt(tabs.getCurrentTab())
                     .setBackgroundColor(getResources().getColor(R.color.pink));
             tabs.getTabWidget().getChildTabViewAt(1).setEnabled(false);
+            tabs.getTabWidget().getChildTabViewAt(2).setEnabled(false);
+
+        }
+        if (tabs.getCurrentTab() == 1) {
+            tabs.getTabWidget().getChildAt(tabs.getCurrentTab())
+                    .setBackgroundColor(getResources().getColor(R.color.pink));
+            tabs.getTabWidget().getChildTabViewAt(2).setEnabled(false);
+            tabs.getTabWidget().getChildTabViewAt(1).setEnabled(true);
 
         }
 
@@ -183,6 +227,8 @@ public class UploadId extends Fragment implements WebServiceListener {
                     tabs.getTabWidget().getChildTabViewAt(0).setEnabled(false);
                     tabs.getTabWidget().getChildTabViewAt(2).setEnabled(false);
                 }
+
+
             }
         });
         return view;

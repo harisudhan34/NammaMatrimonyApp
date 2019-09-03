@@ -52,6 +52,7 @@
                 android:textSize="@dimen/username1" />
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/age_height"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="24 Yrs, 4 ft 6 in  / 137 cm"
@@ -59,6 +60,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/username1" />
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/education_profession"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BE,Manager, Hindu,Intercaste"

@@ -22,9 +22,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.gson.JsonParseException;
+import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
 import com.skyappz.namma.ResponseEntities.GetUserDetailsResponse;
 import com.skyappz.namma.activities.HomeActivity;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.adapter.CustomListAdapter;
 import com.skyappz.namma.utils.MultiSelectionSpinner;
 import com.skyappz.namma.utils.Utils;
@@ -64,8 +71,11 @@ public class EditReligiousDetails extends Fragment implements WebServiceListener
     RadioButton radio_yes,radio_no;
     GifImageView progress;
     ArrayList raasi_list,start_list,paadhamList;
-    String s_sate,s_city,s_country,s_birthtime;
-    ArrayList state_list,city_list;
+    String s_sate,s_city,s_country,s_birthtime,s_ccity_id,s_state_id;
+    ArrayList<String> state_list = new ArrayList<>();
+    ArrayList<String> state_list_id =new ArrayList<>();
+    ArrayList<String> city_list = new ArrayList<>();
+    ArrayList<String> city_list_id = new ArrayList<>();
     AppCompatAutoCompleteTextView birth_auto_state,birth_auto_city;
 
     HashMap<String, String> params = new HashMap<>();
@@ -130,7 +140,10 @@ public class EditReligiousDetails extends Fragment implements WebServiceListener
         Birth_SPcountry.setAdapter(countryadapter);
         Birth_SPcountry.setOnItemSelectedListener(this);
 
-        loadStateandDist();
+        getstate();
+        CustomListAdapter stateadapter = new CustomListAdapter(getActivity(),
+                R.layout.right_menu_item, state_list);
+        birth_auto_state.setAdapter(stateadapter);
         birth_auto_state.setOnItemClickListener(stateListner);
         birth_auto_city.setOnItemClickListener(citylistner);
 
@@ -193,6 +206,10 @@ public class EditReligiousDetails extends Fragment implements WebServiceListener
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     s_city = String.valueOf(adapterView.getItemAtPosition(i));
+                    int castepos = city_list.indexOf(s_city);
+                    String castid=  city_list_id.get(castepos);
+                    Log.e("casteid",castid);
+                    s_ccity_id = castid;
 
                 }
             };
@@ -202,84 +219,15 @@ public class EditReligiousDetails extends Fragment implements WebServiceListener
             new AdapterView.OnItemClickListener(){
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    s_sate = String.valueOf(adapterView.getItemAtPosition(i));
-                    loadcity(s_sate);
+                   s_sate = String.valueOf(adapterView.getItemAtPosition(i));
+                    int statepos = state_list.indexOf(s_sate);
+                    String stateid=  state_list_id.get(statepos);
+                    Log.e("casteid",stateid);
+                    s_state_id = stateid;
+                    getcity(s_sate);
 
                 }
             };
-
-    public void loadStateandDist() {
-        state_list =new ArrayList<>();
-        try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
-            JSONArray m_jArry = obj.getJSONArray("states");
-            ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
-            for (int i = 0; i < m_jArry.length(); i++) {
-                JSONObject jo_inside = m_jArry.getJSONObject(i);
-                String state = jo_inside.getString("state");
-                state_list.add(state);
-                CustomListAdapter adapter = new CustomListAdapter(getActivity(),
-                        R.layout.right_menu_item, state_list);
-                birth_auto_state.setAdapter(adapter);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getActivity().getAssets().open("stateanddist.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-    public  void loadcity(String dist){
-        city_list=new ArrayList<>();
-        try {
-            JSONObject obj = new JSONObject(loadcityjson());
-            JSONArray m_jArry = obj.getJSONArray(dist);
-
-            for (int k=0;k<m_jArry.length();k++ ) {
-                city_list.add(m_jArry.getString(k));
-                Log.e("cityarray",m_jArry.getString(k));
-                CustomListAdapter adapter = new CustomListAdapter(getActivity(),
-                        R.layout.right_menu_item, city_list);
-                birth_auto_city.setAdapter(adapter);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String loadcityjson() {
-        String json = null;
-        try {
-            InputStream is = getActivity().getAssets().open("city.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
-
-
-
-
 
 
     @Override
@@ -382,9 +330,9 @@ public class EditReligiousDetails extends Fragment implements WebServiceListener
         params.put("raasi",s_raasi.toLowerCase());
         params.put("paadham", s_paadham.toLowerCase());
         params.put("birth_country", s_country.toLowerCase());
-        params.put("birth_state", s_sate.toLowerCase());
+        params.put("birth_state", s_state_id);
         params.put("birth_time", s_birthtime.toLowerCase());
-        params.put("birth_city", s_city.toLowerCase());
+        params.put("birth_city", s_ccity_id);
         userDetailsViewModel.updateUser(params, this);
     }
 
@@ -456,4 +404,112 @@ public class EditReligiousDetails extends Fragment implements WebServiceListener
         }
 
     }
+
+
+    public void getstate() {
+        HttpsTrustManager.allowAllSSL();
+        birth_auto_city.setText("");
+        String tag_json_obj = "getAllCaste";
+        String url = "https://nammamatrimony.in/api/getstate.php";
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("caste",response.toString());
+                        try {
+                            JSONArray castearray=response.getJSONArray("states");
+                            for (int i=0; i<castearray.length();i++){
+                                JSONObject list= castearray.getJSONObject(i);
+                                state_list.add(list.getString("state"));
+                                state_list_id.add(list.getString("id"));
+                            }
+
+                        } catch (JSONException e) {
+
+                        } catch (JsonParseException e) {
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        if (Utils.isConnected((getActivity()))) {
+            AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+        } else {
+            this.isNetworkAvailable(false);
+        }
+    }
+
+    public void getcity(final  String state) {
+        HttpsTrustManager.allowAllSSL();
+        city_list = new ArrayList<>();
+        city_list_id = new ArrayList<>();
+        HttpsTrustManager.allowAllSSL();
+        String tag_json_obj = "getAllSubCaste";
+        String url = "https://nammamatrimony.in/api/getcity.php";
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("subcaste",response.toString());
+                        try {
+                            JSONArray castearray=response.getJSONArray("states");
+                            for (int i=0; i<castearray.length();i++){
+                                JSONObject list= castearray.getJSONObject(i);
+                                if (state.equalsIgnoreCase(list.getString("state"))){
+                                    Log.e("statename",state);
+                                    Log.e("statename",list.getString("state"));
+                                    Log.e("eqeqe","state true");
+                                    JSONArray subcasetarray=list.getJSONArray("cities");
+                                    if (subcasetarray.length()> 0){
+//                                        city_lay.setVisibility(View.VISIBLE);
+                                        for (int j=0;j<subcasetarray.length();j++){
+                                            JSONObject sublist = subcasetarray.getJSONObject(j);
+                                            city_list.add(sublist.getString("city"));
+                                            city_list_id.add(sublist.getString("id"));
+                                            Log.e("givecity",sublist.getString("city"));
+                                            CustomListAdapter cityadapter = new CustomListAdapter(getActivity(),
+                                                    R.layout.right_menu_item, city_list);
+                                            birth_auto_city.setAdapter(cityadapter);
+                                            birth_auto_city.setOnItemClickListener(citylistner);
+                                        }
+
+
+                                        Log.e("eqeqe",String.valueOf(city_list.size()));
+
+
+                                    }else {
+//                                        city_lay.setVisibility(View.GONE);
+                                    }
+                                }
+                            }
+
+                        } catch (JSONException e) {
+
+                        } catch (JsonParseException e) {
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        if (Utils.isConnected((getActivity()))) {
+            AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+        } else {
+            this.isNetworkAvailable(false);
+        }
+    }
+
 }

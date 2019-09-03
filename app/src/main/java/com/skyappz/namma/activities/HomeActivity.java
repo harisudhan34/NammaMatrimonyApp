@@ -43,6 +43,7 @@ import com.skyappz.namma.editprofile.EditPartnerPreferenceDetails;
 import com.skyappz.namma.editprofile.EditBasicDetails;
 import com.skyappz.namma.editprofile.EditReligionDetails;
 import com.skyappz.namma.editprofile.EditResidencyAddress;
+import com.skyappz.namma.editprofile.Edit_partner_preference2;
 import com.skyappz.namma.editprofile.UploadCoverrphoto;
 import com.skyappz.namma.editprofile.UploadHoroscope;
 import com.skyappz.namma.editprofile.UploadId;
@@ -90,6 +91,7 @@ public class HomeActivity extends AppCompatActivity
     public static final int INDEX_UPLOAD_PHOTO_GALLERY = 17;
     public static final int INDEX_UPLOAD_horoscope = 18;
     public static final int INDEX_RELIGIO_DETAILS = 19;
+    public static final int INDEX_EDIT_PARTNER_2= 20;
     public static DrawerLayout drawer;
     RecyclerView rvValues;
    private NavigationView navigationView;
@@ -379,7 +381,7 @@ public class HomeActivity extends AppCompatActivity
 //            }
 //        });
 
-        setFragment(INDEX_BASIC_DETAILS, null);
+//        setFragment(INDEX_BASIC_DETAILS, null);
 //        drawer = findViewById(R.id.drawer_layout);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 //        drawer.addDrawerListener(toggle);
@@ -661,7 +663,19 @@ public class HomeActivity extends AppCompatActivity
                 }
                 break;
 
-
+            case INDEX_EDIT_PARTNER_2:
+//                getSupportActionBar().setTitle("UPLOAD PHOTO HOROSCOPE");
+                fragmentTag = "Edit_partner_preference2";
+                if (fragments.containsKey(fragmentTag)) {
+                    newFragment = fragments.get(fragmentTag);
+                    fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).addToBackStack(fragmentTag);
+                    fragmentTransaction.commit();
+                } else {
+                    newFragment = Edit_partner_preference2.newInstance();
+                    fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).addToBackStack(fragmentTag).commit();
+                    fragments.put(fragmentTag, newFragment);
+                }
+                break;
 
             default:
                 break;

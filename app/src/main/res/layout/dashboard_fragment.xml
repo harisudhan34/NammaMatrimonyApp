@@ -131,7 +131,6 @@
                 android:visibility="visible"
                 android:id="@+id/scroll_layout"
                 android:layout_width="match_parent"
-                android:padding="10dp"
                 android:layout_height="wrap_content"
                 android:background="@color/light_gray"
                 android:layout_marginTop="10dp"
@@ -156,6 +155,7 @@
 
 
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginTop="20dp">
@@ -245,6 +245,7 @@
 
             <!--</android.support.v7.widget.CardView>-->
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginTop="20dp">
@@ -307,7 +308,7 @@
                     <android.support.v7.widget.AppCompatImageView
                         android:layout_width="@dimen/discover_icon_size"
                         android:layout_height="@dimen/discover_icon_size"
-                        android:src="@drawable/education" />
+                        android:src="@drawable/location_dash" />
 
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="wrap_content"
@@ -658,6 +659,16 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycle1"
+                android:layout_width="match_parent"
+                android:layout_toRightOf="@+id/recy"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:layout_marginTop="4dp"
+                android:background="#79c4bebe"
+                android:scrollbars="vertical">
+            </android.support.v7.widget.RecyclerView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -752,6 +763,18 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/memebership_ad" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="left"
+                android:layout_marginTop="@dimen/small_padding"
+                android:padding="@dimen/medium_padding"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/opensansregular"
+                android:text="Our Matrimony Services"
+                android:textColor="@color/black" />
 
 
             <HorizontalScrollView
@@ -762,14 +785,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/white"
                     android:orientation="horizontal">
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="6dp"
-                        app:cardCornerRadius="10dp">
+
                         <RelativeLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="250dp"
                             android:layout_height="100dp"
                             android:layout_margin="20dp"
                             android:background="@drawable/pink_border">
@@ -781,13 +801,8 @@
                                 android:src="@drawable/service_1"/>
                         </RelativeLayout>
 
-                    </android.support.v7.widget.CardView>
 
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="6dp"
-                        app:cardCornerRadius="10dp">
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
@@ -801,15 +816,10 @@
                                 android:src="@drawable/services_2"/>
                         </RelativeLayout>
 
-                    </android.support.v7.widget.CardView>
 
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="6dp"
-                        app:cardCornerRadius="10dp">
+
                         <RelativeLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="250dp"
                             android:layout_height="100dp"
                             android:layout_margin="20dp"
                             android:background="@drawable/pink_border">
@@ -821,15 +831,10 @@
                                 android:src="@drawable/services_3"/>
                         </RelativeLayout>
 
-                    </android.support.v7.widget.CardView>
 
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="6dp"
-                        app:cardCornerRadius="10dp">
+
                         <RelativeLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="250dp"
                             android:layout_height="100dp"
                             android:layout_margin="20dp"
                             android:background="@drawable/pink_border">
@@ -841,7 +846,6 @@
                                 android:src="@drawable/servies_4"/>
                         </RelativeLayout>
 
-                    </android.support.v7.widget.CardView>
 
 
                 </LinearLayout>

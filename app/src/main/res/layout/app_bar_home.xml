@@ -22,8 +22,16 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" >
            <RelativeLayout
                android:layout_width="match_parent"
-               android:background="#5FB7E4"
                android:layout_height="?attr/actionBarSize">
+               <android.support.v7.widget.AppCompatTextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:text="Register"
+                   android:gravity="center"
+                   android:textSize="@dimen/toolbar"
+                   android:textColor="@color/black"
+                   android:textStyle="bold"
+                   />
                <android.support.v7.widget.AppCompatImageView
                    android:layout_width="50dp"
                    android:padding="5dp"

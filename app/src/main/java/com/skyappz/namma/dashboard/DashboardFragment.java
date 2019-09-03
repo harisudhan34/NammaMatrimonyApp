@@ -3,13 +3,20 @@ package com.skyappz.namma.dashboard;
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,8 +99,8 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
     final LocalDate date = LocalDate.now();
     final LocalDate dateMinus7Days = date.minusDays(5);
     //Format and display date
+    RecyclerView matches;
     final String fromdate = dateMinus7Days.format(DateTimeFormatter.ISO_LOCAL_DATE);
-
     public static DashboardFragment newInstance() {
         return new DashboardFragment();
     }
@@ -117,6 +124,12 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
 //        vpPremium.setAdapter(premiumMatchesAdapter);
 //        recommendationsAdapter = new UserPagerAdapter(getActivity(), todayMatches);
 //        vpRecommendations.setAdapter(recommendationsAdapter);
+        matches = (RecyclerView)view.findViewById(R.id.recycle1);
+        RecyclerView.LayoutManager m1LayoutManager = new LinearLayoutManager(getActivity());
+        matches.setLayoutManager(m1LayoutManager);
+        matches.setNestedScrollingEnabled(false);
+        matches.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(1), true));
+        matches.setItemAnimator(new DefaultItemAnimator());
 
         vpTodayMatches = (LinearLayout)view.findViewById(R.id.vpTodayMatches);
         vpRecommend_matches = (LinearLayout)view.findViewById(R.id.vpRecommend_matches);
@@ -147,9 +160,12 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
         get_perimium();
         get_todaymatches();
         get_recommended();
+//        get_matches();
 //        loadcity();
         return view;
     }
+
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -160,6 +176,44 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
 //        webServiceManager.getTodayMatches(type,userid, this);
 //    }
 
+    private int dpToPx(int dp) {
+        Resources r = getResources();
+        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+    }
+    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+
+        private int spanCount;
+        private int spacing;
+        private boolean includeEdge;
+
+        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
+            this.spanCount = spanCount;
+            this.spacing = spacing;
+            this.includeEdge = includeEdge;
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            int position = parent.getChildAdapterPosition(view); // item position
+            int column = position % spanCount; // item column
+
+            if (includeEdge) {
+                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
+                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
+
+                if (position < spanCount) { // top edge
+                    outRect.top = spacing;
+                }
+                outRect.bottom = spacing; // item bottom
+            } else {
+                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
+                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
+                if (position >= spanCount) {
+                    outRect.top = spacing; // item top
+                }
+            }
+        }
+    }
 
 
     public void get_user() {
@@ -490,6 +544,68 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
         }
     }
 
+//    public void get_matches() {
+//        HttpsTrustManager.allowAllSSL();
+//        String tag_json_obj = "getmatches";
+//        String url = URL_GET_TODAY_MATCHES+ AppController.get_userid(getActivity()) +"&type=premium_matches&parameter=age,gender,height,weight,caste,sub_caste,marital_status,mother_tongue,raasi,star,having_dosham,occupation,physical_status,nationality,country,home_city,monthly_income,paadham,education" ;
+//        Log.e("url",url);
+//        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+//                url, null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        Log.e("matches",response.toString());
+//                        try {
+//                            if (response.getString("status").equalsIgnoreCase("true")){
+//                                JSONArray m_jArry = response.getJSONArray("Today Matches");
+//                                for (int i=0; i<m_jArry.length();i++){
+//                                    JSONObject listobj =m_jArry.getJSONObject(i);
+//                                    User user =new User();
+//                                    user.setUser_id(listobj.getString("user_id"));
+//                                    user.setProfile_image(listobj.getString("profile_image"));
+//                                    user.setName(listobj.getString("name"));
+//                                    user.setReligion(listobj.getString("religion"));
+//                                    user.setHome_city(listobj.getString("home_city"));
+//                                    user.setHeight(listobj.getString("height"));
+//                                    user.setAge(listobj.getString("age"));
+//                                    perimium.add(user);
+//
+//                                }
+//
+//                                if (perimium.size() > 0) {
+//                                    mataches(perimium);
+//                                }
+//
+//                            }else {
+//                                vpPreimiusmatches.setVisibility(View.GONE);
+//                                nodata_perimium.setVisibility(View.VISIBLE);
+//                            }
+//
+//
+//                        } catch (JSONException e) {
+//
+//
+//
+//                        } catch (JsonParseException e) {
+//
+//                        }
+//                    }
+//                }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//
+//        if (Utils.isConnected((getActivity()))) {
+//            AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+//        } else {
+//            this.isNetworkAvailable(false);
+//        }
+//    }
+
+
 
 
 //    public String loadcityjson() {
@@ -646,6 +762,46 @@ public class DashboardFragment extends Fragment implements WebServiceListener, V
 
         }
     }
+
+
+//    public void mataches(final ArrayList<User> data) {
+////        int amount = 0;
+////        if (data.size() <= 5) {
+////            amount = data.size();
+////        } else amount = 5;
+//        for (int i = 0; i < data.size(); i++) {
+//
+//            recommendmatchesview = getLayoutInflater().inflate(R.layout.matchesnew, vpRecommend_matches, false);
+//            recommendmatchesview.setId(i);
+//            vpRecommend_matches.addView(recommendmatchesview);
+//            TextView name = (TextView) recommendmatchesview.findViewById(R.id.name);
+//            TextView age_height = (TextView) recommendmatchesview.findViewById(R.id.age_height);
+//            TextView education_profession = (TextView) recommendmatchesview.findViewById(R.id.education_profession);
+//            AppCompatImageView profile_pic =(AppCompatImageView)recommendmatchesview.findViewById(R.id.profile_image);
+//            LinearLayout  card=(LinearLayout) recommendmatchesview.findViewById(R.id.profile);
+//            final String aa=data.get(i).getUser_id();
+//            card.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent i=new Intent(getActivity(), SingleProfileView.class);
+//                    i.putExtra("user_id",aa);
+//                    startActivity(i);
+//                }
+//            });
+//
+//            name.setText(data.get(i).getName());
+//            age_height.setText(data.get(i).getAge()+" years,"+data.get(i).getHeight());
+//            if (s_gender.equalsIgnoreCase("male")){
+//                UrlImageViewHelper.setUrlDrawable(profile_pic, "https://nammamatrimony.in/uploads/profile_image/" + data.get(i).getProfile_image(), R.drawable.female_noimage);
+//
+//            }else {
+//                UrlImageViewHelper.setUrlDrawable(profile_pic, "https://nammamatrimony.in/uploads/profile_image/" + data.get(i).getProfile_image(), R.drawable.male_noimage);
+//
+//            }            city.setText(data.get(i).getHeight());
+//
+//        }
+//    }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

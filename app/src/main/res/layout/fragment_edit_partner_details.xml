@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".profileupdate.EditPartnerDetails">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/medium_padding"
+        tools:context=".editprofile.EditPartnerPreferenceDetails">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skip >>"
+                android:textColor="#1d5d77"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="15dp"
+                android:layout_margin="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:drawablePadding="5dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="14dp"
+                android:fontFamily="@font/opensansregular" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Partner Preference Details"
+                    android:textColor="@color/pink"
+                    android:paddingBottom="5dp"
+                    android:visibility="gone"
+                    android:textSize="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bottom_line"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_padding"
+                    android:text="Basic Details"
+                    android:background="@drawable/bottom_line"
+                    android:fontFamily="@font/opensansregular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/btn_text_size" />
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_padding"
+                    android:visibility="gone"
+                    android:text="GENDER"
+                    android:fontFamily="@font/opensansregular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input_text_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_padding"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+                    <RadioGroup
+                        android:id="@+id/radioSex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioMale"
+                            android:layout_toLeftOf="@+id/center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="20dp"
+                            android:fontFamily="@font/opensansregular"
+                            style="@style/CheckBoxStyle"
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/rounded_edittext_red"
+                            android:text="@string/male"
+                            android:checked="false" />
+
+                        <RadioButton
+                            android:id="@+id/radioFemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="20dp"
+                            android:fontFamily="@font/opensansregular"
+                            style="@style/CheckBoxStyle"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@+id/center"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/rounded_edittext_red"
+                            android:layout_alignParentRight="true"
+                            android:text="@string/female" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/input_text_size"
+                        android:textColor="@color/black"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        android:text="AGE"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/etMinAge"
+                        android:layout_width="80dp"
+                        android:layout_height="@dimen/input_field_height"
+                        android:fontFamily="@font/opensansregular"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/rounded_spinner_red"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:text="to"
+                        android:layout_marginLeft="15dp"
+                        android:layout_gravity="center"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/etMaxAge"
+                        android:layout_width="80dp"
+                        android:layout_height="@dimen/input_field_height"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/rounded_spinner_red"
+                        android:fontFamily="@font/opensansregular"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/input_text_size"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="HEIGHT"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/etMinHeight"
+                        android:layout_width="80dp"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:spinnerMode="dialog"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/rounded_spinner_red"
+                        android:fontFamily="@font/opensansregular"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:text="to"
+                        android:layout_marginLeft="15dp"
+                        android:layout_gravity="center"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/etMaxHeight"
+                        android:layout_width="80dp"
+                        android:layout_height="@dimen/input_field_height"
+                        android:spinnerMode="dialog"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/rounded_spinner_red"
+                        android:fontFamily="@font/opensansregular"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/input_text_size"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="WEIGHT"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/etMinweight"
+                        android:layout_width="80dp"
+                        android:layout_height="@dimen/input_field_height"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/rounded_spinner_red"
+                        android:fontFamily="@font/opensansregular"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:text="to"
+                        android:layout_marginLeft="15dp"
+                        android:layout_gravity="center"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/etMaxWeight"
+                        android:layout_width="80dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:spinnerMode="dialog"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/rounded_spinner_red"
+                        android:fontFamily="@font/opensansregular"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/input_text_size"
+                        android:textColor="@color/black"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        android:text="Annual INCOME"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/etMinincome"
+                        android:layout_width="80dp"
+                        android:layout_height="@dimen/input_field_height"
+                        android:spinnerMode="dialog"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/rounded_spinner_red"
+                        android:fontFamily="@font/opensansregular"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:text="to"
+                        android:layout_marginLeft="15dp"
+                        android:layout_gravity="center"/>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/etMaxincome"
+                        android:layout_width="80dp"
+                        android:layout_height="@dimen/input_field_height"
+                        android:spinnerMode="dialog"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/input_text_size"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/rounded_spinner_red"
+                        android:fontFamily="@font/opensansregular"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/black"
+                        android:textSize="@dimen/input_text_size" />
+
+
+                </LinearLayout>
+
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="MARITAL STATUS"/>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spMaritalStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:spinnerMode="dialog"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="MOTHER TONGUE"/>
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/spMotherTongue"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="PHYSICAL STATUS"/>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spDisability"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:spinnerMode="dialog"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:text="Religion Details"
+                    android:background="@drawable/bottom_line"
+                    android:fontFamily="@font/opensansregular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/btn_text_size" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensansregular"
+                    android:gravity="left"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="RELIGION"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input_text_size" />
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/auto_religion"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:clickable="true"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_padding"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:gravity="center_vertical|start"
+                    android:text="CASTE"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input_text_size" />
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/spCaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_padding"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:gravity="center_vertical|start"
+                    android:text="SUB CASTE"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input_text_size" />
+
+                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/spSubCaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:text="Horoscope Details"
+                    android:background="@drawable/bottom_line"
+                    android:fontFamily="@font/opensansregular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/btn_text_size" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/opensansregular"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:text="RAASI"/>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spRaasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:spinnerMode="dialog"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:fontFamily="@font/opensansregular"
+                    android:text="STAR"/>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spNatchathiram"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:textSize="@dimen/input_field_text_size"
+                    android:spinnerMode="dialog"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:fontFamily="@font/opensansregular"
+                    android:text="PAADHAM"/>
+
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spPaadham"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_field_height"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:spinnerMode="dialog"
+                    android:background="@drawable/rounded_corner_gray"
+                    android:fontFamily="@font/opensansregular"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/input_text_size"
+                    android:fontFamily="@font/opensansregular"
+                    android:gravity="left"
+                    android:text="HAVING DHOSAM"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input_text_size" />
+                <RadioGroup
+                    android:id="@+id/radiodhosam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_yes"
+                        android:layout_toLeftOf="@+id/center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        style="@style/CheckBoxStyle"
+                        android:textColor="@color/black"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/rounded_edittext_red"
+                        android:text="Yes"
+                        android:checked="false" />
+
+                    <RadioButton
+                        android:id="@+id/radio_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        style="@style/CheckBoxStyle"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/center"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/rounded_edittext_red"
+                        android:layout_alignParentRight="true"
+                        android:text="No" />
+
+                </RadioGroup>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/dhosam_details_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DHOSAM DETAILS"
+                        android:fontFamily="@font/opensansregular"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/input_field_margin" />
+                    <com.skyappz.namma.utils.MultiSelectionSpinner
+                        android:id="@+id/spDosham"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_field_height"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_corner_gray"
+                        android:clickable="true"
+                        android:textSize="@dimen/input_field_text_size"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/opensansregular" />
+
+                </LinearLayout>
+
+
+
+
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensansregular"
+                    android:background="@drawable/pink_rounded"
+                    android:paddingLeft="@dimen/input_field_height"
+                    android:paddingRight="@dimen/input_field_height"
+                    android:text="@string/update"
+                    android:layout_marginBottom="50dp"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/progress"
+                android:visibility="gone"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/loadericon"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="0dp"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

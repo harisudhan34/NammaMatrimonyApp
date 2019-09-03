@@ -340,8 +340,8 @@ public class SignUpFragment extends Fragment implements View.OnClickListener, We
                         AppController.set_religion(getActivity(),s_religion);
                         AppController.set_mothertongue(getActivity(),s_mothertounge);
 
-                        check_email();
-
+                        //check_email();
+                        signUp(user);
 //                        signUp(user);
 
 

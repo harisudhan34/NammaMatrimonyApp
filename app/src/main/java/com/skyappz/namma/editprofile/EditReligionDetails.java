@@ -356,4 +356,6 @@ public class EditReligionDetails extends Fragment implements WebServiceListener 
             }
         }
     }
+
+
 }

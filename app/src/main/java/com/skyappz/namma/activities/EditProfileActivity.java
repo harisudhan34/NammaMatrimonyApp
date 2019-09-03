@@ -9,6 +9,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -37,6 +38,7 @@ public class EditProfileActivity extends AppCompatActivity  implements WebServic
     private static final String URL_GET_PARTNER = "https://nammamatrimony.in/api/getpartner.php?user_id=";
 
     AppCompatImageView edit_aboutmyself,edit_basic,edit_religious,edit_personal_info,edit_location,edit_family_details;
+    RelativeLayout edit_partner_religious,edit_partner_basic,edit_partner_professional,edit_partner_location;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,7 @@ public class EditProfileActivity extends AppCompatActivity  implements WebServic
         get_partner();
     }
      private void inti(){
+
          text_about_myself=(AppCompatTextView)findViewById(R.id.text_about_myself);
          text_name=(AppCompatTextView)findViewById(R.id.text_name);
          text_age=(AppCompatTextView)findViewById(R.id.text_age);
@@ -125,7 +128,17 @@ public class EditProfileActivity extends AppCompatActivity  implements WebServic
          edit_family_details=(AppCompatImageView)findViewById(R.id.edit_family_details);
          edit_family_details.setOnClickListener(this);
 
+         edit_partner_religious = (RelativeLayout)findViewById(R.id.edit_partner_religious);
+         edit_partner_religious.setOnClickListener(this);
 
+         edit_partner_basic = (RelativeLayout)findViewById(R.id.edit_partner_basic);
+         edit_partner_basic.setOnClickListener(this);
+
+         edit_partner_professional = (RelativeLayout)findViewById(R.id.edit_partner_professional);
+         edit_partner_professional.setOnClickListener(this);
+
+         edit_partner_location = (RelativeLayout)findViewById(R.id.edit_partner_location);
+         edit_partner_location.setOnClickListener(this);
      }
 
     public void get_partner() {
@@ -325,6 +338,33 @@ public class EditProfileActivity extends AppCompatActivity  implements WebServic
                 Intent family=new Intent(getApplicationContext(), ProfileUpdate.class);
                 family.putExtra("fragtype","5");
                 startActivity(family);
+                finish();
+                break;
+            case R.id.edit_partner_basic:
+                Intent partnerbasic=new Intent(getApplicationContext(), ProfileUpdate.class);
+                partnerbasic.putExtra("fragtype","6");
+                startActivity(partnerbasic);
+                finish();
+                break;
+            case R.id.edit_partner_religious:
+                Intent partnerreligious=new Intent(getApplicationContext(), ProfileUpdate.class);
+                partnerreligious.putExtra("fragtype","6");
+                startActivity(partnerreligious);
+                finish();
+                break;
+
+            case R.id.edit_partner_professional:
+                Intent partnerpro=new Intent(getApplicationContext(), ProfileUpdate.class);
+                partnerpro.putExtra("fragtype","7");
+                startActivity(partnerpro);
+                finish();
+                break;
+
+
+            case R.id.edit_partner_location:
+                Intent partnerlocation=new Intent(getApplicationContext(), ProfileUpdate.class);
+                partnerlocation.putExtra("fragtype","7");
+                startActivity(partnerlocation);
                 finish();
                 break;
         }

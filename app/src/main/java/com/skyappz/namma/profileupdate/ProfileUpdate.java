@@ -19,6 +19,8 @@ public class ProfileUpdate extends AppCompatActivity {
     public static final int INDEX_PERSONALINFO =3;
     public static final int INDEX_LOCATION =4;
     public static final int INDEX_Family =5;
+    public static final int INDEX_PARTNER_BASIC =6;
+    public static final int INDEX_PARTNER_EDU =7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,20 @@ public class ProfileUpdate extends AppCompatActivity {
                 getSupportActionBar().setTitle("EDIT PROFILE");
                 fragmentTag = "EditLoation";
                 newFragment = EditFamily.newInstance();
+                fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).commit();
+                break;
+
+            case INDEX_PARTNER_BASIC:
+                getSupportActionBar().setTitle("EDIT PARTNER");
+                fragmentTag = "EditPartnerDetails";
+                newFragment = EditPartnerDetails.newInstance();
+                fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).commit();
+                break;
+
+            case INDEX_PARTNER_EDU:
+                getSupportActionBar().setTitle("EDIT PARTNER");
+                fragmentTag = "Edit_partner2";
+                newFragment = Edit_partner2.newInstance();
                 fragmentTransaction.replace(R.id.flFragmentContainer, newFragment, fragmentTag).commit();
                 break;
 

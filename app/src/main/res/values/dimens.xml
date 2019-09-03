@@ -40,6 +40,7 @@
     <dimen name="profile_size">12sp</dimen>
     <dimen name="title">14sp</dimen>
     <dimen name="OTP_HEADE">18sp</dimen>
+    <dimen name="toolbar">20sp</dimen>
 
 
 </resources>

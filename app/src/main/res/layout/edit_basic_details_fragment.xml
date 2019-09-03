@@ -268,49 +268,6 @@
                             </RadioGroup>
 
 
-                            <android.support.v7.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/input_text_size"
-                                android:fontFamily="@font/opensansregular"
-                                android:layout_marginTop="@dimen/input_field_margin"
-                                android:text="STATE"/>
-
-                            <android.support.v7.widget.AppCompatAutoCompleteTextView
-                                android:id="@+id/auto_state"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/input_field_height"
-                                android:layout_marginTop="@dimen/input_text_size"
-                                android:gravity="center_vertical"
-                                android:textSize="@dimen/input_field_text_size"
-                                android:paddingLeft="10dp"
-                                android:textColor="@color/black"
-                                android:background="@drawable/rounded_corner_gray"
-                                android:clickable="true"
-                                android:fontFamily="@font/opensansregular"
-                                />
-                            <android.support.v7.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/input_text_size"
-                                android:fontFamily="@font/opensansregular"
-                                android:layout_marginTop="@dimen/input_field_margin"
-                                android:text="CITY"/>
-
-                            <android.support.v7.widget.AppCompatAutoCompleteTextView
-                                android:id="@+id/auto_city"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/input_field_height"
-                                android:layout_marginTop="@dimen/input_text_size"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="10dp"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/input_field_text_size"
-                                android:background="@drawable/rounded_corner_gray"
-                                android:clickable="true"
-                                android:fontFamily="@font/opensansregular" />
 
 
                             <android.support.v7.widget.AppCompatTextView
@@ -358,7 +315,58 @@
                                 android:textSize="@dimen/input_field_text_size"
                                 android:clickable="true"
                                 android:fontFamily="@font/opensansregular" />
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/input_text_size"
+                                android:fontFamily="@font/opensansregular"
+                                android:layout_marginTop="@dimen/input_field_margin"
+                                android:text="STATE"/>
 
+                            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                                android:id="@+id/auto_state"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/input_field_height"
+                                android:layout_marginTop="@dimen/input_text_size"
+                                android:gravity="center_vertical"
+                                android:textSize="@dimen/input_field_text_size"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:background="@drawable/rounded_corner_gray"
+                                android:clickable="true"
+                                android:fontFamily="@font/opensansregular"
+                                />
+                            <LinearLayout
+                                android:id="@+id/city_lay"
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <android.support.v7.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/input_text_size"
+                                    android:fontFamily="@font/opensansregular"
+                                    android:layout_marginTop="@dimen/input_field_margin"
+                                    android:text="CITY"/>
+
+                                <android.support.v7.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/auto_city"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/input_field_height"
+                                    android:layout_marginTop="@dimen/input_text_size"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/input_field_text_size"
+                                    android:background="@drawable/rounded_corner_gray"
+                                    android:clickable="true"
+                                    android:fontFamily="@font/opensansregular" />
+
+
+                            </LinearLayout>
                             <android.support.v7.widget.AppCompatButton
                                 android:id="@+id/update"
                                 android:layout_width="wrap_content"

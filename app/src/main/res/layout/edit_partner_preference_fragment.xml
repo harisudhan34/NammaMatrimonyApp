@@ -126,7 +126,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal">
             <android.support.v7.widget.AppCompatTextView
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/input_text_size"
                 android:textColor="@color/black"
@@ -136,7 +136,7 @@
                 android:text="AGE"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/etMinAge"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="@dimen/input_field_height"
                 android:fontFamily="@font/opensansregular"
                 android:spinnerMode="dialog"
@@ -154,7 +154,7 @@
                 android:layout_gravity="center"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/etMaxAge"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="@dimen/input_field_height"
                 android:spinnerMode="dialog"
                 android:layout_marginTop="@dimen/input_text_size"
@@ -173,7 +173,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal">
             <android.support.v7.widget.AppCompatTextView
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/input_text_size"
                 android:textColor="@color/black"
@@ -183,7 +183,7 @@
                 android:text="HEIGHT"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/etMinHeight"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="@dimen/input_field_height"
                 android:layout_marginTop="@dimen/input_text_size"
                 android:spinnerMode="dialog"
@@ -201,7 +201,7 @@
                 android:layout_gravity="center"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/etMaxHeight"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="@dimen/input_field_height"
                 android:spinnerMode="dialog"
                 android:layout_marginLeft="10dp"
@@ -223,7 +223,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal">
             <android.support.v7.widget.AppCompatTextView
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/input_text_size"
                 android:textColor="@color/black"
@@ -233,7 +233,7 @@
                 android:text="WEIGHT"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/etMinweight"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="@dimen/input_field_height"
                 android:spinnerMode="dialog"
                 android:layout_marginTop="@dimen/input_text_size"
@@ -251,7 +251,7 @@
                 android:layout_gravity="center"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/etMaxWeight"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_height="@dimen/input_field_height"
                 android:layout_marginTop="@dimen/input_text_size"
@@ -273,7 +273,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal">
             <android.support.v7.widget.AppCompatTextView
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/input_text_size"
                 android:textColor="@color/black"
@@ -283,7 +283,7 @@
                 android:text="Annual INCOME"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/etMinincome"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="@dimen/input_field_height"
                 android:spinnerMode="dialog"
                 android:layout_marginTop="@dimen/input_text_size"
@@ -301,7 +301,7 @@
                 android:layout_gravity="center"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/etMaxincome"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="@dimen/input_field_height"
                 android:spinnerMode="dialog"
                 android:layout_marginLeft="10dp"

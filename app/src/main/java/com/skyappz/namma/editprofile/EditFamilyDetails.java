@@ -14,6 +14,7 @@ import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,14 +22,25 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.gson.JsonParseException;
+import com.skyappz.namma.AppController;
 import com.skyappz.namma.R;
 import com.skyappz.namma.ResponseEntities.GetUserDetailsResponse;
 import com.skyappz.namma.activities.HomeActivity;
+import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.adapter.CustomListAdapter;
 import com.skyappz.namma.databinding.EditFamilyDetailsFragmentBinding;
 import com.skyappz.namma.model.User;
 import com.skyappz.namma.utils.Utils;
 import com.skyappz.namma.webservice.WebServiceListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -478,4 +490,6 @@ public class EditFamilyDetails extends Fragment implements WebServiceListener, V
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
 }

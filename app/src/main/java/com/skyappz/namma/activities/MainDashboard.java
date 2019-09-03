@@ -53,7 +53,7 @@ public class MainDashboard extends AppCompatActivity implements View.OnClickList
         mDrawerToggle.syncState();
 
         LayoutInflater inflater = getLayoutInflater();
-//        View listHeaderView = inflater.inflate(R.layout.nav_header_home, null, false);
+        View listHeaderView = inflater.inflate(R.layout.nav_header_home, null, false);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null) {
             setupDrawerContent(navigationView);

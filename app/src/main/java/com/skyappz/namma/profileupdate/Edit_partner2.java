@@ -1,4 +1,4 @@
-package com.skyappz.namma.editprofile;
+package com.skyappz.namma.profileupdate;
 
 
 import android.app.Activity;
@@ -26,6 +26,7 @@ import com.skyappz.namma.ResponseEntities.Setpartner;
 import com.skyappz.namma.activities.HomeActivity;
 import com.skyappz.namma.activities.HttpsTrustManager;
 import com.skyappz.namma.adapter.CustomListAdapter;
+import com.skyappz.namma.editprofile.UserDetailsViewModel;
 import com.skyappz.namma.model.User;
 import com.skyappz.namma.utils.Utils;
 import com.skyappz.namma.webservice.WebServiceListener;
@@ -34,8 +35,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -48,35 +47,38 @@ import static com.skyappz.namma.activities.HomeActivity.userid;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Edit_partner_preference2 extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener, WebServiceListener {
+public class Edit_partner2 extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener, WebServiceListener {
+
     AppCompatAutoCompleteTextView spEducation,spProfession,spNationality,spPreferredstate,spPreferredCities;
     AppCompatSpinner spCountry;
     ArrayList<String> state_list =new ArrayList<>();
     ArrayList<String> state_list_id =new ArrayList<>();
     ArrayList<String> city_list = new ArrayList<>();
     ArrayList<String> city_list_id = new ArrayList<>();
+    ArrayAdapter natioalityadapter,disabilityadapter;
     String s_degree,s_myocc,s_nationality,s_country,s_sate,s_city,errorMsg,s_state_id,s_ccity_id;
     AppCompatButton update;
     GifImageView progress ;
+    private static final String URL_GET_PARTNER = "https://nammamatrimony.in/api/getpartner.php?user_id=";
     User user;
     private UserDetailsViewModel userDetailsViewModel;
     HashMap<String, String> params = new HashMap<>();
     private Activity mActivity;
-    public Edit_partner_preference2() {
+    public Edit_partner2() {
         // Required empty public constructor
     }
 
-    public static Edit_partner_preference2 newInstance() {
-        return new Edit_partner_preference2();
+    public static Edit_partner2 newInstance() {
+        return new Edit_partner2();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=  inflater.inflate(R.layout.fragment_blank, container, false);
+        View view=  inflater.inflate(R.layout.fragment_edit_partner2, container, false);
         userDetailsViewModel = ViewModelProviders.of(this).get(UserDetailsViewModel.class);
-        userDetailsViewModel.setActivity((HomeActivity) getActivity());
+        userDetailsViewModel.setActivity((ProfileUpdate) getActivity());
         update=(AppCompatButton)view.findViewById(R.id.update);
         update.setOnClickListener(this);
         progress=(GifImageView)view.findViewById(R.id.progress);
@@ -96,14 +98,14 @@ public class Edit_partner_preference2 extends Fragment implements AdapterView.On
 
         spNationality=(AppCompatAutoCompleteTextView)view.findViewById(R.id.spNationality);
         ArrayList<String> nationalityList = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.nationality)));
-        CustomListAdapter natioalityadapter = new CustomListAdapter(getActivity(),
+         natioalityadapter = new CustomListAdapter(getActivity(),
                 R.layout.right_menu_item, nationalityList);
         spNationality.setAdapter(natioalityadapter);
         spNationality.setOnItemClickListener(nationlistylistner);
 
         spCountry=(AppCompatSpinner)view.findViewById(R.id.spCountry);
         ArrayList countrylist = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.country)));
-        ArrayAdapter disabilityadapter=new ArrayAdapter(getActivity(),R.layout.spinner_item,countrylist);
+        disabilityadapter=new ArrayAdapter(getActivity(),R.layout.spinner_item,countrylist);
         disabilityadapter.setDropDownViewResource(R.layout.spinner_drop_item);
         spCountry.setAdapter(disabilityadapter);
         spCountry.setOnItemSelectedListener(this);
@@ -119,49 +121,65 @@ public class Edit_partner_preference2 extends Fragment implements AdapterView.On
         spPreferredstate.setOnItemClickListener(stateListner);
         spPreferredCities.setOnItemClickListener(citylistner);
 
+
+
         return view;
     }
 
-    public void loadStateandDist() {
-        state_list =new ArrayList<>();
-        try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
-            JSONArray m_jArry = obj.getJSONArray("states");
-            ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
-            for (int i = 0; i < m_jArry.length(); i++) {
-                JSONObject jo_inside = m_jArry.getJSONObject(i);
-                String state = jo_inside.getString("state");
-                state_list.add(state);
-                CustomListAdapter adapter = new CustomListAdapter(getActivity(),
-                        R.layout.right_menu_item, state_list);
-                spPreferredstate.setAdapter(adapter);
+    public void get_user() {
+        Log.e("getuser","getuser");
+        HttpsTrustManager.allowAllSSL();
+        String tag_json_obj = "get_user";
+        String url = URL_GET_PARTNER+ AppController.get_userid(getActivity()) ;
+        Log.e("url",url);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("user",response.toString());
+                        try {
+                            if (response.getString("status").equalsIgnoreCase("true")){
+                                JSONObject user=response.getJSONObject("user");
+
+                                spEducation.setText(user.getString("education"));
+                                spProfession.setText(user.getString("profession"));
+                                spPreferredstate.setText(user.getString("state"));
+                                spPreferredCities.setText(user.getString("preferred_cities"));
+                                int selectionPosition= natioalityadapter.getPosition(user.getString("nationality"));
+                                spNationality.setSelection(selectionPosition);
+
+                                int selectionPosition1= disabilityadapter.getPosition(user.getString("country"));
+                                spCountry.setSelection(selectionPosition1);
+
+                            }
+
+
+                        } catch (JSONException e) {
+
+
+
+                        } catch (JsonParseException e) {
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        });
+
+        if (Utils.isConnected((getActivity()))) {
+            AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+        } else {
+            this.isNetworkAvailable(false);
         }
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        mActivity = activity;
-    }
 
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getActivity().getAssets().open("stateanddist.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
+
     private AdapterView.OnItemClickListener citylistner =
             new AdapterView.OnItemClickListener(){
                 @Override
@@ -188,41 +206,6 @@ public class Edit_partner_preference2 extends Fragment implements AdapterView.On
 
                 }
             };
-    public  void loadcity(String dist){
-        city_list=new ArrayList<>();
-        try {
-            JSONObject obj = new JSONObject(loadcityjson());
-            JSONArray m_jArry = obj.getJSONArray(dist);
-
-            for (int k=0;k<m_jArry.length();k++ ) {
-                city_list.add(m_jArry.getString(k));
-                Log.e("cityarray",m_jArry.getString(k));
-                CustomListAdapter adapter = new CustomListAdapter(getActivity(),
-                        R.layout.right_menu_item, city_list);
-                spPreferredCities.setAdapter(adapter);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String loadcityjson() {
-        String json = null;
-        try {
-            InputStream is = getActivity().getAssets().open("city.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
 
     private AdapterView.OnItemClickListener degreeListner =
             new AdapterView.OnItemClickListener(){
@@ -302,7 +285,7 @@ public class Edit_partner_preference2 extends Fragment implements AdapterView.On
         params.put("preferred_cities", s_ccity_id);
         userDetailsViewModel.setpartner(params, this);
     }
-        private boolean isInputValidated(User user) {
+    private boolean isInputValidated(User user) {
         return true;
     }
 

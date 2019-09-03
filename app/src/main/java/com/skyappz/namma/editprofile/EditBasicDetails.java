@@ -88,9 +88,10 @@ public class EditBasicDetails extends Fragment implements WebServiceListener, Vi
     ArrayList<String> city_list_id =new ArrayList<>();
     String s_sate,s_city,s_state_id,s_ccity_id;
     ProgressDialog dialog;
-    LinearLayout subcaste_layout;
+    LinearLayout subcaste_layout,city_lay;
     String s_nationality,s_country;
     GifImageView progress;
+    CustomListAdapter cityadapter;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.edit_basic_details_fragment, container, false);
@@ -127,6 +128,7 @@ public class EditBasicDetails extends Fragment implements WebServiceListener, Vi
         update=(AppCompatButton)view.findViewById(R.id.update);
         skip=(AppCompatTextView)view.findViewById(R.id.skip);
         subcaste_layout=(LinearLayout)view.findViewById(R.id.subcaste_layout);
+        city_lay=(LinearLayout)view.findViewById(R.id.city_lay);
         SPcountry.setOnItemSelectedListener(this);
 
 
@@ -203,18 +205,6 @@ public class EditBasicDetails extends Fragment implements WebServiceListener, Vi
     }
 
 
-    private AdapterView.OnItemClickListener citylistner =
-            new AdapterView.OnItemClickListener(){
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    s_city = String.valueOf(adapterView.getItemAtPosition(i));
-                    int castepos = city_list.indexOf(s_city);
-                    String castid=  city_list_id.get(castepos);
-                    Log.e("casteid",castid);
-                    s_ccity_id = castid;
-
-                }
-            };
 
     private AdapterView.OnItemClickListener stateListner =
             new AdapterView.OnItemClickListener(){
@@ -251,6 +241,18 @@ public class EditBasicDetails extends Fragment implements WebServiceListener, Vi
                     String castid=  subcasteid.get(castepos);
                     Log.e("casteid",castid);
                     s_subcaste = castid;
+                }
+            };
+    private AdapterView.OnItemClickListener citylistner =
+            new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    s_city = String.valueOf(adapterView.getItemAtPosition(i));
+                    int castepos = city_list.indexOf(s_city);
+                    String castid=  city_list_id.get(castepos);
+                    Log.e("casteid",castid);
+                    s_ccity_id = castid;
+
                 }
             };
 
@@ -489,12 +491,13 @@ public class EditBasicDetails extends Fragment implements WebServiceListener, Vi
                                             JSONObject sublist = subcasetarray.getJSONObject(j);
                                             subcastes.add(sublist.getString("subcaste"));
                                             subcasteid.add(sublist.getString("id"));
+                                            CustomListAdapter subcasetadapter = new CustomListAdapter(getActivity(),
+                                                    R.layout.right_menu_item, subcastes);
+                                            auto_subcaste.setAdapter(subcasetadapter);
+                                            auto_subcaste.setOnItemClickListener(subcastelistner);
                                         }
 
-                                        CustomListAdapter subcasetadapter = new CustomListAdapter(getActivity(),
-                                                R.layout.right_menu_item, subcastes);
-                                        auto_subcaste.setAdapter(subcasetadapter);
-                                        auto_subcaste.setOnItemClickListener(subcastelistner);
+
 
                                     }
                                 }
@@ -523,7 +526,7 @@ public class EditBasicDetails extends Fragment implements WebServiceListener, Vi
 
     public void getstate() {
         HttpsTrustManager.allowAllSSL();
-        auto_subcaste.setText("");
+        auto_city.setText("");
         String tag_json_obj = "getAllCaste";
         String url = "https://nammamatrimony.in/api/getstate.php";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -563,6 +566,9 @@ public class EditBasicDetails extends Fragment implements WebServiceListener, Vi
 
     public void getcity(final  String state) {
         HttpsTrustManager.allowAllSSL();
+        city_list = new ArrayList<>();
+        city_list_id = new ArrayList<>();
+        HttpsTrustManager.allowAllSSL();
         String tag_json_obj = "getAllSubCaste";
         String url = "https://nammamatrimony.in/api/getcity.php";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -576,21 +582,29 @@ public class EditBasicDetails extends Fragment implements WebServiceListener, Vi
                             for (int i=0; i<castearray.length();i++){
                                 JSONObject list= castearray.getJSONObject(i);
                                 if (state.equalsIgnoreCase(list.getString("state"))){
+                                    Log.e("statename",state);
+                                    Log.e("statename",list.getString("state"));
                                     Log.e("eqeqe","state true");
                                     JSONArray subcasetarray=list.getJSONArray("cities");
                                     if (subcasetarray.length()> 0){
+                                        city_lay.setVisibility(View.VISIBLE);
                                         for (int j=0;j<subcasetarray.length();j++){
                                             JSONObject sublist = subcasetarray.getJSONObject(j);
                                             city_list.add(sublist.getString("city"));
                                             city_list_id.add(sublist.getString("id"));
+                                            Log.e("givecity",sublist.getString("city"));
+                                            CustomListAdapter cityadapter = new CustomListAdapter(getActivity(),
+                                                    R.layout.right_menu_item, city_list);
+                                            auto_city.setAdapter(cityadapter);
+                                            auto_city.setOnItemClickListener(citylistner);
                                         }
 
 
                                         Log.e("eqeqe",String.valueOf(city_list.size()));
-                                        CustomListAdapter cityadapter = new CustomListAdapter(getActivity(),
-                                                R.layout.right_menu_item, city_list);
-                                        auto_city.setAdapter(cityadapter);
-                                        auto_city.setOnItemClickListener(citylistner);
+
+
+                                    }else {
+                                        city_lay.setVisibility(View.GONE);
                                     }
                                 }
                             }
